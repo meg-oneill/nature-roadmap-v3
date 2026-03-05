@@ -1057,6 +1057,18 @@
     object-fit: cover;
     display: block;
   }
+  .principle-detail-image-wrap .principle-detail-image {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  }
+  .image-credit {
+    font-size: 0.75rem;
+    color: var(--slate);
+    text-align: right;
+    margin: 0.5rem 0 0;
+    font-style: italic;
+  }
 
   /* ===== ENABLERS ===== */
   .enablers-section { background: var(--green-mid); color: white; }
@@ -3429,8 +3441,11 @@
           <p><strong>The Netherlands' "No Net Loss" Planning Policy:</strong> Under the Dutch Nature Conservation Act, developments impacting protected species must follow a strict mitigation hierarchy: avoid, minimise, and compensate with measurable outcomes integrated into spatial planning and permitting.</p>
         </div>
       </div>
-      <div class="principle-detail-image">
-        <img src="images/image11.jpeg" alt="Alkimos Beach, WA">
+      <div class="principle-detail-image-wrap">
+        <div class="principle-detail-image">
+          <img src="images/image11.jpeg" alt="Alkimos Beach, WA">
+        </div>
+        <p class="image-credit">Alkimos Beach, WA (6 Star Green Star Communities Pilot v.01)</p>
       </div>
     </div>
   </div>
