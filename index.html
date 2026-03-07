@@ -78,6 +78,26 @@
     height: 40px;
     width: auto;
   }
+  .nav-return-link {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: var(--slate);
+    text-decoration: none;
+    font-family: var(--font-ui);
+    font-size: 0.85rem;
+    padding: 0.4rem 0.75rem;
+    border-radius: var(--btn-radius);
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .nav-return-link:hover {
+    background: var(--green-pale);
+    color: var(--green-mid);
+  }
+  .nav-return-link svg {
+    flex-shrink: 0;
+  }
   .nav-links {
     display: flex;
     gap: 0.2rem;
@@ -2539,6 +2559,13 @@
 <nav id="navbar">
   <div class="nav-inner">
     <a href="#hero" class="nav-logo"><img src="images/GBCA logo large.png" alt="Green Building Council of Australia"></a>
+    <a href="https://new.gbca.org.au/green-star/green-star-strategy/building-nature" class="nav-return-link" target="_blank" rel="noopener">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M9 14L4 9l5-5"/>
+        <path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/>
+      </svg>
+      Return to the Building with Nature page
+    </a>
   </div>
 </nav>
 <div class="progress-bar" id="progressBar"></div>
