@@ -407,6 +407,40 @@
     box-shadow: 0 0 0 3px rgba(68,136,62,0.1);
   }
   .purpose-form input::placeholder { color: var(--mid-gray); }
+  .purpose-form-label {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--slate);
+    margin-bottom: 0.3rem;
+    font-family: var(--font-ui);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .purpose-form select {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border: 1px solid var(--mid-gray);
+    border-radius: var(--btn-radius);
+    font-family: var(--font-primary);
+    font-size: 0.85rem;
+    background: var(--white);
+    color: var(--charcoal);
+    transition: border-color 0.2s;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23BBBBBB' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    cursor: pointer;
+  }
+  .purpose-form select:focus {
+    outline: none;
+    border-color: var(--green-mid);
+    box-shadow: 0 0 0 3px rgba(68,136,62,0.1);
+  }
+  .purpose-form input {
+    width: 100%;
+  }
   .purpose-form .purpose-form-full {
     grid-column: 1 / -1;
   }
@@ -2669,7 +2703,46 @@
         <div class="purpose-download">
           <h4>Download the Roadmap</h4>
           <p>Get the full Nature Positive Roadmap for New Developments PDF. Enter your details below to download.</p>
-          <iframe width="640px" height="480px" src="https://forms.office.com/Pages/ResponsePage.aspx?id=QVeDEKZXS0KhURbt3auyq5UNCDtt7oVAtjswBRQbwT1UNFVUTkxYVU04WklTQ0hIQUtGWDNQMDhYWi4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen></iframe>
+          <form class="purpose-form" onsubmit="handleDownload(event)">
+            <div>
+              <label class="purpose-form-label" for="firstName">First name</label>
+              <input type="text" id="firstName" name="firstName" placeholder="First name" required>
+            </div>
+            <div>
+              <label class="purpose-form-label" for="lastName">Last name</label>
+              <input type="text" id="lastName" name="lastName" placeholder="Last name" required>
+            </div>
+            <div class="purpose-form-full">
+              <label class="purpose-form-label" for="organisation">Organisation</label>
+              <input type="text" id="organisation" name="organisation" placeholder="Organisation" required>
+            </div>
+            <div class="purpose-form-full">
+              <label class="purpose-form-label" for="state">State</label>
+              <select id="state" name="state" required>
+                <option value="" disabled selected>Select state or territory</option>
+                <option value="ACT">ACT</option>
+                <option value="NSW">NSW</option>
+                <option value="NT">NT</option>
+                <option value="QLD">QLD</option>
+                <option value="SA">SA</option>
+                <option value="TAS">TAS</option>
+                <option value="VIC">VIC</option>
+                <option value="WA">WA</option>
+                <option value="International">International</option>
+              </select>
+            </div>
+            <div class="purpose-form-full">
+              <label class="purpose-form-label" for="email">Email address</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required>
+            </div>
+            <button type="submit">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download PDF
+            </button>
+            <div class="purpose-form-success" id="downloadSuccess">
+              <p>Thank you! Your download has started.</p>
+            </div>
+          </form>
         </div>
       </div>
     </div>
@@ -4099,21 +4172,46 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// Purpose section – gated download
-function handleDownload(e) {
+// Purpose section – gated download via Formspree
+async function handleDownload(e) {
   e.preventDefault();
   const form = e.target;
+  const btn = form.querySelector('button[type="submit"]');
   const success = document.getElementById('downloadSuccess');
-  // Show success message, hide form
-  form.style.display = 'none';
-  success.style.display = 'block';
-  // Trigger PDF download
-  const link = document.createElement('a');
-  link.href = 'Nature Positive Roadmap for New Developments.pdf';
-  link.download = 'Nature Positive Roadmap for New Developments.pdf';
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+
+  btn.disabled = true;
+  btn.textContent = 'Submitting…';
+
+  try {
+    const response = await fetch('https://formspree.io/f/mgonvybz', {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      // Hide form fields, show success
+      Array.from(form.children).forEach(el => {
+        if (!el.classList.contains('purpose-form-success')) el.style.display = 'none';
+      });
+      success.style.display = 'block';
+      // Trigger PDF download
+      const link = document.createElement('a');
+      link.href = 'Nature Positive Roadmap for New Developments.pdf';
+      link.download = 'Nature Positive Roadmap for New Developments.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else {
+      btn.disabled = false;
+      btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download PDF';
+      alert('Something went wrong. Please try again.');
+    }
+  } catch {
+    btn.disabled = false;
+    btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download PDF';
+    alert('Network error. Please check your connection and try again.');
+  }
 }
 
 // Accordion
