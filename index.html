@@ -1,16 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-S9CW2WJ1RF"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-S9CW2WJ1RF');
-</script>
 <meta charset="UTF-8">
-<meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nature Positive Roadmap for New Developments | GBCA</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -87,26 +78,6 @@
     height: 40px;
     width: auto;
   }
-  .nav-return-link {
-    display: flex;
-    align-items: center;
-    gap: 0.45rem;
-    color: var(--slate);
-    text-decoration: none;
-    font-family: var(--font-ui);
-    font-size: 0.85rem;
-    padding: 0.4rem 0.75rem;
-    border-radius: var(--btn-radius);
-    transition: all 0.2s;
-    white-space: nowrap;
-  }
-  .nav-return-link:hover {
-    background: var(--green-pale);
-    color: var(--green-mid);
-  }
-  .nav-return-link svg {
-    flex-shrink: 0;
-  }
   .nav-links {
     display: flex;
     gap: 0.2rem;
@@ -128,11 +99,25 @@
     background: var(--green-pale);
     color: var(--green-mid);
   }
-  .hamburger { display: none; }
+  .hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--slate);
+    margin: 5px 0;
+    transition: 0.3s;
+  }
 
   /* ===== HERO ===== */
   .hero {
-    min-height: 75vh;
+    min-height: 100vh;
     position: relative;
     overflow: hidden;
     margin-top: -60px; /* Tuck under fixed nav */
@@ -168,16 +153,16 @@
   .hero-text h1 {
     font-family: var(--font-primary);
     font-size: 3.6rem;
-    font-weight: 700;
+    font-weight: 900;
     color: var(--white);
     line-height: 1.1;
     margin-bottom: 1rem;
     letter-spacing: -0.5px;
-    text-transform: none;
+    text-transform: uppercase;
   }
   .hero-text h1 span {
     display: block;
-    font-size: 30px;
+    font-size: 1.3rem;
     font-weight: 400;
     color: rgba(255,255,255,0.85);
     margin-top: 0.75rem;
@@ -187,7 +172,7 @@
   .hero-text p {
     font-size: 1.05rem;
     color: rgba(255,255,255,0.9);
-    max-width: 760px;
+    max-width: 600px;
     margin: 0 auto 2rem;
     line-height: 1.7;
   }
@@ -249,7 +234,7 @@
   /* ===== STATS BAR ===== */
   .stats-section {
     background: var(--green-mid);
-    padding: 3rem 2rem;
+    padding: 4rem 2rem;
   }
   .stats-bar {
     max-width: 1200px;
@@ -276,44 +261,11 @@
     line-height: 1.5;
   }
 
-  /* ===== INLINE NAV BAR ===== */
-  .inline-nav-bar {
-    background: var(--white);
-    border-top: 1px solid rgba(0,0,0,0.06);
-    border-bottom: 1px solid rgba(0,0,0,0.06);
-    padding: 0 2rem;
-  }
-  .inline-nav-bar .container {
-    display: flex;
-    justify-content: center;
-  }
-  .inline-nav-bar .nav-links {
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 0.5rem 0;
-  }
-
   /* ===== ACKNOWLEDGEMENT OF COUNTRY ===== */
   .acknowledgement-section {
     background: #1B4332;
     padding: 4rem 2rem;
     text-align: center;
-  }
-  .acknowledgement-section blockquote {
-    max-width: 800px;
-    margin: 0 auto;
-    font-size: 1.4rem;
-    font-style: italic;
-    line-height: 1.6;
-    font-weight: 300;
-    color: rgba(255,255,255,0.95);
-  }
-  .acknowledgement-section cite {
-    display: block;
-    margin-top: 1.5rem;
-    font-size: 0.9rem;
-    font-style: normal;
-    color: rgba(255,255,255,0.6);
   }
   .acknowledgement-section::before {
     content: '';
@@ -416,41 +368,6 @@
     box-shadow: 0 0 0 3px rgba(68,136,62,0.1);
   }
   .purpose-form input::placeholder { color: var(--mid-gray); }
-  .purpose-form-required { color: #c0392b; font-weight: 700; }
-  .purpose-form-label {
-    display: block;
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: var(--slate);
-    margin-bottom: 0.3rem;
-    font-family: var(--font-ui);
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-  .purpose-form select {
-    width: 100%;
-    padding: 0.7rem 1rem;
-    border: 1px solid var(--mid-gray);
-    border-radius: var(--btn-radius);
-    font-family: var(--font-primary);
-    font-size: 0.85rem;
-    background: var(--white);
-    color: var(--charcoal);
-    transition: border-color 0.2s;
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23BBBBBB' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 1rem center;
-    cursor: pointer;
-  }
-  .purpose-form select:focus {
-    outline: none;
-    border-color: var(--green-mid);
-    box-shadow: 0 0 0 3px rgba(68,136,62,0.1);
-  }
-  .purpose-form input {
-    width: 100%;
-  }
   .purpose-form .purpose-form-full {
     grid-column: 1 / -1;
   }
@@ -1137,18 +1054,6 @@
     object-fit: cover;
     display: block;
   }
-  .principle-detail-image-wrap .principle-detail-image {
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-  }
-  .image-credit {
-    font-size: 0.75rem;
-    color: var(--slate);
-    text-align: right;
-    margin: 0.5rem 0 0;
-    font-style: normal;
-  }
 
   /* ===== ENABLERS ===== */
   .enablers-section { background: var(--green-mid); color: white; }
@@ -1416,7 +1321,7 @@
 
   /* ===== FOOTER ===== */
   footer {
-    background: #eeefee;
+    background: var(--white);
     color: #272425;
     padding: 4rem 2rem 2rem;
     border-top: 1px solid #e0e0e0;
@@ -1425,7 +1330,7 @@
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr;
     gap: 3rem;
   }
   .footer-brand h3 {
@@ -1563,6 +1468,19 @@
     .footer-inner { grid-template-columns: 1fr; }
   }
   @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .nav-links.open {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      right: 0;
+      background: var(--green-dark);
+      padding: 1rem;
+      gap: 0;
+    }
+    .hamburger { display: block; }
     .hero-text h1 { font-size: 2rem; }
     .hero-content { padding: 4rem 1.5rem 3rem; }
     .stats-bar { grid-template-columns: repeat(2, 1fr); }
@@ -2619,13 +2537,21 @@
 <nav id="navbar">
   <div class="nav-inner">
     <a href="#hero" class="nav-logo"><img src="images/GBCA logo large.png" alt="Green Building Council of Australia"></a>
-    <a href="https://new.gbca.org.au/green-star/green-star-strategy/building-nature" class="nav-return-link" target="_blank" rel="noopener">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M9 14L4 9l5-5"/>
-        <path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/>
-      </svg>
-      Return to the Building with Nature page
-    </a>
+    <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#policy">Context</a></li>
+      <li><a href="#response">Challenge &amp; Response</a></li>
+      <li><a href="#roadmap">Roadmap</a></li>
+      <li><a href="#actions">Actions</a></li>
+      <li><a href="#detail">Details</a></li>
+      <li><a href="#enablers">Enablers</a></li>
+      <li><a href="#greenstar">Green Star</a></li>
+      <li><a href="#tnfd">TNFD</a></li>
+      <li><a href="#action">Take Action</a></li>
+    </ul>
   </div>
 </nav>
 <div class="progress-bar" id="progressBar"></div>
@@ -2633,12 +2559,15 @@
 <!-- Hero -->
 <section class="hero" id="hero">
   <div class="hero-content">
+    <div class="hero-logo">
+      <img src="images/GBCA logo large.png" alt="Green Building Council Australia">
+    </div>
     <div class="hero-text">
       <h1>Nature positive roadmap<span>For new developments</span></h1>
       <p>Setting a vision for new developments to actively contribute towards national and international nature positive efforts, halting and reversing nature loss by 2030.</p>
       <a href="#roadmap" class="cta-btn">
-        Explore the roadmap
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        Explore the Roadmap
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
       </a>
     </div>
   </div>
@@ -2670,26 +2599,14 @@
   </div>
 </div>
 
-<!-- Inline Navigation Bar -->
-<div class="inline-nav-bar">
-  <div class="container">
-    <ul class="nav-links">
-      <li><a href="#purpose">Introduction</a></li>
-      <li><a href="#policy">Policy context</a></li>
-      <li><a href="#response">Challenge &amp; Response</a></li>
-      <li><a href="#roadmap">Roadmap</a></li>
-      <li><a href="#actions">Actions</a></li>
-      <li><a href="#detail">Details</a></li>
-      <li><a href="#enablers">Enablers</a></li>
-      <li><a href="#greenstar">Green Star</a></li>
-      <li><a href="#tnfd">TNFD</a></li>
-      <li><a href="#action">Take action</a></li>
-    </ul>
-  </div>
+<!-- Acknowledgement of Country -->
+<div class="acknowledgement-section">
+  <p class="ack-heading">Acknowledgement of Country</p>
+  <p>We at the Green Building Council of Australia recognise the Traditional Custodians of Country throughout Australia. We pay our respects to Elders past and present, and recognise their continuous connection to lands, skies and waters. We recognise that Australia&rsquo;s First Peoples have been custodians of this land for tens of thousands of years, and their knowledge and stewardship of Country is central to halting and reversing nature loss.</p>
 </div>
 
 <!-- Quote -->
-<div class="acknowledgement-section">
+<div class="quote-block">
   <blockquote>"Our cities, buildings, and infrastructure must do more than minimise harm &mdash; they must actively protect and regenerate biodiversity and ecosystems."</blockquote>
   <cite>Nature Positive Roadmap for New Developments</cite>
 </div>
@@ -2699,7 +2616,7 @@
   <div class="container">
     <div class="purpose-layout fade-in">
       <div class="purpose-content">
-        <h2>A framework for nature positive development</h2>
+        <h2>A Framework for Nature Positive Development</h2>
         <p>The Nature Positive Roadmap for New Developments sets out how new developments can contribute to collective efforts to halt and reverse nature loss.</p>
         <p>Australia&rsquo;s natural systems are in peril. Land clearing, ecosystem degradation, erosion and sedimentation, spread of pests, altered fire regimes and diseases are key contributors to nature loss. Disconnected planning systems are encroaching into previously undeveloped areas with high biodiversity values and fragmenting ecosystems.</p>
         <p>This roadmap provides a clear, practical framework to guide decision-making across the built environment. While focused on new developments, the principles can also inform decision-making for existing buildings and precincts.</p>
@@ -2711,48 +2628,18 @@
           <img src="images/Roadmap Cover.png" alt="Nature Positive Roadmap for New Developments">
         </div>
         <div class="purpose-download">
-          <h4>Download the roadmap</h4>
-          <p>Enter your details below to get the full Nature Positive Roadmap for New Developments as a PDF.</p>
-          <form class="purpose-form" onsubmit="handleDownload(event)">
-            <div>
-              <label class="purpose-form-label" for="firstName">First name <span class="purpose-form-required">*</span></label>
-              <input type="text" id="firstName" name="firstName" placeholder="First name" required>
-            </div>
-            <div>
-              <label class="purpose-form-label" for="lastName">Last name <span class="purpose-form-required">*</span></label>
-              <input type="text" id="lastName" name="lastName" placeholder="Last name" required>
-            </div>
-            <div class="purpose-form-full">
-              <label class="purpose-form-label" for="organisation">Organisation <span class="purpose-form-required">*</span></label>
-              <input type="text" id="organisation" name="organisation" placeholder="Organisation" required>
-            </div>
-            <div class="purpose-form-full">
-              <label class="purpose-form-label" for="state">State <span class="purpose-form-required">*</span></label>
-              <select id="state" name="state" required>
-                <option value="" disabled selected>Select state or territory</option>
-                <option value="ACT">ACT</option>
-                <option value="NSW">NSW</option>
-                <option value="NT">NT</option>
-                <option value="QLD">QLD</option>
-                <option value="SA">SA</option>
-                <option value="TAS">TAS</option>
-                <option value="VIC">VIC</option>
-                <option value="WA">WA</option>
-                <option value="International">International</option>
-              </select>
-            </div>
-            <div class="purpose-form-full">
-              <label class="purpose-form-label" for="email">Email address <span class="purpose-form-required">*</span></label>
-              <input type="email" id="email" name="email" placeholder="you@example.com" required>
-            </div>
-            <button type="submit">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              Download PDF
-            </button>
-            <div class="purpose-form-success" id="downloadSuccess">
-              <p>Thank you! Your download has started.</p>
-            </div>
+          <h4>Download the Roadmap</h4>
+          <p>Get the full Nature Positive Roadmap for New Developments PDF. Enter your details below to download.</p>
+          <form class="purpose-form" id="downloadForm" onsubmit="handleDownload(event)">
+            <input type="text" name="firstName" placeholder="First name" required>
+            <input type="text" name="lastName" placeholder="Last name" required>
+            <input type="email" name="email" placeholder="Email address" class="purpose-form-full" required>
+            <input type="text" name="organisation" placeholder="Organisation" class="purpose-form-full">
+            <button type="submit">&#x2B07; Download the Roadmap (PDF)</button>
           </form>
+          <div class="purpose-form-success" id="downloadSuccess">
+            <p>&#x2705; Thank you! Your download should begin shortly.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -2764,7 +2651,7 @@
   <div class="container">
     <div class="section-header fade-in">
       <div class="section-label">Policy Context</div>
-      <h2>The changing landscape</h2>
+      <h2>The Changing Landscape</h2>
       <p>Australia's environmental policy settings are being reshaped within a global shift toward stronger nature protection. Click any event to explore its significance.</p>
     </div>
 
@@ -3003,7 +2890,7 @@
   <div class="container">
     <div class="section-header fade-in">
       <div class="section-label">Challenge &amp; Response</div>
-      <h2>From barriers to principles</h2>
+      <h2>From Barriers to Principles</h2>
       <p>The built environment faces deep systemic challenges. This roadmap responds to each with a clear principle for action. Click any item to explore the detail.</p>
     </div>
 
@@ -3321,7 +3208,7 @@
   <div class="container">
     <div class="section-header fade-in">
       <div class="section-label">The Roadmap</div>
-      <h2>Nature positive targets &amp; pathways</h2>
+      <h2>Nature Positive Targets &amp; Pathways</h2>
       <p>The roadmap sets time-bound, measurable targets across five principles. Click any target to see what needs to happen, what GBCA is doing, and what industry needs to deliver.</p>
     </div>
     <p class="irm-hero-subtitle">Aligned with the Kunming-Montreal Global Biodiversity Framework</p>
@@ -3482,7 +3369,7 @@
   <div class="container">
     <div class="section-header fade-in">
       <div class="section-label">The Next 5 Years</div>
-      <h2>Actions for success</h2>
+      <h2>Actions for Success</h2>
       <p>30 interconnected actions across three phases chart the path to a nature positive built environment. Hover any action to see its full description and trace the dependency chain that connects it to the broader roadmap.</p>
     </div>
 
@@ -3512,7 +3399,7 @@
     <div class="principle-detail-inner fade-in">
       <div class="principle-detail-text">
         <div class="principle-num">Principle 1 &mdash; Onsite &amp; Near Site</div>
-        <h3>Prevent nature loss</h3>
+        <h3>Prevent Nature Loss</h3>
         <p>Once lost, biodiversity is costly or impossible to restore. This principle sets a pathway from today's planning controls to full protection of valuable natural systems onsite by 2050.</p>
         <div class="mini-roadmap">
           <div class="mini-roadmap-label">Roadmap Targets &mdash; Click to explore</div>
@@ -3549,11 +3436,8 @@
           <p><strong>The Netherlands' "No Net Loss" Planning Policy:</strong> Under the Dutch Nature Conservation Act, developments impacting protected species must follow a strict mitigation hierarchy: avoid, minimise, and compensate with measurable outcomes integrated into spatial planning and permitting.</p>
         </div>
       </div>
-      <div class="principle-detail-image-wrap">
-        <div class="principle-detail-image">
-          <img src="images/image11.jpeg" alt="Alkimos Beach, WA">
-        </div>
-        <p class="image-credit">Alkimos Beach, WA (6 Star Green Star Communities Pilot v.01)</p>
+      <div class="principle-detail-image">
+        <img src="images/image11.jpeg" alt="Alkimos Beach, WA">
       </div>
     </div>
   </div>
@@ -3561,15 +3445,12 @@
   <!-- Principle 2 -->
   <div class="principle-detail">
     <div class="principle-detail-inner fade-in">
-      <div class="principle-detail-image-wrap" style="order:-1">
-        <div class="principle-detail-image">
-          <img src="images/image12.jpeg" alt="Naarm development">
-        </div>
-        <p class="image-credit" style="text-align:left;">Naarm 5 Star Green Star Design &amp; As-Built</p>
+      <div class="principle-detail-image" style="order:-1">
+        <img src="images/image12.jpeg" alt="Naarm development">
       </div>
       <div class="principle-detail-text">
         <div class="principle-num">Principle 2 &mdash; Onsite &amp; Near Site</div>
-        <h3>Increase &amp; connect nature</h3>
+        <h3>Increase &amp; Connect Nature</h3>
         <p>Place-based developments that consider and respond to local environmental and cultural contexts are an important part of regenerating nature. Biodiversity Net Gain is a key tool for informing design and demonstrating outcomes.</p>
         <div class="mini-roadmap">
           <div class="mini-roadmap-label">Roadmap Targets &mdash; Click to explore</div>
@@ -3609,7 +3490,7 @@
     <div class="principle-detail-inner fade-in">
       <div class="principle-detail-text">
         <div class="principle-num">Principle 3 &mdash; Onsite &amp; Supply Chain</div>
-        <h3>Drive circularity</h3>
+        <h3>Drive Circularity</h3>
         <p>The built environment is responsible for over 50% of raw material extraction and a third of total waste. A circular economy is essential to transition towards a nature positive economy.</p>
         <div class="mini-roadmap">
           <div class="mini-roadmap-label">Sector-Level Circularity Targets &mdash; Click to explore</div>
@@ -3676,11 +3557,8 @@
           <p><strong>Finland's Circular Economy Roadmap:</strong> The first national circular economy strategy includes requirements for lifecycle carbon and circularity assessments for planning approvals, investment in digital platforms to track materials across buildings, and has created new business models in reuse and repair.</p>
         </div>
       </div>
-      <div class="principle-detail-image-wrap">
-        <div class="principle-detail-image">
-          <img src="images/image14.jpeg" alt="The Quay development">
-        </div>
-        <p class="image-credit">The Quay 4 Star Multi Unit Residential Design</p>
+      <div class="principle-detail-image">
+        <img src="images/image14.jpeg" alt="The Quay development">
       </div>
     </div>
   </div>
@@ -3688,15 +3566,12 @@
   <!-- Principle 4 -->
   <div class="principle-detail">
     <div class="principle-detail-inner fade-in">
-      <div class="principle-detail-image-wrap" style="order:-1">
-        <div class="principle-detail-image">
-          <img src="images/image16.jpeg" alt="The Exchange">
-        </div>
-        <p class="image-credit" style="text-align:left;">The Exchange 4 Star Green Star Performance v1.1</p>
+      <div class="principle-detail-image" style="order:-1">
+        <img src="images/image16.jpeg" alt="The Exchange">
       </div>
       <div class="principle-detail-text">
         <div class="principle-num">Principle 4 &mdash; Onsite &amp; Supply Chain</div>
-        <h3>Choose low-impact materials</h3>
+        <h3>Choose Low-Impact Materials</h3>
         <p>Construction materials are some of the most resource-intensive products globally. Their extraction drives deforestation, water stress, pollution, and biodiversity loss. Choosing low-impact materials sends market signals that reward sustainable supply chains.</p>
         <div class="mini-roadmap">
           <div class="mini-roadmap-label">Roadmap Targets &mdash; Click to explore</div>
@@ -3737,7 +3612,7 @@
     <div class="principle-detail-inner fade-in">
       <div class="principle-detail-text">
         <div class="principle-num">Principle 5</div>
-        <h3>Invest in nature</h3>
+        <h3>Invest in Nature</h3>
         <p>Investing in nature restoration is vital to ensure healthy ecosystems, societies, and economies. It supports climate goals and fosters economic opportunities for Indigenous communities.</p>
         <div class="mini-roadmap">
           <div class="mini-roadmap-label">Roadmap Targets &mdash; Click to explore</div>
@@ -3774,11 +3649,8 @@
           <p><strong>Operation Crayweed (Investa):</strong> Investa partnered with the Sydney Institute of Marine Science to restore crayweed along 70km of Sydney's foreshores. Crayweed supports fisheries, captures carbon, and maintains water quality. The project develops natural capital accounting methodologies while facilitating staff engagement through volunteering.</p>
         </div>
       </div>
-      <div class="principle-detail-image-wrap">
-        <div class="principle-detail-image">
-          <img src="images/image18.jpeg" alt="Burwood Brickworks">
-        </div>
-        <p class="image-credit">Burwood Brickworks 6 Stars Green Star Communities v1</p>
+      <div class="principle-detail-image">
+        <img src="images/image18.jpeg" alt="Burwood Brickworks">
       </div>
     </div>
   </div>
@@ -3789,7 +3661,7 @@
   <div class="container">
     <div class="section-header fade-in">
       <div class="section-label" style="background:rgba(255,255,255,0.15);color:var(--green-pale)">Enablers of Success</div>
-      <h2 style="color:white">System-wide enablers</h2>
+      <h2 style="color:white">System-Wide Enablers</h2>
       <p style="color:rgba(255,255,255,0.75)">These enablers address the system gaps that limit progress and support the consistent application of the principles.</p>
     </div>
     <div class="enablers-grid fade-in">
@@ -3812,7 +3684,7 @@
   <div class="container">
     <div class="section-header fade-in">
       <div class="section-label">Case Studies</div>
-      <h2>Nature positive in practice</h2>
+      <h2>Nature Positive in Practice</h2>
       <p>Leading Australian projects demonstrating how the built environment can protect, restore and enhance nature.</p>
     </div>
     <div class="case-carousel fade-in">
@@ -3881,7 +3753,7 @@
   <div class="container">
     <div class="section-header fade-in">
       <div class="section-label">TNFD Alignment</div>
-      <h2>How to use the roadmap for TNFD reporting</h2>
+      <h2>How to Use the Roadmap for TNFD Reporting</h2>
       <p>The roadmap aligns with the Taskforce on Nature-related Financial Disclosures (TNFD) LEAP framework. Follow these six steps to integrate nature-related disclosure into your projects.</p>
     </div>
     <div class="tnfd-steps-grid fade-in">
@@ -3924,7 +3796,7 @@
   <div class="container">
     <div class="section-header fade-in">
       <div class="section-label">Green Star</div>
-      <h2>Green Star's nature positive pathway</h2>
+      <h2>Green Star's Nature Positive Pathway</h2>
       <p>Green Star provides a common framework for standards and assurance pathways to include nature in new developments.</p>
     </div>
     <div class="greenstar-grid fade-in">
@@ -3975,7 +3847,7 @@
   <div class="container">
     <div class="section-header fade-in">
       <div class="section-label">GBCA's Role</div>
-      <h2>Delivering nature positive outcomes</h2>
+      <h2>Delivering Nature Positive Outcomes</h2>
       <p>GBCA will lead the sustainable transformation through four strategic pillars.</p>
     </div>
     <div class="gbca-pillars fade-in">
@@ -4008,7 +3880,7 @@
   <div class="container">
     <div class="section-header fade-in">
       <div class="section-label">Take Action</div>
-      <h2>Your role in a nature positive built environment</h2>
+      <h2>Your Role in a Nature Positive Built Environment</h2>
       <p>From investment and governance through to planning, design, delivery and long-term ownership, decisions at every stage influence nature outcomes.</p>
     </div>
 
@@ -4107,32 +3979,43 @@
 <div class="quote-block" style="padding: 5rem 2rem;">
   <blockquote style="font-size: 1.6rem;">"Nature is being lost at a scale and speed unprecedented in human history. The choices made now will determine whether future places continue to drive nature loss or actively contribute to nature's recovery."</blockquote>
   <cite>Nature Positive Roadmap for New Developments, GBCA</cite>
+  <div style="margin-top: 2rem;">
+    <a href="#principles" class="cta-btn" style="background:var(--green-mid);color:white;">
+      Explore the Principles
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+    </a>
+  </div>
 </div>
 
 <!-- Footer -->
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <h3>Nature positive roadmap</h3>
-      <p>Developed by the Green Building Council of Australia with support from the members of the Nature Roadmap Advisory Panel and contributing organisations Arup, Edge, Deloitte, Culture to Country Roger Swinbourne, The GPT Group and Engineers Australia.</p>
+      <h3>Nature Positive Roadmap</h3>
+      <p>Developed by the Green Building Council of Australia with support from the GPT Group, ARUP, Edge Impact, Culture to Country and Positive Futures.</p>
     </div>
     <div class="footer-links">
       <h4>Sections</h4>
-      <a href="#purpose">Introduction</a>
-      <a href="#policy">Policy context</a>
-      <a href="#response">Challenge &amp; Response</a>
-      <a href="#roadmap">Roadmap</a>
-      <a href="#actions">Actions</a>
-      <a href="#detail">Details</a>
+      <a href="#challenge">The Challenge</a>
+      <a href="#principles">Five Principles</a>
+      <a href="#roadmap">The Roadmap</a>
+      <a href="#detail">Principle Details</a>
       <a href="#enablers">Enablers</a>
       <a href="#greenstar">Green Star</a>
-      <a href="#tnfd">TNFD</a>
-      <a href="#action">Take action</a>
+      <a href="#tnfd">TNFD Alignment</a>
+      <a href="#action">Take Action</a>
     </div>
-
+    <div class="footer-links">
+      <h4>Key Frameworks</h4>
+      <a href="#">Kunming-Montreal GBF</a>
+      <a href="#">TNFD</a>
+      <a href="#">EPBC Act Reforms</a>
+      <a href="#">Nature Repair Act</a>
+      <a href="#">Circular Economy Framework</a>
+    </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; Green Building Council of Australia <a href="https://www.gbca.au" target="_blank" rel="noopener">www.gbca.au</a></p>
+    <p>&copy; Green Building Council of Australia. Nature Positive Roadmap for New Developments.</p>
   </div>
 </footer>
 
@@ -4177,41 +4060,21 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// Purpose section – gated download via Formspree
-async function handleDownload(e) {
+// Purpose section – gated download
+function handleDownload(e) {
   e.preventDefault();
   const form = e.target;
-  const btn = form.querySelector('button[type="submit"]');
   const success = document.getElementById('downloadSuccess');
-
-  btn.disabled = true;
-  btn.textContent = 'Submitting…';
-
-  try {
-    const response = await fetch('https://formspree.io/f/mgonvybz', {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
-    });
-
-    if (response.ok) {
-      // Hide form fields, show success
-      Array.from(form.children).forEach(el => {
-        if (!el.classList.contains('purpose-form-success')) el.style.display = 'none';
-      });
-      success.style.display = 'block';
-      // Open PDF in a new tab
-      window.open('https://gbca-web.s3.amazonaws.com/media/documents/freeze-frame-discussion-paper-nov-2025.pdf', '_blank');
-    } else {
-      btn.disabled = false;
-      btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download PDF';
-      alert('Something went wrong. Please try again.');
-    }
-  } catch {
-    btn.disabled = false;
-    btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download PDF';
-    alert('Network error. Please check your connection and try again.');
-  }
+  // Show success message, hide form
+  form.style.display = 'none';
+  success.style.display = 'block';
+  // Trigger PDF download
+  const link = document.createElement('a');
+  link.href = 'Nature Positive Roadmap for New Developments.pdf';
+  link.download = 'Nature Positive Roadmap for New Developments.pdf';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 }
 
 // Accordion
@@ -4239,6 +4102,12 @@ function switchTab(e, tabId) {
   document.getElementById(tabId).classList.add('active');
 }
 
+// Close mobile menu on link click
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => {
+    document.querySelector('.nav-links').classList.remove('open');
+  });
+});
 
 // ===== POLICY TIMELINE TOGGLE =====
 function toggleTL(entry) {
