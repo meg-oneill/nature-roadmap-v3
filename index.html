@@ -3203,12 +3203,12 @@
 
         <!-- HEADER ROW 1 -->
         <div class="irm-header irm-corner" style="grid-column:1; grid-row:1/3;">Principles</div>
-        <div class="irm-header" style="grid-column:2; grid-row:1/3;">Today<small>This is where we start</small></div>
+        <div class="irm-header" style="grid-column:2; grid-row:1/3;">Today<small>Australia adopts Global Biodiversity Commitments</small></div>
         <div class="irm-header irm-h-phase-group irm-act-col" style="grid-column:3/6; grid-row:1; cursor:pointer;" onclick="toggleActions()">In the Next 5 Years</div>
-        <div class="irm-header irm-h-2028" style="grid-column:6; grid-row:1/3;" onclick="toggleActions()">2028<small>We know where we stand</small><span class="irm-h-2028-hint">Show actions</span></div>
-        <div class="irm-header irm-h-2030" style="grid-column:7; grid-row:1/3;">2030<small>We begin reversing nature loss</small></div>
-        <div class="irm-header" style="grid-column:8; grid-row:1/3;">2035<small>Nature positive is the new normal</small></div>
-        <div class="irm-header irm-h-2050" style="grid-column:9; grid-row:1/3;">2050<small>Nature thrives alongside development</small></div>
+        <div class="irm-header irm-h-2028" style="grid-column:6; grid-row:1/3;" onclick="toggleActions()">2028<span class="irm-h-2028-hint">Show actions</span></div>
+        <div class="irm-header irm-h-2030" style="grid-column:7; grid-row:1/3;">2030<small>Halt and reverse nature loss by 2030</small></div>
+        <div class="irm-header" style="grid-column:8; grid-row:1/3;">2035</div>
+        <div class="irm-header irm-h-2050" style="grid-column:9; grid-row:1/3;">2050<small>Live in harmony with nature by 2050</small></div>
 
         <!-- HEADER ROW 2: Phase sub-headers (hidden by default) -->
         <div class="irm-header irm-h-define irm-act-col" style="grid-column:3; grid-row:2;">Define and benchmark<small>Establish methods &amp; standards</small></div>
@@ -3216,7 +3216,7 @@
         <div class="irm-header irm-h-implement irm-act-col" style="grid-column:5; grid-row:2;">Policy and advocacy<small>Deliver on the ground</small></div>
 
         <!-- PRINCIPLE 1: Prevent Nature Loss -->
-        <div class="irm-principle"><span class="irm-pnum">1</span> Prevent Nature Loss</div>
+        <div class="irm-principle" onclick="openPrinciplePanel('p1')" style="cursor:pointer;"><span class="irm-pnum">1</span> Prevent Nature Loss</div>
         <div class="irm-cell"><div class="irm-target t-baseline">Planning requires no net loss of high value biodiversity.</div></div>
         <div class="irm-cell irm-act-col irm-action-cell">
           <div class="irm-action-chip">Define &lsquo;unacceptable impacts&rsquo;</div>
@@ -3230,13 +3230,13 @@
           <div class="irm-action-chip">Implement mitigation hierarchy</div>
           <div class="irm-action-chip">Integrate nature protection into planning systems</div>
         </div>
-        <div class="irm-cell"><div class="irm-target t-p1" onclick="openPanel('p1-measure')">Measure and report onsite biodiversity values.<span class="irm-expand">+</span></div></div>
-        <div class="irm-cell"><div class="irm-target t-p1" onclick="openPanel('p1-nonetloss')">Prioritise onsite protection to achieve no net loss of high value biodiversity, with restoration for residual impacts.<span class="irm-expand">+</span></div></div>
+        <div class="irm-cell"><div class="irm-target t-p1">Measure and report onsite biodiversity values.</div></div>
+        <div class="irm-cell"><div class="irm-target t-p1">Prioritise onsite protection to achieve no net loss of high value biodiversity, with restoration for residual impacts.</div></div>
         <div class="irm-cell"></div>
-        <div class="irm-cell"><div class="irm-target t-p1" onclick="openPanel('p1-noloss')">No onsite loss of moderate value biodiversity.<span class="irm-expand">+</span></div></div>
+        <div class="irm-cell"><div class="irm-target t-p1">No onsite loss of moderate value biodiversity.</div></div>
 
         <!-- PRINCIPLE 2: Increase & Connect Nature -->
-        <div class="irm-principle"><span class="irm-pnum">2</span> Increase &amp; Connect Nature</div>
+        <div class="irm-principle" onclick="openPrinciplePanel('p2')" style="cursor:pointer;"><span class="irm-pnum">2</span> Increase &amp; Connect Nature</div>
         <div class="irm-cell"><div class="irm-target t-baseline">Construction-related impacts are minimised through planning.</div></div>
         <div class="irm-cell irm-act-col irm-action-cell">
           <div class="irm-action-chip">Standardise biodiversity net gain methodology</div>
@@ -3251,13 +3251,13 @@
           <div class="irm-action-chip">Integrate net gain into planning</div>
           <div class="irm-action-chip">Incentivise urban and regional restoration</div>
         </div>
-        <div class="irm-cell" style="grid-column:6;"><div class="irm-target t-p2" onclick="openPanel('p2-measure')">Measure and report onsite biodiversity values.<span class="irm-expand">+</span></div></div>
+        <div class="irm-cell" style="grid-column:6;"><div class="irm-target t-p2">Measure and report onsite biodiversity values.</div></div>
         <div class="irm-cell" style="grid-column:7;"></div>
-        <div class="irm-cell" style="grid-column:8;"><div class="irm-target t-p2" onclick="openPanel('p2-bng')">Deliver at least 10% biodiversity net gain, prioritising onsite gains.<span class="irm-expand">+</span></div></div>
-        <div class="irm-cell" style="grid-column:9;"><div class="irm-target t-p2" onclick="openPanel('p2-additional')">Consider additional net gains over time, with greater weighting on onsite actions.<span class="irm-expand">+</span></div></div>
+        <div class="irm-cell" style="grid-column:8;"><div class="irm-target t-p2">Deliver at least 10% biodiversity net gain, prioritising onsite gains.</div></div>
+        <div class="irm-cell" style="grid-column:9;"><div class="irm-target t-p2">Consider additional net gains over time, with greater weighting on onsite actions.</div></div>
 
         <!-- PRINCIPLE 3: Drive Circularity - Sector Row -->
-        <div class="irm-principle" style="grid-row: span 2;"><span class="irm-pnum">3</span> Drive Circularity</div>
+        <div class="irm-principle" style="grid-row: span 2; cursor:pointer;" onclick="openPrinciplePanel('p3')"><span class="irm-pnum">3</span> Drive Circularity</div>
         <div class="irm-cell"><div class="irm-target t-baseline">Australia&rsquo;s economic circularity rate is 4.4%, global average of 7.5%.</div></div>
         <div class="irm-cell irm-act-col irm-action-cell" style="grid-row: span 2;">
           <div class="irm-action-chip">Define &amp; measure circularity</div>
@@ -3271,20 +3271,20 @@
           <div class="irm-action-chip">Embed circularity in codes</div>
           <div class="irm-action-chip">De-risk circular procurement</div>
         </div>
-        <div class="irm-cell"><div class="irm-target t-p3" onclick="openPanel('p3-sector-measure')">Measure the built environment&rsquo;s circularity rate.<span class="irm-expand">+</span></div></div>
-        <div class="irm-cell"><div class="irm-target t-p3" onclick="openPanel('p3-sector-7')">Achieve a 7.5% circularity rate across the built environment supported by reuse-first policies.<span class="irm-expand">+</span></div></div>
-        <div class="irm-cell"><div class="irm-target t-p3" onclick="openPanel('p3-sector-15')">Achieve a 15% circularity rate across the built environment through efficient density planning.<span class="irm-expand">+</span></div></div>
-        <div class="irm-cell"><div class="irm-target t-p3" onclick="openPanel('p3-sector-future')">Additional circularity rate increase will be proposed.<span class="irm-expand">+</span></div></div>
+        <div class="irm-cell"><div class="irm-target t-p3">Measure the built environment&rsquo;s circularity rate.</div></div>
+        <div class="irm-cell"><div class="irm-target t-p3">Achieve a 7.5% circularity rate across the built environment supported by reuse-first policies.</div></div>
+        <div class="irm-cell"><div class="irm-target t-p3">Achieve a 15% circularity rate across the built environment through efficient density planning.</div></div>
+        <div class="irm-cell"><div class="irm-target t-p3">Additional circularity rate increase will be proposed.</div></div>
 
         <!-- Principle 3: Project-level row -->
         <div class="irm-cell"><div class="irm-target t-baseline">Project-level circularity rate is unknown.</div></div>
-        <div class="irm-cell"><div class="irm-target t-p3" onclick="openPanel('p3-proj-measure')">Measure and benchmark project level circularity.<span class="irm-expand">+</span></div></div>
-        <div class="irm-cell"><div class="irm-target t-p3" onclick="openPanel('p3-proj-10')">Achieve a 10% improvement in project-level circularity.<span class="irm-expand">+</span></div></div>
-        <div class="irm-cell"><div class="irm-target t-p3" onclick="openPanel('p3-proj-20')">Achieve a 20% improvement in project level circularity.<span class="irm-expand">+</span></div></div>
-        <div class="irm-cell"><div class="irm-target t-p3" onclick="openPanel('p3-proj-future')">Additional circularity rate increase will be proposed.<span class="irm-expand">+</span></div></div>
+        <div class="irm-cell"><div class="irm-target t-p3">Measure and benchmark project level circularity.</div></div>
+        <div class="irm-cell"><div class="irm-target t-p3">Achieve a 10% improvement in project-level circularity.</div></div>
+        <div class="irm-cell"><div class="irm-target t-p3">Achieve a 20% improvement in project level circularity.</div></div>
+        <div class="irm-cell"><div class="irm-target t-p3">Additional circularity rate increase will be proposed.</div></div>
 
         <!-- PRINCIPLE 4: Choose Low-Impact Materials -->
-        <div class="irm-principle"><span class="irm-pnum">4</span> Choose Low-Impact Materials</div>
+        <div class="irm-principle" onclick="openPrinciplePanel('p4')" style="cursor:pointer;"><span class="irm-pnum">4</span> Choose Low-Impact Materials</div>
         <div class="irm-cell"><div class="irm-target t-baseline">Illegally harvested timber is prohibited in the supply chain.</div></div>
         <div class="irm-cell irm-act-col irm-action-cell">
           <div class="irm-action-chip">Set material-specific targets</div>
@@ -3298,13 +3298,13 @@
           <div class="irm-action-chip">Embed nature impact in procurement</div>
           <div class="irm-action-chip">Phase out high-risk materials</div>
         </div>
-        <div class="irm-cell"><div class="irm-target t-p4" onclick="openPanel('p4-measure')">Measure nature impacts of the top 10 materials and develop management plans.<span class="irm-expand">+</span></div></div>
-        <div class="irm-cell"><div class="irm-target t-p4" onclick="openPanel('p4-implement')">Implement nature impact management plans for top 10 materials.<span class="irm-expand">+</span></div></div>
-        <div class="irm-cell"><div class="irm-target t-p4" onclick="openPanel('p4-bng')">Manufacturers of the top 10 materials must set biodiversity net gain targets.<span class="irm-expand">+</span></div></div>
-        <div class="irm-cell"><div class="irm-target t-p4" onclick="openPanel('p4-eliminate')">All nature-related supply chain impacts are eliminated or fully compensated.<span class="irm-expand">+</span></div></div>
+        <div class="irm-cell"><div class="irm-target t-p4">Measure nature impacts of the top 10 materials and develop management plans.</div></div>
+        <div class="irm-cell"><div class="irm-target t-p4">Implement nature impact management plans for top 10 materials.</div></div>
+        <div class="irm-cell"><div class="irm-target t-p4">Manufacturers of the top 10 materials must set biodiversity net gain targets.</div></div>
+        <div class="irm-cell"><div class="irm-target t-p4">All nature-related supply chain impacts are eliminated or fully compensated.</div></div>
 
         <!-- PRINCIPLE 5: Invest in Nature -->
-        <div class="irm-principle"><span class="irm-pnum">5</span> Invest in Nature</div>
+        <div class="irm-principle" onclick="openPrinciplePanel('p5')" style="cursor:pointer;"><span class="irm-pnum">5</span> Invest in Nature</div>
         <div class="irm-cell"><div class="irm-target t-baseline">National nature repair mechanisms are emerging, following the introduction of the Nature Repair Market.</div></div>
         <div class="irm-cell irm-act-col irm-action-cell">
           <div class="irm-action-chip">Define methodology for calculating nature impact</div>
@@ -3319,10 +3319,10 @@
           <div class="irm-action-chip">Investment requirements into procurement &amp; planning</div>
           <div class="irm-action-chip">Advocate for restoration outcome reporting</div>
         </div>
-        <div class="irm-cell"><div class="irm-target t-p5" onclick="openPanel('p5-measure')">Measure and transparently disclose nature-related financial spend.<span class="irm-expand">+</span></div></div>
-        <div class="irm-cell"><div class="irm-target t-p5" onclick="openPanel('p5-invest')">Invest in nature restoration to address Scope 3 impacts in large developments and infrastructure projects.<span class="irm-expand">+</span></div></div>
+        <div class="irm-cell"><div class="irm-target t-p5">Measure and transparently disclose nature-related financial spend.</div></div>
+        <div class="irm-cell"><div class="irm-target t-p5">Invest in nature restoration to address Scope 3 impacts in large developments and infrastructure projects.</div></div>
         <div class="irm-cell"></div>
-        <div class="irm-cell"><div class="irm-target t-p5" onclick="openPanel('p5-commonplace')">Investment in nature restoration is standard practice across all projects.<span class="irm-expand">+</span></div></div>
+        <div class="irm-cell"><div class="irm-target t-p5">Investment in nature restoration is standard practice across all projects.</div></div>
 
         <!-- ENABLER ROW -->
         <div class="irm-enabler-row">
@@ -4758,6 +4758,30 @@ function openPanel(id) {
   html += '<ul>';
   data.industry.forEach(i => { html += '<li>' + i + '</li>'; });
   html += '</ul></div>';
+
+  document.getElementById('panelBody').innerHTML = html;
+  document.getElementById('irmOverlay').classList.add('open');
+  document.getElementById('irmPanel').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function openPrinciplePanel(prefix) {
+  const keys = Object.keys(panelData).filter(k => k.startsWith(prefix + '-'));
+  if (!keys.length) return;
+
+  const first = panelData[keys[0]];
+  document.getElementById('panelPrinciple').textContent = first.principle;
+  document.getElementById('panelTitle').textContent = first.principle.replace(/^Principle \d+: /, '');
+  document.getElementById('panelTime').textContent = '';
+
+  let html = '';
+  keys.forEach(k => {
+    const d = panelData[k];
+    html += '<div class="irm-panel-section" style="margin-bottom:1.5rem;">';
+    html += '<h4 style="margin-bottom:0.25rem;">' + d.title + ' <small style="color:rgba(255,255,255,0.5);">' + d.time + '</small></h4>';
+    html += '<div class="irm-panel-context">' + d.context + '</div>';
+    html += '</div>';
+  });
 
   document.getElementById('panelBody').innerHTML = html;
   document.getElementById('irmOverlay').classList.add('open');
