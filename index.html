@@ -4698,7 +4698,7 @@ function toggleActions() {
   const btn = document.querySelector('.irm-h-2028-hint');
   const isExpanded = grid.classList.toggle('irm-expanded');
   if (btn) {
-    btn.innerHTML = '<span class="irm-h-2028-arrow">' + (isExpanded ? '&#x25C0;' : '&#x25B6;') + '</span> ' + (isExpanded ? 'Hide actions' : 'Show actions');
+    btn.innerHTML = isExpanded ? 'Hide actions' : 'Show actions';
   }
 }
 
