@@ -1318,60 +1318,32 @@
 
   /* ===== GREEN STAR ===== */
   .greenstar-section { background: var(--white); }
-  .greenstar-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-  .gs-card {
-    border-radius: 16px;
-    padding: 2rem;
-    border: 1px solid rgba(0,0,0,0.08);
-    transition: all 0.3s;
-  }
-  .gs-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-  }
-  .gs-card h3 {
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: var(--navy);
-  }
-  .gs-card ul { padding-left: 1.2rem; }
-  .gs-card li {
-    font-size: 0.88rem;
-    color: var(--slate);
-    margin-bottom: 0.5rem;
-  }
 
-  /* ===== PATHWAY DIAGRAM ===== */
-  .pathway-wrapper {
-    margin-top: 3rem;
+  /* ===== UNIFIED GREEN STAR TABS + PATHWAY ===== */
+  .gs-unified {
     border-radius: 16px;
     overflow: hidden;
     border: 1px solid rgba(0,0,0,0.08);
-    background: #f7f9f7;
+    background: var(--white);
   }
-  .pathway-tab-bar {
+  .gs-tab-bar {
     display: flex;
     background: var(--green-dark);
   }
-  .pathway-tab {
+  .gs-tab {
     flex: 1;
-    padding: 1rem 1.5rem;
+    padding: 1rem 1.25rem;
     background: none;
     border: none;
-    color: rgba(255,255,255,0.7);
+    color: rgba(255,255,255,0.65);
     font-family: var(--font-primary);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s;
     position: relative;
   }
-  .pathway-tab::after {
+  .gs-tab::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -1383,15 +1355,69 @@
     transition: all 0.3s;
     transform: translateX(-50%);
   }
-  .pathway-tab:hover { color: rgba(255,255,255,0.95); background: rgba(255,255,255,0.05); }
-  .pathway-tab.active { color: var(--white); background: rgba(255,255,255,0.08); }
-  .pathway-tab.active::after { width: 50px; }
+  .gs-tab:hover { color: rgba(255,255,255,0.95); background: rgba(255,255,255,0.05); }
+  .gs-tab.active { color: var(--white); background: rgba(255,255,255,0.08); }
+  .gs-tab.active::after { width: 40px; }
+  .gs-content-panel {
+    display: none;
+    padding: 2rem 2.5rem;
+    animation: stakeholderFadeIn 0.35s ease;
+  }
+  .gs-content-panel.active { display: block; }
+  .gs-content-panel h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 1rem;
+  }
+  .gs-content-panel p {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: var(--slate);
+    margin-bottom: 0.75rem;
+  }
+  .gs-content-panel ul {
+    padding-left: 1.25rem;
+    margin: 0.75rem 0;
+  }
+  .gs-content-panel li {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--slate);
+    margin-bottom: 0.5rem;
+  }
+  .gs-content-panel .gs-note {
+    font-size: 0.82rem;
+    font-style: italic;
+    color: var(--green-mid);
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    background: var(--green-pale);
+    border-radius: 8px;
+    border-left: 3px solid var(--green-dark);
+  }
+
+  /* ===== PATHWAY DIAGRAM ===== */
+  .pathway-container {
+    background: #f7f9f7;
+    border-top: 1px solid rgba(0,0,0,0.06);
+  }
   .pathway-diagram {
     display: none;
     padding: 2rem;
     animation: stakeholderFadeIn 0.35s ease;
   }
   .pathway-diagram.active { display: block; }
+  .pathway-no-diagram {
+    display: none;
+    padding: 2rem;
+    text-align: center;
+    color: var(--slate);
+    font-size: 0.88rem;
+    font-style: italic;
+    animation: stakeholderFadeIn 0.35s ease;
+  }
+  .pathway-no-diagram.active { display: block; }
   .pathway-title {
     font-size: 1.15rem;
     font-weight: 700;
@@ -1575,9 +1601,9 @@
     transform-origin: center center;
   }
   @media (max-width: 900px) {
-    .pathway-wrapper { overflow-x: auto; }
+    .gs-unified { overflow-x: auto; }
     .pathway-diagram { min-width: 800px; }
-    .greenstar-grid { grid-template-columns: 1fr; }
+    .gs-content-panel { padding: 1.5rem; }
   }
 
   /* ===== GBCA ROLE ===== */
@@ -1899,7 +1925,7 @@
     .challenges-grid { grid-template-columns: 1fr; }
     .principles-grid { grid-template-columns: 1fr; }
     .tnfd-steps-grid { grid-template-columns: 1fr; }
-    .greenstar-grid { grid-template-columns: 1fr; }
+    .gs-content-panel { padding: 1.5rem; }
     .gbca-pillars { grid-template-columns: 1fr; }
     section { padding: 60px 1rem; }
     .section-header h2 { font-size: 1.8rem; }
@@ -4150,57 +4176,57 @@
   <div class="container">
     <div class="section-header fade-in">
       <div class="section-label">Green Star</div>
-      <h2>Green Star's nature positive pathway</h2>
-      <p>Green Star provides a common framework for standards and assurance pathways to include nature in new developments.</p>
+      <h2>Green Star&rsquo;s role in driving nature-positive outcomes</h2>
+      <p>As part of Future Focus, the rating system improved on its previous version by introducing a comprehensive &lsquo;Nature&rsquo; category. This category allows GBCA to build on this work by introducing a Nature Positive Pathway that builds on its nature-related minimum expectations.</p>
     </div>
-    <div class="greenstar-grid fade-in">
-      <div class="gs-card">
+    <div class="gs-unified fade-in">
+      <div class="gs-tab-bar" role="tablist">
+        <button class="gs-tab active" role="tab" aria-selected="true" onclick="switchGsTab(this, 'buildings')">Buildings</button>
+        <button class="gs-tab" role="tab" aria-selected="false" onclick="switchGsTab(this, 'communities')">Communities v2</button>
+        <button class="gs-tab" role="tab" aria-selected="false" onclick="switchGsTab(this, 'fitouts')">Fitouts</button>
+        <button class="gs-tab" role="tab" aria-selected="false" onclick="switchGsTab(this, 'products')">Responsible Products</button>
+      </div>
+      <!-- Content panels -->
+      <div class="gs-content-panel active" id="gs-panel-buildings">
         <h3>Green Star Buildings</h3>
+        <p>Since its release, the rating tool included five credits in the Nature category, and several that reward lower impact materials in the Responsible category. It also introduced a new credit to recognise First Nations involvement in projects.</p>
+        <p>The update to v1.1 goes further, establishing a Nature Positive Pathway that aims to drive industry to put nature at the heart of development. In practice this means that:</p>
         <ul>
-          <li>Five credits in the Nature category plus responsible materials credits</li>
-          <li>New credit recognising First Nations involvement</li>
-          <li><strong>6 Star:</strong> Must achieve 10% biodiversity net gain</li>
-          <li><strong>From 2028:</strong> 10% net gain applies to 5 Star</li>
-          <li><strong>From 2030:</strong> Applies to all 4 Star and above</li>
-          <li>New 'Circularity' credit to quantify and improve circularity rate</li>
+          <li>Buildings that register for a 6 Star rating must achieve a 10% biodiversity net gain. In addition, nature-related impacts will need to be reported to achieve a rating.</li>
+          <li>From 2028, the 10% net gain requirement will apply to buildings registering for a 5 Star rating.</li>
+          <li>From 2030, this will apply to buildings registering for a 4 Star rating.</li>
         </ul>
+        <p>A new credit &lsquo;Design for Circularity&rsquo; has been introduced in the Positive category, aiming to help industry quantify its circularity rate, and improve it over time.</p>
       </div>
-      <div class="gs-card">
+      <div class="gs-content-panel" id="gs-panel-communities">
         <h3>Green Star Communities v2</h3>
+        <p>A significant upgrade to its predecessor, this rating tool, released in February 2025, features a significant focus on reducing nature-related impacts, and encouraging opportunities for positive outcomes.</p>
+        <p>The rating tool features a Nature category, which includes seven new nature-related credits. In addition, it includes requirements for upfront carbon reductions, and rewards low-impact materials. It also recognises the role of First Nations Peoples, with credits that embed cultural leadership and ensure that connection to Country is integrated into planning, design, and long-term management.</p>
+        <p>Furthermore, this rating tool includes a Nature Positive Pathway. The requirement changes depend on whether the precinct is on greenfield land or is an urban redevelopment. As a minimum:</p>
         <ul>
-          <li>Seven new nature-related credits</li>
-          <li>Requirements for upfront carbon reductions and low-impact materials</li>
-          <li>Credits that embed First Nations cultural leadership</li>
-          <li><strong>From 2027:</strong> 6 Star projects need significant BNG; 5 Star: no net loss</li>
-          <li><strong>From 2030:</strong> 5 Star: 10% net gain; 4 Star: no net loss</li>
-          <li><strong>From 2033:</strong> All projects: at least 10% net gain</li>
+          <li>From 2027, projects that register for a 6 Star rating need to achieve a significant biodiversity net gain. 5 Star rated projects will need to show no net loss.</li>
+          <li>From 2030, these requirements change, with 5 Star projects needing to show at least 10% net gain, and 4 Star projects needing to show no net loss.</li>
+          <li>From 2033, all projects would need to show at least a 10% net gain.</li>
         </ul>
+        <p class="gs-note">Note: two additional Leadership Challenges will be released for Green Star Communities v2.</p>
       </div>
-      <div class="gs-card">
+      <div class="gs-content-panel" id="gs-panel-fitouts">
         <h3>Green Star Fitouts</h3>
-        <ul>
-          <li>New Circular category responding to significant waste from fitout churn</li>
-          <li>Encourages reduction of waste and better design solutions</li>
-          <li>Drives longer-life fitouts through improved design and material selection</li>
-        </ul>
+        <p>As nature-related site impacts are limited in this rating tool, the focus shifts strongly towards circularity. This rating tool features a new Circular category. The introduction of this category responds to the significant waste impact from fitout churn.</p>
+        <p>It aims to both encourage reduction of waste at the end of the fitout, and to drive industry to adopt better design solutions and procurement practices at the design phase.</p>
       </div>
-      <div class="gs-card">
+      <div class="gs-content-panel" id="gs-panel-products">
         <h3>Responsible Products Framework</h3>
-        <ul>
-          <li>Version B introduces new nature-related and circular-related criteria</li>
-          <li>Defines qualities that products assessed by independent initiatives must comply with</li>
-          <li>Expected release: Q3 2026, with transition expected by 2028</li>
-        </ul>
+        <p>Part of all Green Star rating tools, the Responsible Products Framework defines the qualities that products assessed by independent initiatives, such as ecolabels, must comply with.</p>
+        <p>Currently in development, version B of the framework will include new nature-related and circular-related criteria to encourage the recognition of products that deliver nature-positive outcomes.</p>
+        <p>Release of version B of the Framework is expected in 3rd quarter 2026, with initiatives expected to transition at some point in 2028.</p>
       </div>
-    </div>
-    <!-- Pathway Diagrams -->
-    <div class="pathway-wrapper fade-in">
-      <div class="pathway-tab-bar" role="tablist">
-        <button class="pathway-tab active" role="tab" aria-selected="true" onclick="switchPathwayTab(this, 'buildings')">Green Star Buildings</button>
-        <button class="pathway-tab" role="tab" aria-selected="false" onclick="switchPathwayTab(this, 'communities')">Green Star Communities v2</button>
+      <!-- Pathway diagrams -->
+      <div class="pathway-container">
+        <div class="pathway-diagram active" id="pathway-buildings"></div>
+        <div class="pathway-diagram" id="pathway-communities"></div>
+        <div class="pathway-no-diagram" id="pathway-none">Pathway targets for this rating tool are integrated across the Buildings and Communities pathways above.</div>
       </div>
-      <div class="pathway-diagram active" id="pathway-buildings"></div>
-      <div class="pathway-diagram" id="pathway-communities"></div>
     </div>
   </div>
 </section>
@@ -4322,16 +4348,26 @@
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">&#x2191;</button>
 
 <script>
-// Pathway diagram tab switching & rendering
-function switchPathwayTab(btn, id) {
-  btn.closest('.pathway-wrapper').querySelectorAll('.pathway-tab').forEach(t => {
+// Unified Green Star tab switching (content + pathway auto-sync)
+function switchGsTab(btn, id) {
+  var wrapper = btn.closest('.gs-unified');
+  wrapper.querySelectorAll('.gs-tab').forEach(function(t) {
     t.classList.remove('active');
     t.setAttribute('aria-selected', 'false');
   });
   btn.classList.add('active');
   btn.setAttribute('aria-selected', 'true');
-  btn.closest('.pathway-wrapper').querySelectorAll('.pathway-diagram').forEach(p => p.classList.remove('active'));
-  document.getElementById('pathway-' + id).classList.add('active');
+  // Switch content panel
+  wrapper.querySelectorAll('.gs-content-panel').forEach(function(p) { p.classList.remove('active'); });
+  document.getElementById('gs-panel-' + id).classList.add('active');
+  // Switch pathway diagram: show matching diagram for buildings/communities, else show fallback
+  var pathwayContainer = wrapper.querySelector('.pathway-container');
+  pathwayContainer.querySelectorAll('.pathway-diagram, .pathway-no-diagram').forEach(function(p) { p.classList.remove('active'); });
+  if (id === 'buildings' || id === 'communities') {
+    document.getElementById('pathway-' + id).classList.add('active');
+  } else {
+    document.getElementById('pathway-none').classList.add('active');
+  }
 }
 
 const PATHWAY_DATA = {
