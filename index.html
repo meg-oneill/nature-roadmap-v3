@@ -1065,91 +1065,6 @@
     margin-top: 1rem;
   }
 
-  /* ===== PRINCIPLE DETAIL SECTIONS ===== */
-  .principle-detail {
-    padding: 5rem 2rem;
-    position: relative;
-    overflow: hidden;
-  }
-  .principle-detail:nth-child(even) { background: var(--green-pale); }
-  .principle-detail-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-  }
-  .principle-detail-text .principle-num {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--green-mid);
-    margin-bottom: 1rem;
-  }
-  .principle-detail-text h3 {
-    font-family: var(--font-primary);
-    font-size: 28px;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: var(--green-mid);
-  }
-  .principle-detail-text p {
-    margin-bottom: 1rem;
-    color: var(--slate);
-    font-size: 0.95rem;
-  }
-  .target-list {
-    list-style: none;
-    padding: 0;
-    margin-top: 1.5rem;
-  }
-  .target-list li {
-    position: relative;
-    padding: 0.75rem 0 0.75rem 2rem;
-    border-bottom: 1px solid rgba(0,0,0,0.06);
-    font-size: 0.9rem;
-    color: var(--slate);
-  }
-  .target-list li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: var(--green-mid);
-  }
-  .principle-detail-image {
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-  }
-  .principle-detail-image img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    display: block;
-  }
-  .principle-detail-image-wrap .principle-detail-image {
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-  }
-  .image-credit {
-    font-size: 0.75rem;
-    color: var(--slate);
-    text-align: right;
-    margin: 0.5rem 0 0;
-    font-style: normal;
-  }
-
   /* ===== ENABLERS ===== */
   .enablers-section { background: var(--green-mid); color: white; }
   .enablers-grid {
@@ -1556,8 +1471,7 @@
     .hero { min-height: auto; }
     .hero-content { padding: 5rem 2rem 3rem; }
     .hero-text h1 { font-size: 2.4rem; }
-    .principle-detail-inner { grid-template-columns: 1fr; }
-    .enablers-grid { grid-template-columns: 1fr; }
+.enablers-grid { grid-template-columns: 1fr; }
     .tnfd-steps-grid { grid-template-columns: repeat(2, 1fr); }
     .gbca-pillars { grid-template-columns: repeat(2, 1fr); }
     .footer-inner { grid-template-columns: 1fr; }
@@ -2623,6 +2537,27 @@
   }
 
   /* Case study */
+  /* Panel hero image */
+  .panel-image {
+    margin-bottom: 1.75rem;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .panel-image img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+  }
+  .panel-image-credit {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.72rem;
+    color: var(--slate);
+    opacity: 0.7;
+    padding: 0.5rem 0.25rem 0;
+    font-style: italic;
+  }
+
   .panel-case-study {
     background: var(--green-pale);
     border-radius: 12px;
@@ -2647,159 +2582,6 @@
     .irm-panel { width: 100vw; max-width: 100vw; }
   }
 
-  /* ===== MINI ROADMAP STRIP (within principle details) ===== */
-  .mini-roadmap {
-    margin-top: 2rem;
-  }
-  .mini-roadmap-label {
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--green-mid);
-    margin-bottom: 0.75rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  .mini-roadmap-label::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: rgba(68,136,62,0.2);
-  }
-  .mini-roadmap-track {
-    position: relative;
-    display: flex;
-    gap: 0;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 0.5rem;
-  }
-  .mini-roadmap-track::-webkit-scrollbar { height: 4px; }
-  .mini-roadmap-track::-webkit-scrollbar-thumb { background: var(--green-mid); border-radius: 2px; }
-
-  /* The connecting line */
-  .mini-roadmap-track::before {
-    content: '';
-    position: absolute;
-    top: 18px;
-    left: 24px;
-    right: 24px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--mid-gray), var(--green-mid), var(--navy));
-    z-index: 0;
-    border-radius: 2px;
-  }
-
-  .mini-rm-item {
-    position: relative;
-    z-index: 1;
-    flex: 1;
-    min-width: 140px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 0 0.25rem;
-  }
-
-  .mini-rm-dot {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: var(--mid-gray);
-    border: 3px solid var(--cream);
-    box-shadow: 0 0 0 2px var(--mid-gray);
-    margin-bottom: 0.5rem;
-    flex-shrink: 0;
-    transition: all 0.2s;
-  }
-  .mini-rm-item.active .mini-rm-dot {
-    background: var(--green-mid);
-    box-shadow: 0 0 0 2px var(--green-mid);
-  }
-  .mini-rm-item.milestone .mini-rm-dot {
-    background: var(--accent-gold);
-    box-shadow: 0 0 0 2px var(--accent-gold);
-    width: 18px;
-    height: 18px;
-  }
-  .mini-rm-item.future .mini-rm-dot {
-    background: var(--accent-teal);
-    box-shadow: 0 0 0 2px var(--accent-teal);
-  }
-
-  .mini-rm-year {
-    font-size: 0.7rem;
-    font-weight: 800;
-    color: var(--green-mid);
-    margin-bottom: 0.35rem;
-  }
-  .mini-rm-item.milestone .mini-rm-year { color: var(--accent-gold); }
-  .mini-rm-item.future .mini-rm-year { color: var(--accent-teal); }
-
-  .mini-rm-card {
-    background: var(--green-pale);
-    border: 2px solid transparent;
-    border-radius: 10px;
-    padding: 0.6rem 0.5rem;
-    font-size: 0.75rem;
-    color: var(--charcoal);
-    line-height: 1.35;
-    cursor: pointer;
-    transition: all 0.25s;
-    width: 100%;
-    min-height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .mini-rm-card:hover {
-    border-color: var(--green-mid);
-    background: rgba(68,136,62,0.15);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 16px rgba(68, 136, 62, 0.2);
-  }
-  .mini-rm-card:active { transform: translateY(0); }
-  .mini-rm-card.baseline {
-    background: #f0f0f0;
-    border-style: dashed;
-    border-color: #ddd;
-    cursor: default;
-    color: var(--slate);
-    font-style: italic;
-  }
-  .mini-rm-card.baseline:hover {
-    transform: none;
-    box-shadow: none;
-    background: #f0f0f0;
-    border-color: #ddd;
-  }
-
-  /* Colour variants matching principle colours */
-  .mini-rm-card.mc-p1 { background: rgba(68,136,62,0.08); }
-  .mini-rm-card.mc-p1:hover { background: rgba(68,136,62,0.15); border-color: #44883E; }
-  .mini-rm-card.mc-p2 { background: rgba(34,156,71,0.08); }
-  .mini-rm-card.mc-p2:hover { background: rgba(34,156,71,0.15); border-color: #229C47; }
-  .mini-rm-card.mc-p3 { background: rgba(120,190,33,0.08); }
-  .mini-rm-card.mc-p3:hover { background: rgba(120,190,33,0.15); border-color: #78BE21; }
-  .mini-rm-card.mc-p4 { background: rgba(0,86,135,0.06); }
-  .mini-rm-card.mc-p4:hover { background: rgba(0,86,135,0.12); border-color: #005687; }
-  .mini-rm-card.mc-p5 { background: rgba(0,86,135,0.08); }
-  .mini-rm-card.mc-p5:hover { background: rgba(0,86,135,0.15); border-color: #005687; }
-
-  /* For even-background principle detail sections */
-  .principle-detail:nth-child(even) .mini-rm-dot {
-    border-color: var(--white);
-  }
-  .principle-detail:nth-child(even) .mini-roadmap-track::before {
-    /* stays the same */
-  }
-
-  @media (max-width: 768px) {
-    .mini-rm-item { min-width: 120px; }
-  }
 </style>
 </head>
 <body>
@@ -2868,7 +2650,6 @@
       <li><a href="#response">Challenge &amp; Response</a></li>
       <li><a href="#roadmap">Roadmap</a></li>
       <li><a href="#actions">Actions</a></li>
-      <li><a href="#detail">Details</a></li>
       <li><a href="#enablers">Enablers</a></li>
       <li><a href="#greenstar">Green Star</a></li>
       <li><a href="#tnfd">TNFD</a></li>
@@ -3558,289 +3339,6 @@
   </div>
 </section>
 
-<!-- Principle Details -->
-<div id="detail">
-
-  <!-- Principle 1 -->
-  <div class="principle-detail">
-    <div class="principle-detail-inner fade-in">
-      <div class="principle-detail-text">
-        <div class="principle-num">Principle 1 &mdash; Onsite &amp; Near Site</div>
-        <h3>Prevent nature loss</h3>
-        <p>This principle sets a pathway from today&rsquo;s planning controls to full protection of valuable natural systems onsite by 2050. In Australia, the consumption of goods and services associated with the construction sector is the most significant consumption driver of extinction risk. Preventing further loss is an urgent first step in arresting and reversing this trend. Once lost, biodiversity is costly or impossible to restore.</p>
-        <div class="mini-roadmap">
-          <div class="mini-roadmap-label">Roadmap Targets &mdash; Click to explore</div>
-          <div class="mini-roadmap-track">
-            <div class="mini-rm-item">
-              <div class="mini-rm-dot" style="background:#BBBBBB;box-shadow:0 0 0 2px #BBBBBB;"></div>
-              <div class="mini-rm-year" style="color:var(--slate);">Today</div>
-              <div class="mini-rm-card baseline">Planning requires no net loss of high value biodiversity.</div>
-            </div>
-            <div class="mini-rm-item active">
-              <div class="mini-rm-dot"></div>
-              <div class="mini-rm-year">2028</div>
-              <div class="mini-rm-card mc-p1">Measure and report onsite biodiversity values.</div>
-            </div>
-            <div class="mini-rm-item milestone">
-              <div class="mini-rm-dot"></div>
-              <div class="mini-rm-year">2030</div>
-              <div class="mini-rm-card mc-p1">Prioritise onsite protection to achieve no net loss of high value biodiversity, with restoration for residual impacts.</div>
-            </div>
-            <div class="mini-rm-item active">
-              <div class="mini-rm-dot" style="background:transparent;box-shadow:none;"></div>
-              <div class="mini-rm-year" style="opacity:0">2035</div>
-              <div class="mini-rm-card baseline" style="visibility:hidden"></div>
-            </div>
-            <div class="mini-rm-item future">
-              <div class="mini-rm-dot"></div>
-              <div class="mini-rm-year">2050</div>
-              <div class="mini-rm-card mc-p1">No onsite loss of moderate value biodiversity.</div>
-            </div>
-          </div>
-        </div>
-        <div class="case-study">
-          <h4>Case Study</h4>
-          <p><strong>Netherlands&rsquo; &ldquo;No Net Loss&rdquo; Planning Policy:</strong> Under the Dutch Nature Conservation Act (now under the Environment and Planning Act), developments that could impact protected species or Natura 2000 sites must follow a strict mitigation hierarchy: avoid, minimise, and, if necessary, compensate. If impacts cannot be fully avoided, developers must implement measurable compensation measures, typically located near the affected area and ecologically relevant. These requirements are fully integrated into spatial planning and permitting, creating a strong legal basis for protecting high value biodiversity and enforcing no net loss of nature through development processes.</p>
-        </div>
-      </div>
-      <div class="principle-detail-image-wrap">
-        <div class="principle-detail-image">
-          <img src="images/image11.jpeg" alt="Alkimos Beach, WA">
-        </div>
-        <p class="image-credit">Alkimos Beach, WA (6 Star Green Star Communities Pilot v.01)</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Principle 2 -->
-  <div class="principle-detail">
-    <div class="principle-detail-inner fade-in">
-      <div class="principle-detail-image-wrap" style="order:-1">
-        <div class="principle-detail-image">
-          <img src="images/image12.jpeg" alt="Naarm development">
-        </div>
-        <p class="image-credit" style="text-align:left;">Naarm 5 Star Green Star Design &amp; As-Built</p>
-      </div>
-      <div class="principle-detail-text">
-        <div class="principle-num">Principle 2 &mdash; Onsite &amp; Near Site</div>
-        <h3>Increase &amp; connect nature</h3>
-        <p>This principle sets a clear pathway from minimising impacts today to achieving at least a 10% biodiversity net gain (BNG) by 2035, with a strong emphasis on onsite gains and ecological connectivity. Preventing loss is critical &mdash; but it isn&rsquo;t enough. To reverse nature decline, the built environment must actively contribute to restoring ecosystems and reconnecting fragmented habitats.</p>
-        <div class="mini-roadmap">
-          <div class="mini-roadmap-label">Roadmap Targets &mdash; Click to explore</div>
-          <div class="mini-roadmap-track">
-            <div class="mini-rm-item">
-              <div class="mini-rm-dot" style="background:#BBBBBB;box-shadow:0 0 0 2px #BBBBBB;"></div>
-              <div class="mini-rm-year" style="color:var(--slate);">Today</div>
-              <div class="mini-rm-card baseline">Construction-related impacts are minimised through planning.</div>
-            </div>
-            <div class="mini-rm-item active">
-              <div class="mini-rm-dot"></div>
-              <div class="mini-rm-year">2028</div>
-              <div class="mini-rm-card mc-p2">Measure and report onsite biodiversity values.</div>
-            </div>
-            <div class="mini-rm-item milestone">
-              <div class="mini-rm-dot"></div>
-              <div class="mini-rm-year">2030</div>
-              <div class="mini-rm-card mc-p2">Deliver at least 10% biodiversity net gain, prioritising onsite gains.</div>
-            </div>
-            <div class="mini-rm-item future">
-              <div class="mini-rm-dot"></div>
-              <div class="mini-rm-year">2035&ndash;2050</div>
-              <div class="mini-rm-card mc-p2">Consider additional net gains over time, with greater weighting on onsite actions.</div>
-            </div>
-          </div>
-        </div>
-        <div class="case-study">
-          <h4>Case Study</h4>
-          <p><strong>UK&rsquo;s Biodiversity Net Gain (BNG) regulation:</strong> In England, all major developments must deliver at least a 10% measurable biodiversity net gain from 2024, secured for a minimum of 30 years. Gains are assessed using the national statutory biodiversity metric and enforced by local planning authorities. The policy supports both on-site and off-site improvements, driving innovation in habitat creation, ecological design, land restoration markets, and green infrastructure integration. It aims to increase and connect nature at a landscape scale through the planning system.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Principle 3 -->
-  <div class="principle-detail">
-    <div class="principle-detail-inner fade-in">
-      <div class="principle-detail-text">
-        <div class="principle-num">Principle 3 &mdash; Onsite &amp; Supply Chain</div>
-        <h3>Drive circularity</h3>
-        <p>This principle outlines a shift from waste minimisation today to a measurable increase in circularity across both the sector and individual projects by 2050. The built environment is responsible for over 50% of raw material extraction and a third of total waste. A circular economy is essential to transition towards a nature positive economy.</p>
-        <div class="mini-roadmap">
-          <div class="mini-roadmap-label">Sector-Level Circularity Targets &mdash; Click to explore</div>
-          <div class="mini-roadmap-track">
-            <div class="mini-rm-item">
-              <div class="mini-rm-dot" style="background:#BBBBBB;box-shadow:0 0 0 2px #BBBBBB;"></div>
-              <div class="mini-rm-year" style="color:var(--slate);">Today</div>
-              <div class="mini-rm-card baseline">Australia’s economic circularity rate is 4.4%, global average of 7.5%.</div>
-            </div>
-            <div class="mini-rm-item active">
-              <div class="mini-rm-dot"></div>
-              <div class="mini-rm-year">2028</div>
-              <div class="mini-rm-card mc-p3">Measure the built environment’s circularity rate.</div>
-            </div>
-            <div class="mini-rm-item milestone">
-              <div class="mini-rm-dot"></div>
-              <div class="mini-rm-year">2030</div>
-              <div class="mini-rm-card mc-p3">Achieve a 7.5% circularity rate across the built environment supported by reuse-first policies.</div>
-            </div>
-            <div class="mini-rm-item active">
-              <div class="mini-rm-dot"></div>
-              <div class="mini-rm-year">2035</div>
-              <div class="mini-rm-card mc-p3">Achieve a 15% circularity rate across the built environment through efficient density planning.</div>
-            </div>
-            <div class="mini-rm-item future">
-              <div class="mini-rm-dot"></div>
-              <div class="mini-rm-year">2050</div>
-              <div class="mini-rm-card mc-p3">Additional circularity rate increase will be proposed.</div>
-            </div>
-          </div>
-        </div>
-        <div class="mini-roadmap" style="margin-top:1.25rem;">
-          <div class="mini-roadmap-label">Project-Level Circularity Targets &mdash; Click to explore</div>
-          <div class="mini-roadmap-track">
-            <div class="mini-rm-item">
-              <div class="mini-rm-dot" style="background:#BBBBBB;box-shadow:0 0 0 2px #BBBBBB;"></div>
-              <div class="mini-rm-year" style="color:var(--slate);">Today</div>
-              <div class="mini-rm-card baseline">Project-level circularity rate is unknown.</div>
-            </div>
-            <div class="mini-rm-item active">
-              <div class="mini-rm-dot"></div>
-              <div class="mini-rm-year">2028</div>
-              <div class="mini-rm-card mc-p3">Measure and benchmark project level circularity.</div>
-            </div>
-            <div class="mini-rm-item milestone">
-              <div class="mini-rm-dot"></div>
-              <div class="mini-rm-year">2030</div>
-              <div class="mini-rm-card mc-p3">Achieve a 10% improvement in project-level circularity.</div>
-            </div>
-            <div class="mini-rm-item active">
-              <div class="mini-rm-dot"></div>
-              <div class="mini-rm-year">2035</div>
-              <div class="mini-rm-card mc-p3">Achieve a 20% improvement in project level circularity.</div>
-            </div>
-            <div class="mini-rm-item future">
-              <div class="mini-rm-dot"></div>
-              <div class="mini-rm-year">2050</div>
-              <div class="mini-rm-card mc-p3">Additional circularity rate increase will be proposed.</div>
-            </div>
-          </div>
-        </div>
-        <div class="case-study">
-          <h4>Case Study</h4>
-          <p><strong>Finland&rsquo;s Circular Economy Roadmap:</strong> Finland was the first country to adopt a national circular economy strategy. In the built environment, this includes requirements for public buildings to use reused or recycled materials, lifecycle carbon and circularity assessments for planning approvals, and investment in digital platforms to track materials across buildings. The approach has reduced construction waste and created new business models in reuse and repair.</p>
-        </div>
-      </div>
-      <div class="principle-detail-image-wrap">
-        <div class="principle-detail-image">
-          <img src="images/image14.jpeg" alt="The Quay development">
-        </div>
-        <p class="image-credit">The Quay 4 Star Multi Unit Residential Design</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Principle 4 -->
-  <div class="principle-detail">
-    <div class="principle-detail-inner fade-in">
-      <div class="principle-detail-image-wrap" style="order:-1">
-        <div class="principle-detail-image">
-          <img src="images/image16.jpeg" alt="The Exchange">
-        </div>
-        <p class="image-credit" style="text-align:left;">The Exchange 4 Star Green Star Performance v1.1</p>
-      </div>
-      <div class="principle-detail-text">
-        <div class="principle-num">Principle 4 &mdash; Onsite &amp; Supply Chain</div>
-        <h3>Choose low-impact materials</h3>
-        <p>This principle focuses on shifting material choices and supply chains toward ethical, traceable, and nature regenerative outcomes. Construction materials &ndash; especially steel, concrete, timber, aluminium, and plastics &ndash; are some of the most resource- and emissions-intensive products in the global economy. Their extraction and production can drive deforestation, water stress, pollution, and biodiversity loss. Choosing low-impact materials reduces demand for virgin resources, avoids damage to sensitive ecosystems, and sends market signals that reward sustainable supply chains.</p>
-        <div class="mini-roadmap">
-          <div class="mini-roadmap-label">Roadmap Targets &mdash; Click to explore</div>
-          <div class="mini-roadmap-track">
-            <div class="mini-rm-item">
-              <div class="mini-rm-dot" style="background:#BBBBBB;box-shadow:0 0 0 2px #BBBBBB;"></div>
-              <div class="mini-rm-year" style="color:var(--slate);">Today</div>
-              <div class="mini-rm-card baseline">Illegally harvested timber is prohibited in the supply chain.</div>
-            </div>
-            <div class="mini-rm-item active">
-              <div class="mini-rm-dot"></div>
-              <div class="mini-rm-year">2028</div>
-              <div class="mini-rm-card mc-p4">Measure nature impacts of the top 10 materials and develop management plans.</div>
-            </div>
-            <div class="mini-rm-item milestone">
-              <div class="mini-rm-dot"></div>
-              <div class="mini-rm-year">2030</div>
-              <div class="mini-rm-card mc-p4">Implement nature impact management plans for top 10 materials.</div>
-            </div>
-            <div class="mini-rm-item active">
-              <div class="mini-rm-dot"></div>
-              <div class="mini-rm-year">2035</div>
-              <div class="mini-rm-card mc-p4">Manufacturers of the top 10 materials must set biodiversity net gain targets.</div>
-            </div>
-            <div class="mini-rm-item future">
-              <div class="mini-rm-dot"></div>
-              <div class="mini-rm-year">2050</div>
-              <div class="mini-rm-card mc-p4">All nature-related supply chain impacts are eliminated or fully compensated.</div>
-            </div>
-          </div>
-        <div class="case-study">
-          <h4>Case Study</h4>
-          <p><strong>European Union Green Public Procurement (GPP) Framework:</strong> The EU&rsquo;s voluntary Green Public Procurement framework encourages public authorities to include environmental criteria &ndash; such as biodiversity protection, sustainable sourcing, and circularity &ndash; into their purchasing decisions. For building materials, the GPP includes specific guidance for timber, flooring, insulation, paints, and furniture, requiring products to be sustainably sourced, non-toxic, and durable. Many countries go further: for example, Sweden and Finland mandate FSC or PEFC-certified timber, while Denmark prioritises materials with low embodied carbon and environmental declarations. GPP demonstrates how policy can drive demand for low-impact, traceable, and nature positive products at scale.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Principle 5 -->
-  <div class="principle-detail">
-    <div class="principle-detail-inner fade-in">
-      <div class="principle-detail-text">
-        <div class="principle-num">Principle 5</div>
-        <h3>Invest in nature</h3>
-        <p>This principle sets a path from baseline investment to consistent, outcome-driven restoration funding. Nature provides both tangible and intangible benefits, and our reliance on it is profound. Therefore, investing in nature restoration is not merely a cost of &lsquo;doing good&rsquo; but a vital step to ensure healthy ecosystems, societies, and economies. Crucially, investing in nature supports climate goals and fosters economic opportunities for Indigenous communities.</p>
-        <div class="mini-roadmap">
-          <div class="mini-roadmap-label">Roadmap Targets &mdash; Click to explore</div>
-          <div class="mini-roadmap-track">
-            <div class="mini-rm-item">
-              <div class="mini-rm-dot" style="background:#BBBBBB;box-shadow:0 0 0 2px #BBBBBB;"></div>
-              <div class="mini-rm-year" style="color:var(--slate);">Today</div>
-              <div class="mini-rm-card baseline">National nature repair mechanisms are emerging, following the introduction of the Nature Repair Market.</div>
-            </div>
-            <div class="mini-rm-item active">
-              <div class="mini-rm-dot"></div>
-              <div class="mini-rm-year">2028</div>
-              <div class="mini-rm-card mc-p5">Measure and transparently disclose nature-related financial spend.</div>
-            </div>
-            <div class="mini-rm-item milestone">
-              <div class="mini-rm-dot"></div>
-              <div class="mini-rm-year">2030</div>
-              <div class="mini-rm-card mc-p5">Invest in nature restoration to address Scope 3 impacts in large developments and infrastructure projects.</div>
-            </div>
-            <div class="mini-rm-item active">
-              <div class="mini-rm-dot" style="background:transparent;box-shadow:none;"></div>
-              <div class="mini-rm-year" style="opacity:0">2035</div>
-              <div class="mini-rm-card baseline" style="visibility:hidden"></div>
-            </div>
-            <div class="mini-rm-item future">
-              <div class="mini-rm-dot"></div>
-              <div class="mini-rm-year">2050</div>
-              <div class="mini-rm-card mc-p5">Investment in nature restoration is standard practice across all projects.</div>
-            </div>
-          </div>
-        </div>
-        <div class="case-study">
-          <h4>Case Study</h4>
-          <p><strong>Latin America&rsquo;s &ldquo;Water Funds&rdquo; Model:</strong> In countries such as Colombia, infrastructure and utility providers invest a portion of their capital into upstream watershed restoration. These Water Funds finance forest regeneration, erosion control, and biodiversity protection, with long-term monitoring and community involvement. By tying investment to ecosystem services, these models show how public and private sectors can co-invest in nature with shared benefits.</p>
-        </div>
-      </div>
-      <div class="principle-detail-image-wrap">
-        <div class="principle-detail-image">
-          <img src="images/image18.jpeg" alt="Burwood Brickworks">
-        </div>
-        <p class="image-credit">Burwood Brickworks 6 Stars Green Star Communities v1</p>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- Enablers -->
 <section class="enablers-section" id="enablers">
   <div class="container">
@@ -4176,7 +3674,6 @@
       <a href="#response">Challenge &amp; Response</a>
       <a href="#roadmap">Roadmap</a>
       <a href="#actions">Actions</a>
-      <a href="#detail">Details</a>
       <a href="#enablers">Enablers</a>
       <a href="#greenstar">Green Star</a>
       <a href="#tnfd">TNFD</a>
@@ -4343,7 +3840,6 @@ function toggleCRItem(el) {
 }
 
 // ===== INTERACTIVE ROADMAP PANEL DATA =====
-const panelData = {}; // legacy — kept for any remaining openPanel() calls
 const principleData = {
   // ===== PRINCIPLE 1: PREVENT NATURE LOSS =====
   'p1': {
@@ -4364,6 +3860,7 @@ const principleData = {
       { title: 'Standardise measurement and reporting', description: 'Develop robust, consistent methods for assessing nature losses and gains, with transparent public reporting.' },
       { title: 'Support Indigenous-led conservation and stewardship', description: 'Work in partnership with Traditional Custodians to protect cultural landscapes and integrate Traditional Ecological Knowledge into planning.' }
     ],
+    image: { src: 'images/image11.jpeg', alt: 'Alkimos Beach, WA', credit: 'Alkimos Beach, WA (6 Star Green Star Communities Pilot v.01)' },
     caseStudy: { title: 'Netherlands\u2019 \u201cNo Net Loss\u201d Planning Policy', text: 'Under the Dutch Nature Conservation Act (now under the Environment and Planning Act), developments that could impact protected species or Natura 2000 sites must follow a strict mitigation hierarchy: avoid, minimise, and, if necessary, compensate. If impacts cannot be fully avoided, developers must implement measurable compensation measures, typically located near the affected area and ecologically relevant. These requirements are fully integrated into spatial planning and permitting, creating a strong legal basis for protecting high value biodiversity and enforcing no net loss of nature through development processes.' }
   },
 
@@ -4384,6 +3881,7 @@ const principleData = {
       { title: 'Advocate for monitoring of outcomes for EPBC compliance', description: 'Shift from compliance-based reporting to measuring ecological outcomes over time to track actual habitat condition, species movement and ecosystem function. Ensure monitoring is transparent, repeatable and clearly linked to BNG claims.' },
       { title: 'Incentivise urban and regional restoration', description: 'Support large-scale revegetation, green infrastructure, and nature-based solutions in urban environments through grants, density bonuses, or integrated infrastructure funding.' }
     ],
+    image: { src: 'images/image12.jpeg', alt: 'Naarm development', credit: 'Naarm 5 Star Green Star Design & As-Built' },
     caseStudy: { title: 'UK\u2019s Biodiversity Net Gain (BNG) regulation', text: 'In England, all major developments must deliver at least a 10% measurable biodiversity net gain from 2024, secured for a minimum of 30 years. Gains are assessed using the national statutory biodiversity metric and enforced by local planning authorities. The policy supports both on-site and off-site improvements, driving innovation in habitat creation, ecological design, land restoration markets, and green infrastructure integration. It aims to increase and connect nature at a landscape scale through the planning system.' }
   },
 
@@ -4404,6 +3902,7 @@ const principleData = {
       { title: 'De-risk circular procurement', description: 'Update government procurement policies to allow for reused and recycled materials and remove performance and liability barriers to innovation.' },
       { title: 'Track and disclose material flows', description: 'Require material passports, digital twins, or lifecycle assessments to track embedded impacts and material reuse potential over time.' }
     ],
+    image: { src: 'images/image14.jpeg', alt: 'The Quay development', credit: 'The Quay 4 Star Multi Unit Residential Design' },
     caseStudy: { title: 'Finland\u2019s Circular Economy Roadmap', text: 'Finland was the first country to adopt a national circular economy strategy. In the built environment, this includes requirements for public buildings to use reused or recycled materials, lifecycle carbon and circularity assessments for planning approvals, and investment in digital platforms to track materials across buildings. The approach has reduced construction waste and created new business models in reuse and repair.' }
   },
 
@@ -4424,6 +3923,7 @@ const principleData = {
       { title: 'Embed nature impact criteria in procurement', description: 'Update specifications and contracts to prioritise low-impact and responsibly sourced products \u2013 especially in public and institutional projects.' },
       { title: 'Engage with product manufacturers', description: 'Build capacity by engaging with the supply chain and put in place incentives to facilitate innovative, low-impact and circular materials.' }
     ],
+    image: { src: 'images/image16.jpeg', alt: 'The Exchange', credit: 'The Exchange 4 Star Green Star Performance v1.1' },
     caseStudy: { title: 'European Union Green Public Procurement (GPP) Framework', text: 'The EU\u2019s voluntary Green Public Procurement framework encourages public authorities to include environmental criteria \u2013 such as biodiversity protection, sustainable sourcing, and circularity \u2013 into their purchasing decisions. For building materials, the GPP includes specific guidance for timber, flooring, insulation, paints, and furniture, requiring products to be sustainably sourced, non-toxic, and durable. Many countries go further: for example, Sweden and Finland mandate FSC or PEFC-certified timber, while Denmark prioritises materials with low embodied carbon and environmental declarations. GPP demonstrates how policy can drive demand for low-impact, traceable, and nature positive products at scale.' }
   },
 
@@ -4445,6 +3945,7 @@ const principleData = {
       { title: 'Invest in indigenous owned businesses', description: 'Support integration of Aboriginal and Torres Strait Islander knowledge and cultural practice in nature regeneration activities by prioritising spend in indigenous owned businesses.' },
       { title: 'Monitor and report restoration outcomes', description: 'Require transparency on how funds are used, what ecological gains are delivered, and how long-term stewardship is ensured.' }
     ],
+    image: { src: 'images/image18.jpeg', alt: 'Burwood Brickworks', credit: 'Burwood Brickworks 6 Stars Green Star Communities v1' },
     caseStudy: { title: 'Latin America\u2019s \u201cWater Funds\u201d Model', text: 'In countries such as Colombia, infrastructure and utility providers invest a portion of their capital into upstream watershed restoration. These Water Funds finance forest regeneration, erosion control, and biodiversity protection, with long-term monitoring and community involvement. By tying investment to ecosystem services, these models show how public and private sectors can co-invest in nature with shared benefits.' }
   }
 };
@@ -4482,46 +3983,6 @@ window.addEventListener('DOMContentLoaded', function() {
 });
 
 // Panel functions
-function openPanel(id) {
-  const data = panelData[id];
-  if (!data) return;
-
-  document.getElementById('panelPrinciple').textContent = data.principle;
-  document.getElementById('panelTitle').textContent = data.title;
-  document.getElementById('panelTime').textContent = data.time;
-
-  let html = '';
-
-  // Context
-  html += '<div class="irm-panel-context">' + data.context + '</div>';
-
-  // Actions needed
-  html += '<div class="irm-panel-section actions-section">';
-  html += '<h4>Actions Needed in the Next Five Years</h4>';
-  html += '<ul>';
-  data.actions.forEach(a => { html += '<li>' + a + '</li>'; });
-  html += '</ul></div>';
-
-  // GBCA actions
-  html += '<div class="irm-panel-section gbca-section">';
-  html += '<h4>What GBCA Is Doing</h4>';
-  html += '<ul>';
-  data.gbca.forEach(g => { html += '<li>' + g + '</li>'; });
-  html += '</ul></div>';
-
-  // Industry actions
-  html += '<div class="irm-panel-section industry-section">';
-  html += '<h4>What Industry Needs to Do</h4>';
-  html += '<ul>';
-  data.industry.forEach(i => { html += '<li>' + i + '</li>'; });
-  html += '</ul></div>';
-
-  document.getElementById('panelBody').innerHTML = html;
-  document.getElementById('irmOverlay').classList.add('open');
-  document.getElementById('irmPanel').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
 function openPrinciplePanel(prefix) {
   const d = principleData[prefix];
   if (!d) return;
@@ -4534,6 +3995,14 @@ function openPrinciplePanel(prefix) {
 
   // Overview — large light green Roboto
   html += '<div class="irm-panel-context">' + d.overview + '</div>';
+
+  // Hero image
+  if (d.image) {
+    html += '<div class="panel-image">';
+    html += '<img src="' + d.image.src + '" alt="' + d.image.alt + '">';
+    html += '<div class="panel-image-credit">' + d.image.credit + '</div>';
+    html += '</div>';
+  }
 
   // Key terms
   if (d.keyTerms && d.keyTerms.length) {
