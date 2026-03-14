@@ -1965,33 +1965,83 @@
   }
 
   /* ===== TAB COMPONENT ===== */
-  .tabs {
-    margin-top: 2rem;
+  .action-two-panel {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    border-radius: 16px;
+    overflow: hidden;
   }
-  .tab-headers {
+  .action-involve {
+    background: var(--green-dark);
+    color: var(--white);
+    padding: 3rem 2.5rem;
+  }
+  .action-involve h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 2rem;
+    color: var(--white);
+  }
+  .action-involve ul {
+    list-style: none;
+    padding: 0;
     display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    margin-bottom: 1.5rem;
+    flex-direction: column;
+    gap: 1.25rem;
   }
-  .tab-btn {
-    padding: 12px 1.5rem;
-    background: transparent;
-    border: 2px solid var(--green-light);
-    border-radius: var(--btn-radius);
-    color: var(--green-mid);
-    font-family: var(--font-ui);
-    font-weight: 400;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: all 0.2s;
+  .action-involve li {
+    position: relative;
+    padding-left: 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.92);
   }
-  .tab-btn.active, .tab-btn:hover {
-    background: var(--green-light);
-    color: white;
+  .action-involve li::before {
+    content: '\25C9';
+    position: absolute;
+    left: 0;
+    color: rgba(255,255,255,0.6);
+    font-size: 0.7rem;
+    top: 4px;
   }
-  .tab-panel { display: none; }
-  .tab-panel.active { display: block; }
+  .action-now {
+    background: var(--green-mid);
+    color: var(--white);
+    padding: 3rem 2.5rem;
+  }
+  .action-now h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--white);
+  }
+  .action-now-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .action-now-grid h4 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--white);
+  }
+  .action-now-grid ol {
+    padding-left: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .action-now-grid li {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.92);
+  }
+  @media (max-width: 900px) {
+    .action-two-panel { grid-template-columns: 1fr; }
+    .action-now-grid { grid-template-columns: 1fr; }
+  }
 
   /* Progress indicator in nav */
   .progress-bar {
@@ -3838,94 +3888,60 @@
 <!-- Stakeholder Roles -->
 <section id="action" style="background: var(--white);">
   <div class="container">
-    <div class="section-header fade-in">
-      <div class="section-label">Take Action</div>
-      <h2>Your role in a nature positive built environment</h2>
-      <p>From investment and governance through to planning, design, delivery and long-term ownership, decisions at every stage influence nature outcomes.</p>
-    </div>
-
-    <div class="tabs fade-in">
-      <div class="tab-headers">
-        <button class="tab-btn active" onclick="switchTab(event, 'tab-gov')">Government</button>
-        <button class="tab-btn" onclick="switchTab(event, 'tab-dev')">Developers</button>
-        <button class="tab-btn" onclick="switchTab(event, 'tab-mfg')">Manufacturers</button>
-        <button class="tab-btn" onclick="switchTab(event, 'tab-fin')">Finance Sector</button>
+    <div class="action-two-panel fade-in">
+      <div class="action-involve">
+        <h3>Get involved as we embed these requirements over time:</h3>
+        <ul>
+          <li>Co-create with First Nations and community to develop designs and solutions that celebrate nature, create positive places, and generate economic opportunities including for First Nations Peoples.</li>
+          <li>Support government in making changes to policy, codes, and standards that drive nature protection and regeneration.</li>
+          <li>Help create the market for circular, low-impact products that deliver better outcomes for nature and people.</li>
+          <li>Share knowledge, upskill teams, and partner with us to deliver new services and approaches that accelerate industry transformation.</li>
+          <li>Get your projects certified with Green Star to build capability in industry and contribute directly to nature positive outcomes.</li>
+        </ul>
       </div>
-
-      <div class="tab-panel active" id="tab-gov">
-        <div class="roles-grid">
-          <div class="role-card">
-            <div class="role-icon">&#x1F3DB;</div>
-            <h3>Now &ndash; 2030</h3>
-            <p>Put in place planning policies that stop zoning of previously undeveloped land. Introduce biodiversity net gain requirements. Promote higher density, urban infill and regeneration.</p>
+      <div class="action-now">
+        <h3>What can you do now?</h3>
+        <div class="action-now-grid">
+          <div>
+            <h4>Government</h4>
+            <ol>
+              <li>Implement nature reforms that better protect nature while providing greater clarity to industry on protection and regeneration actions.</li>
+              <li>Limit the need for additional land clearing by increasing density limits.</li>
+              <li>Invest in and support low-impact and circular product manufacturing.</li>
+              <li>Support the expansion of investments benefiting nature through the Nature Repair Market.</li>
+              <li>Commit government-led and funded projects to achieving biodiversity net gains at scale, verify with Green Star and build industry capacity.</li>
+            </ol>
           </div>
-          <div class="role-card">
-            <div class="role-icon">&#x1F3D7;</div>
-            <h3>2030 &ndash; 2040</h3>
-            <p>Land use zoning avoids high and moderate value biodiversity. Density limits increased to limit urban growth in undeveloped areas.</p>
+          <div>
+            <h4>Developers</h4>
+            <ol>
+              <li>Define and map high-value biodiversity onsite and set biodiversity net gain as a goal that informs your designs.</li>
+              <li>Work with First Nations and community to incorporate Designing with Country principles and encourage connections to nature.</li>
+              <li>Incorporate circularity into design to minimise your project's footprint on nature, and measure and report on this.</li>
+              <li>Direct project spend towards nature-based solutions and work with the supply chain to reduce nature impacts and increase circularity.</li>
+            </ol>
           </div>
-          <div class="role-card">
-            <div class="role-icon">&#x1F30D;</div>
-            <h3>By 2050</h3>
-            <p>Implement nature reforms for better protection with greater clarity. Invest in low-impact and circular product manufacturing. Expand Nature Repair Market.</p>
+          <div>
+            <h4>Manufacturers</h4>
+            <ol>
+              <li>Define and map biodiversity values across your operations and product life cycles.</li>
+              <li>Develop and implement plans to limit and reduce impacts, particularly during material extraction and manufacture.</li>
+              <li>Set biodiversity net gain targets and invest in nature to compensate for impacts.</li>
+              <li>Increase traceability by disclosing the origin of raw materials and any impacts in compliance with environmental and human rights standards.</li>
+              <li>Work with local communities to increase locally sourced materials and support community capacity building.</li>
+            </ol>
           </div>
-      </div>
-
-      <div class="tab-panel" id="tab-dev">
-        <div class="roles-grid">
-          <div class="role-card">
-            <div class="role-icon">&#x1F3E0;</div>
-            <h3>Now &ndash; 2030</h3>
-            <p>Protect high value ecosystems. Procure lower-impact materials. Integrate 'Design with Country'. Measure and report on circularity. Design to increase nature onsite.</p>
+          <div>
+            <h4>Finance sector</h4>
+            <ol>
+              <li>Identify, map, and build internal capacity to measure nature-related risks, dependencies, and opportunities across operations and investment decisions.</li>
+              <li>Develop policies, strategies, and plans to transition away from investments that harm nature in favour of those that restore it.</li>
+              <li>Encourage the use of high-quality certification such as Green Star for buildings, precincts, and fitouts.</li>
+              <li>Engage with customers, suppliers, and businesses with high nature-related risks and impacts.</li>
+              <li>Report and disclose implemented actions and progress towards targets.</li>
+            </ol>
           </div>
-          <div class="role-card">
-            <div class="role-icon">&#x1F333;</div>
-            <h3>2030 &ndash; 2040</h3>
-            <p>Reuse and refurbish existing assets. Develop only on sites with low biodiversity value. Construction activities are nature positive and improve site biodiversity.</p>
-          </div>
-          <div class="role-card">
-            <div class="role-icon">&#x2728;</div>
-            <h3>By 2050</h3>
-            <p>Procure materials with no net negative nature impacts. Compensate for all direct and supply chain impacts. Co-design with community.</p>
-          </div>
-      </div>
-
-      <div class="tab-panel" id="tab-mfg">
-        <div class="roles-grid">
-          <div class="role-card">
-            <div class="role-icon">&#x1F3ED;</div>
-            <h3>Now &ndash; 2030</h3>
-            <p>Review and transparently disclose nature impacts. Develop and implement nature positive plans. Increase circularity in manufacturing.</p>
-          </div>
-          <div class="role-card">
-            <div class="role-icon">&#x1F4CA;</div>
-            <h3>2030 &ndash; 2040</h3>
-            <p>Set nature positive targets. Compensate for impacts. Avoid impacts to high value species and ecosystems. Increase circular manufacturing.</p>
-          </div>
-          <div class="role-card">
-            <div class="role-icon">&#x2705;</div>
-            <h3>By 2050</h3>
-            <p>Compensate for all nature impacts and publicly report. Increase traceability and disclose raw material origins. Work with communities for local sourcing.</p>
-          </div>
-      </div>
-
-      <div class="tab-panel" id="tab-fin">
-        <div class="roles-grid">
-          <div class="role-card">
-            <div class="role-icon">&#x1F4B1;</div>
-            <h3>Now &ndash; 2030</h3>
-            <p>Identify and map nature-related risks, dependencies and opportunities. Build internal capacity for nature-related assessment.</p>
-          </div>
-          <div class="role-card">
-            <div class="role-icon">&#x1F4C8;</div>
-            <h3>2030 &ndash; 2040</h3>
-            <p>Develop policies and strategy to transition away from nature-negative investments. Engage with businesses that have high nature-related risks.</p>
-          </div>
-          <div class="role-card">
-            <div class="role-icon">&#x1F331;</div>
-            <h3>By 2050</h3>
-            <p>Report and disclose implemented actions and progress towards targets. Fully integrate nature-positive criteria into all investment decisions.</p>
-          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -4056,14 +4072,6 @@ function toggleAccordion(header) {
     item.classList.add('open');
     body.style.maxHeight = body.scrollHeight + 'px';
   }
-}
-
-// Tabs
-function switchTab(e, tabId) {
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-  e.target.classList.add('active');
-  document.getElementById(tabId).classList.add('active');
 }
 
 
