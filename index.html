@@ -2394,7 +2394,7 @@
   }
   .irm-panel-close:hover { background: rgba(255,255,255,0.3); }
 
-  .irm-panel-body { padding: 2rem; }
+  .irm-panel-body { padding: 2rem; background: #f8faf7; }
 
   .irm-panel-section {
     margin-bottom: 2rem;
@@ -2452,6 +2452,115 @@
     color: var(--slate);
     margin-top: 1rem;
     opacity: 0.6;
+  }
+
+  /* --- Principle panel content styling --- */
+  .irm-panel-context p {
+    margin: 0 0 0.75rem;
+  }
+  .irm-panel-context p:last-child {
+    margin-bottom: 0;
+  }
+
+  .panel-key-terms {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.06);
+    margin-top: 0.5rem;
+  }
+  .panel-key-terms tr {
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .panel-key-terms tr:last-child {
+    border-bottom: none;
+  }
+  .panel-key-terms tr:nth-child(even) {
+    background: var(--green-pale);
+  }
+  .panel-key-terms td {
+    padding: 0.65rem 0.85rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--slate);
+    vertical-align: top;
+  }
+  .panel-key-terms td:first-child {
+    font-weight: 700;
+    color: var(--green-dark);
+    white-space: nowrap;
+    width: 1%;
+  }
+
+  .panel-actions-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+  }
+  .panel-action-card {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 1rem 1rem 1rem 1.15rem;
+    border: 1px solid rgba(0,0,0,0.06);
+    border-left: 4px solid var(--green-mid);
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .panel-action-card:hover {
+    box-shadow: 0 2px 12px rgba(34,156,71,0.10);
+    transform: translateY(-1px);
+  }
+  .panel-action-card strong {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--green-dark);
+    margin-bottom: 0.3rem;
+  }
+  .panel-action-card p {
+    margin: 0;
+    font-size: 0.84rem;
+    line-height: 1.55;
+    color: var(--slate);
+    opacity: 0.85;
+  }
+
+  .panel-case-study {
+    background: var(--green-pale);
+    border: 1px solid rgba(34,156,71,0.15);
+    border-left: 4px solid var(--green-dark);
+    border-radius: 10px;
+    padding: 1.25rem;
+    margin-top: 0.75rem;
+  }
+  .panel-case-study h4 {
+    border-bottom: none !important;
+    margin-bottom: 0.5rem !important;
+    padding-bottom: 0 !important;
+    color: var(--green-dark);
+  }
+  .panel-case-study .case-title {
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: var(--green-dark);
+    margin-bottom: 0.4rem;
+  }
+  .panel-case-study .case-text {
+    font-size: 0.84rem;
+    line-height: 1.6;
+    color: var(--slate);
+  }
+
+  .panel-section-label {
+    display: inline-block;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    font-weight: 700;
+    color: var(--green-dark);
+    background: rgba(34,156,71,0.08);
+    padding: 0.3rem 0.75rem;
+    border-radius: 50px;
+    margin-bottom: 0.75rem;
   }
 
   @media (max-width: 768px) {
@@ -4360,12 +4469,12 @@ function openPrinciplePanel(prefix) {
   // Key terms
   if (d.keyTerms && d.keyTerms.length) {
     html += '<div class="irm-panel-section" style="margin-top:1.5rem;">';
-    html += '<h4>Key terms</h4>';
-    html += '<table style="width:100%;border-collapse:collapse;margin-top:0.5rem;">';
+    html += '<div class="panel-section-label">Key terms</div>';
+    html += '<table class="panel-key-terms" style="width:100%;border-collapse:collapse;">';
     d.keyTerms.forEach(t => {
-      html += '<tr style="border-bottom:1px solid rgba(255,255,255,0.1);">';
-      html += '<td style="padding:0.5rem 0.75rem 0.5rem 0;font-weight:600;vertical-align:top;white-space:nowrap;">' + t.term + '</td>';
-      html += '<td style="padding:0.5rem 0;">' + t.definition + '</td>';
+      html += '<tr>';
+      html += '<td>' + t.term + '</td>';
+      html += '<td>' + t.definition + '</td>';
       html += '</tr>';
     });
     html += '</table></div>';
@@ -4374,23 +4483,25 @@ function openPrinciplePanel(prefix) {
   // Actions
   if (d.actions && d.actions.length) {
     html += '<div class="irm-panel-section" style="margin-top:1.5rem;">';
-    html += '<h4>What needs to happen in the next five years</h4>';
+    html += '<div class="panel-section-label">What needs to happen in the next five years</div>';
+    html += '<div class="panel-actions-grid">';
     d.actions.forEach(a => {
-      html += '<div style="margin-top:0.75rem;">';
+      html += '<div class="panel-action-card">';
       html += '<strong>' + a.title + '</strong>';
-      html += '<p style="margin:0.25rem 0 0;opacity:0.85;">' + a.description + '</p>';
+      html += '<p>' + a.description + '</p>';
       html += '</div>';
     });
-    html += '</div>';
+    html += '</div></div>';
   }
 
   // Case study
   if (d.caseStudy) {
-    html += '<div class="irm-panel-section" style="margin-top:1.5rem;padding:1rem;background:rgba(255,255,255,0.05);border-radius:0.5rem;">';
-    html += '<h4>Case study</h4>';
-    html += '<p><strong>' + d.caseStudy.title + '</strong></p>';
-    html += '<p style="opacity:0.85;">' + d.caseStudy.text + '</p>';
-    html += '</div>';
+    html += '<div class="irm-panel-section" style="margin-top:1.5rem;">';
+    html += '<div class="panel-section-label">Case study</div>';
+    html += '<div class="panel-case-study">';
+    html += '<div class="case-title">' + d.caseStudy.title + '</div>';
+    html += '<div class="case-text">' + d.caseStudy.text + '</div>';
+    html += '</div></div>';
   }
 
   document.getElementById('panelBody').innerHTML = html;
