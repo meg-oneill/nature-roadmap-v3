@@ -1346,6 +1346,240 @@
     margin-bottom: 0.5rem;
   }
 
+  /* ===== PATHWAY DIAGRAM ===== */
+  .pathway-wrapper {
+    margin-top: 3rem;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.08);
+    background: #f7f9f7;
+  }
+  .pathway-tab-bar {
+    display: flex;
+    background: var(--green-dark);
+  }
+  .pathway-tab {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.7);
+    font-family: var(--font-primary);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+  }
+  .pathway-tab::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: var(--white);
+    border-radius: 3px 3px 0 0;
+    transition: all 0.3s;
+    transform: translateX(-50%);
+  }
+  .pathway-tab:hover { color: rgba(255,255,255,0.95); background: rgba(255,255,255,0.05); }
+  .pathway-tab.active { color: var(--white); background: rgba(255,255,255,0.08); }
+  .pathway-tab.active::after { width: 50px; }
+  .pathway-diagram {
+    display: none;
+    padding: 2rem;
+    animation: stakeholderFadeIn 0.35s ease;
+  }
+  .pathway-diagram.active { display: block; }
+  .pathway-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 1.5rem;
+  }
+  /* Timeline header */
+  .pathway-timeline-header {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    margin-bottom: 0.25rem;
+  }
+  .pathway-timeline-cols {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    position: relative;
+    padding: 0 0.5rem;
+  }
+  .pathway-timeline-cols::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0.5rem;
+    right: 0.5rem;
+    height: 2px;
+    background: var(--green-dark);
+  }
+  .pathway-col-label {
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--green-dark);
+    position: relative;
+    z-index: 1;
+  }
+  .pathway-col-label span {
+    background: #f7f9f7;
+    padding: 0.15rem 0.5rem;
+    display: inline-block;
+  }
+  .pathway-col-label::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    margin: 4px auto 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid var(--green-dark);
+  }
+  /* Principle groups */
+  .pathway-group {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    border-top: 1px solid rgba(0,0,0,0.06);
+  }
+  .pathway-group:first-of-type { border-top: none; }
+  .pathway-group-label {
+    padding: 1rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 2px solid var(--green-dark);
+    background: rgba(34,156,71,0.04);
+  }
+  .pathway-group-num {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--green-dark);
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.4rem;
+  }
+  .pathway-group-name {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--green-dark);
+    line-height: 1.2;
+  }
+  .pathway-rows {
+    display: flex;
+    flex-direction: column;
+  }
+  .pathway-row {
+    display: grid;
+    grid-template-columns: minmax(200px, 2fr) 3fr;
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+    background: var(--white);
+    min-height: 42px;
+  }
+  .pathway-row:last-child { border-bottom: none; }
+  .pathway-row:nth-child(even) { background: rgba(0,0,0,0.01); }
+  .pathway-target-text {
+    padding: 0.6rem 1rem;
+    font-size: 0.78rem;
+    line-height: 1.4;
+    color: var(--slate);
+    display: flex;
+    align-items: center;
+    border-right: 1px solid rgba(0,0,0,0.04);
+  }
+  .pathway-bars {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 3px;
+    padding: 0.4rem 0.5rem;
+    align-items: center;
+  }
+  .pathway-bar {
+    border-radius: 4px;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.68rem;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    line-height: 1.3;
+    min-height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pathway-bar.shade-4 { background: var(--green-dark); color: var(--white); }
+  .pathway-bar.shade-3 { background: var(--green-mid); color: var(--white); }
+  .pathway-bar.shade-2 { background: #b5d8a3; color: #1a5c2e; }
+  .pathway-bar.shade-1 { background: #e2f0dc; color: #3a7a3a; border: 1px solid #b5d8a3; }
+  .pathway-bar.empty { background: none; }
+  /* Enablers footer */
+  .pathway-enablers {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+    border-top: 2px solid var(--green-dark);
+    background: rgba(34,156,71,0.04);
+    margin-top: 0.5rem;
+  }
+  .pathway-enablers-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--green-dark);
+    white-space: nowrap;
+  }
+  .pathway-enablers-line {
+    flex: 0 0 30px;
+    height: 2px;
+    background: var(--green-dark);
+  }
+  .pathway-enablers-text {
+    font-size: 0.78rem;
+    font-weight: 600;
+    font-style: italic;
+    color: var(--green-mid);
+    flex: 1;
+  }
+  .pathway-enablers-arrow {
+    font-size: 1.2rem;
+    color: var(--green-dark);
+    font-weight: 700;
+  }
+  /* Pathway sidebar label */
+  .pathway-sidebar {
+    position: relative;
+  }
+  .pathway-sidebar-label {
+    position: absolute;
+    left: -2px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--green-dark);
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    transform-origin: center center;
+  }
+  @media (max-width: 900px) {
+    .pathway-wrapper { overflow-x: auto; }
+    .pathway-diagram { min-width: 800px; }
+    .greenstar-grid { grid-template-columns: 1fr; }
+  }
+
   /* ===== GBCA ROLE ===== */
   .gbca-role-section {
     background: var(--green-mid);
@@ -3959,6 +4193,15 @@
         </ul>
       </div>
     </div>
+    <!-- Pathway Diagrams -->
+    <div class="pathway-wrapper fade-in">
+      <div class="pathway-tab-bar" role="tablist">
+        <button class="pathway-tab active" role="tab" aria-selected="true" onclick="switchPathwayTab(this, 'buildings')">Green Star Buildings</button>
+        <button class="pathway-tab" role="tab" aria-selected="false" onclick="switchPathwayTab(this, 'communities')">Green Star Communities v2</button>
+      </div>
+      <div class="pathway-diagram active" id="pathway-buildings"></div>
+      <div class="pathway-diagram" id="pathway-communities"></div>
+    </div>
   </div>
 </section>
 
@@ -4079,6 +4322,126 @@
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">&#x2191;</button>
 
 <script>
+// Pathway diagram tab switching & rendering
+function switchPathwayTab(btn, id) {
+  btn.closest('.pathway-wrapper').querySelectorAll('.pathway-tab').forEach(t => {
+    t.classList.remove('active');
+    t.setAttribute('aria-selected', 'false');
+  });
+  btn.classList.add('active');
+  btn.setAttribute('aria-selected', 'true');
+  btn.closest('.pathway-wrapper').querySelectorAll('.pathway-diagram').forEach(p => p.classList.remove('active'));
+  document.getElementById('pathway-' + id).classList.add('active');
+}
+
+const PATHWAY_DATA = {
+  buildings: {
+    title: 'Nature Positive Pathway in Green Star Buildings',
+    principles: [
+      { num:1, name:'Prevent nature loss', targets:[
+        { text:'Planning requires no net loss of high value biodiversity.', bars:[{s:0,e:4,label:'All buildings',shade:4}] },
+        { text:'Measure and report onsite biodiversity values.', bars:[{s:0,e:0,label:'All ratings (v1.1)',shade:3}] },
+        { text:'Prioritise onsite protection to achieve no net loss of high value biodiversity, with restoration for residual impacts.', bars:[{s:1,e:1,label:'5 Star (v1.1)',shade:2},{s:2,e:2,label:'All ratings (v1.1)',shade:3},{s:3,e:4,label:'All buildings',shade:4}] }
+      ]},
+      { num:2, name:'Increase and connect nature', targets:[
+        { text:'Minimise construction-related impacts through planning.', bars:[{s:0,e:4,label:'All buildings',shade:4}] },
+        { text:'Deliver at least 10% biodiversity net gain, prioritising onsite gains.', bars:[{s:1,e:1,label:'5 Star (v1.1)',shade:2},{s:2,e:2,label:'All ratings (v1.1)',shade:3},{s:4,e:4,label:'All buildings',shade:4}] }
+      ]},
+      { num:3, name:'Drive circularity', targets:[
+        { text:'Measure and benchmark project-level circularity.', bars:[{s:0,e:0,label:'Voluntary (v1.1)',shade:1},{s:2,e:4,label:'All ratings (v1.2)',shade:3}] },
+        { text:'Achieve a 10% improvement in project-level circularity.', bars:[{s:0,e:0,label:'Voluntary (v1.1)',shade:1},{s:2,e:2,label:'6 Star (v1.2)',shade:2},{s:3,e:3,label:'5 Star (v1.2)',shade:3},{s:4,e:4,label:'All ratings (v1.2)',shade:4}] },
+        { text:'Achieve a 20% improvement in project-level circularity.', bars:[{s:0,e:0,label:'Voluntary (v1.1)',shade:1},{s:3,e:3,label:'6 Star (v1.2)',shade:2},{s:4,e:4,label:'5 Star (v1.2)',shade:3}] }
+      ]},
+      { num:4, name:'Choose low-impact materials', targets:[
+        { text:'Illegally harvested timber is prohibited in the supply chain.', bars:[{s:0,e:4,label:'All buildings',shade:4}] },
+        { text:'Measure nature impacts of the top 10 materials and develop management plans.', bars:[{s:1,e:4,label:'Responsible Products v.B',shade:1}] },
+        { text:'Implement nature impact management plans for the top 10 materials.', bars:[{s:1,e:4,label:'Responsible Products v.B',shade:1}] },
+        { text:'Manufacturers of the top 10 materials must set biodiversity net gain targets.', bars:[{s:3,e:4,label:'Responsible Products v.C',shade:1}] }
+      ]},
+      { num:5, name:'Invest in nature', targets:[
+        { text:'Measure and transparently disclose nature-related financial spend.', bars:[{s:0,e:0,label:'Voluntary (v1.1)',shade:1}] },
+        { text:'Invest in nature restoration to address Scope 3 impacts in large developments and infrastructure projects.', bars:[{s:0,e:0,label:'6 Star (v1.1)',shade:2},{s:1,e:1,label:'5 Star (v1.1)',shade:3},{s:2,e:2,label:'All ratings (v1.1)',shade:3},{s:4,e:4,label:'All buildings',shade:4}] }
+      ]}
+    ]
+  },
+  communities: {
+    title: 'Nature Positive Pathway in Green Star Communities v2',
+    principles: [
+      { num:1, name:'Prevent nature loss', targets:[
+        { text:'Planning requires no net loss of high value biodiversity.', bars:[{s:0,e:4,label:'All precincts',shade:4}] },
+        { text:'Measure and report onsite biodiversity values.', bars:[{s:0,e:0,label:'All ratings (v2)',shade:3}] },
+        { text:'Prioritise onsite protection to achieve no net loss of high value biodiversity, with restoration for residual impacts.', bars:[{s:1,e:1,label:'5 Star (v2)',shade:2},{s:2,e:2,label:'All ratings',shade:3},{s:3,e:4,label:'All precincts',shade:4}] }
+      ]},
+      { num:2, name:'Increase and connect nature', targets:[
+        { text:'Minimise construction-related impacts through planning.', bars:[{s:0,e:4,label:'All precincts',shade:4}] },
+        { text:'Deliver at least 10% biodiversity net gain, prioritising onsite gains.', bars:[{s:1,e:1,label:'5 Star (v2)',shade:2},{s:2,e:2,label:'All ratings (v2)',shade:3},{s:4,e:4,label:'All precincts',shade:4}] }
+      ]},
+      { num:3, name:'Drive circularity', targets:[
+        { text:'Measure and benchmark project-level circularity.', bars:[{s:0,e:0,label:'Voluntary (v2)',shade:1}] },
+        { text:'Achieve a 10% improvement in project-level circularity.', bars:[{s:0,e:0,label:'Voluntary (v2)',shade:1},{s:2,e:2,label:'6 Star (v2.1)',shade:2},{s:3,e:3,label:'5 Star (v2.1)',shade:3},{s:4,e:4,label:'All Ratings (v2.1)',shade:4}] },
+        { text:'Achieve a 20% improvement in project-level circularity.', bars:[{s:0,e:0,label:'Voluntary (v2)',shade:1},{s:3,e:3,label:'6 Star (v2.1)',shade:2},{s:4,e:4,label:'5 Star (v2.1)',shade:3}] }
+      ]},
+      { num:4, name:'Choose low-impact materials', targets:[
+        { text:'Illegally harvested timber is prohibited in the supply chain.', bars:[{s:0,e:4,label:'All precincts',shade:4}] },
+        { text:'Measure nature impacts of the top 10 materials and develop management plans.', bars:[{s:1,e:4,label:'Responsible Products v.B',shade:1}] },
+        { text:'Implement nature impact management plans for the top 10 materials.', bars:[{s:1,e:4,label:'Responsible Products v.B',shade:1}] },
+        { text:'Manufacturers of the top 10 materials must set biodiversity net gain targets.', bars:[{s:3,e:4,label:'Responsible Products v.C',shade:1}] }
+      ]},
+      { num:5, name:'Invest in nature', targets:[
+        { text:'Measure and transparently disclose nature-related financial spend.', bars:[{s:0,e:0,label:'Voluntary (v2)',shade:1}] },
+        { text:'Invest in nature restoration to address Scope 3 impacts in large developments and infrastructure projects.', bars:[{s:0,e:0,label:'Voluntary (v2)',shade:1},{s:2,e:2,label:'6 Star (v2.1)',shade:2},{s:3,e:3,label:'5 Star (v2.1)',shade:3},{s:4,e:4,label:'All Ratings (v2.1)',shade:4}] }
+      ]}
+    ]
+  }
+};
+
+function renderPathway(containerId, data) {
+  const el = document.getElementById(containerId);
+  let html = '<div class="pathway-title">' + data.title + '</div>';
+  // Timeline header
+  html += '<div class="pathway-timeline-header">';
+  html += '<div style="display:grid;grid-template-columns:140px 1fr;"><div></div>';
+  html += '<div style="display:grid;grid-template-columns:minmax(200px,2fr) 3fr;"><div style="padding:0 1rem;font-size:0.8rem;font-weight:700;color:var(--green-dark);">Targets</div>';
+  html += '<div class="pathway-timeline-cols">';
+  ['Today','2028','2030','2032','2035'].forEach(y => {
+    html += '<div class="pathway-col-label"><span>' + y + '</span></div>';
+  });
+  html += '</div></div></div></div>';
+  // Principle groups
+  data.principles.forEach(p => {
+    html += '<div class="pathway-group">';
+    html += '<div class="pathway-group-label"><div class="pathway-group-num">' + p.num + '</div><div class="pathway-group-name">' + p.name + '</div></div>';
+    html += '<div class="pathway-rows">';
+    p.targets.forEach(t => {
+      html += '<div class="pathway-row">';
+      html += '<div class="pathway-target-text">' + t.text + '</div>';
+      html += '<div class="pathway-bars">';
+      for (let c = 0; c < 5; c++) {
+        const bar = t.bars.find(b => b.s === c);
+        if (bar) {
+          const span = bar.e - bar.s + 1;
+          html += '<div class="pathway-bar shade-' + bar.shade + '" style="grid-column:' + (c+1) + '/' + (c+1+span) + '">' + bar.label + '</div>';
+          // skip columns covered by this bar
+          c = bar.e;
+        }
+      }
+      html += '</div></div>';
+    });
+    html += '</div></div>';
+  });
+  // Enablers footer
+  html += '<div class="pathway-enablers">';
+  html += '<div class="pathway-enablers-label">Enablers</div>';
+  html += '<div class="pathway-enablers-line"></div>';
+  html += '<div class="pathway-enablers-text">Embed culture and connection to Country &nbsp;|&nbsp; Strengthen data, metrics and decision-making &nbsp;|&nbsp; Build industry capability</div>';
+  html += '<div class="pathway-enablers-arrow">&#x27A1;</div>';
+  html += '</div>';
+  el.innerHTML = html;
+}
+
+renderPathway('pathway-buildings', PATHWAY_DATA.buildings);
+renderPathway('pathway-communities', PATHWAY_DATA.communities);
+
 // Stakeholder tab switching
 function switchStakeholderTab(btn, panelId) {
   btn.closest('.stakeholder-tabs-wrapper').querySelectorAll('.stakeholder-tab').forEach(t => {
