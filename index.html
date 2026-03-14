@@ -2286,21 +2286,40 @@
     top: 0;
     background: var(--green-dark);
     color: white;
-    padding: 1.5rem 2rem;
+    padding: 3.5rem 2rem 2rem;
+    z-index: 1;
+    background-size: cover;
+    background-position: center;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .irm-panel-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(68, 136, 62, 0.55), rgba(34, 86, 30, 0.85));
+    z-index: 0;
+  }
+  .irm-panel-header > * {
+    position: relative;
     z-index: 1;
   }
   .irm-panel-header .irm-panel-principle {
     font-size: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    opacity: 0.7;
-    margin-bottom: 0.25rem;
+    letter-spacing: 1.5px;
+    opacity: 0.85;
+    margin-bottom: 0.35rem;
+    font-weight: 500;
   }
   .irm-panel-header h3 {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    line-height: 1.3;
-    padding-right: 2rem;
+    line-height: 1.25;
+    padding-right: 2.5rem;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.2);
   }
   .irm-panel-header .irm-panel-time {
     display: inline-block;
@@ -2310,6 +2329,12 @@
     border-radius: 50px;
     font-size: 0.75rem;
     font-weight: 600;
+  }
+  .irm-panel-header .panel-image-credit {
+    font-size: 0.65rem;
+    opacity: 0.7;
+    font-style: italic;
+    margin-top: 0.5rem;
   }
   .irm-panel-close {
     position: absolute;
@@ -2537,27 +2562,6 @@
   }
 
   /* Case study */
-  /* Panel hero image */
-  .panel-image {
-    margin-bottom: 1.75rem;
-    border-radius: 12px;
-    overflow: hidden;
-  }
-  .panel-image img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    display: block;
-  }
-  .panel-image-credit {
-    font-family: 'Roboto', sans-serif;
-    font-size: 0.72rem;
-    color: var(--slate);
-    opacity: 0.7;
-    padding: 0.5rem 0.25rem 0;
-    font-style: italic;
-  }
-
   .panel-case-study {
     background: var(--green-pale);
     border-radius: 12px;
@@ -3987,22 +3991,31 @@ function openPrinciplePanel(prefix) {
   const d = principleData[prefix];
   if (!d) return;
 
+  var header = document.querySelector('.irm-panel-header');
   document.getElementById('panelPrinciple').textContent = d.principle;
   document.getElementById('panelTitle').textContent = d.principle.replace(/^Principle \d+: /, '');
   document.getElementById('panelTime').textContent = '';
+
+  // Set header background image
+  if (d.image) {
+    header.style.backgroundImage = 'url(' + d.image.src + ')';
+    // Add credit below title
+    var existing = header.querySelector('.panel-image-credit');
+    if (existing) existing.remove();
+    var credit = document.createElement('div');
+    credit.className = 'panel-image-credit';
+    credit.textContent = d.image.credit;
+    header.appendChild(credit);
+  } else {
+    header.style.backgroundImage = 'none';
+    var existing = header.querySelector('.panel-image-credit');
+    if (existing) existing.remove();
+  }
 
   let html = '';
 
   // Overview — large light green Roboto
   html += '<div class="irm-panel-context">' + d.overview + '</div>';
-
-  // Hero image
-  if (d.image) {
-    html += '<div class="panel-image">';
-    html += '<img src="' + d.image.src + '" alt="' + d.image.alt + '">';
-    html += '<div class="panel-image-credit">' + d.image.credit + '</div>';
-    html += '</div>';
-  }
 
   // Key terms
   if (d.keyTerms && d.keyTerms.length) {
