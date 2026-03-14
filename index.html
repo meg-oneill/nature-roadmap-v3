@@ -1653,6 +1653,20 @@
     align-items: start;
   }
 
+  /* Column wrappers for stacking multiple entries per year */
+  .tl-col-l {
+    grid-column: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .tl-col-r {
+    grid-column: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
   /* Year badge in the centre */
   .tl-year {
     grid-column: 2;
@@ -1686,10 +1700,16 @@
     text-align: right;
     margin-right: 12px;
   }
+  .tl-col-l .tl-pos-l {
+    grid-column: auto;
+  }
   .tl-pos-r {
     grid-column: 3;
     text-align: left;
     margin-left: 12px;
+  }
+  .tl-col-r .tl-pos-r {
+    grid-column: auto;
   }
 
   /* Colour: GBCA / Green Star = green */
@@ -1843,6 +1863,8 @@
     .tl-row { grid-template-columns: auto 1fr; }
     .tl-year { grid-column: 1; grid-row: 1; }
     .tl-pos-l, .tl-pos-r { grid-column: 2; text-align: left; margin-left: 12px; margin-right: 0; }
+    .tl-col-l .tl-pos-l, .tl-col-r .tl-pos-r { grid-column: auto; }
+    .tl-col-l, .tl-col-r { grid-column: 2; }
     .tl-empty, .tl-empty-r { display: none; }
   }
 
@@ -2981,51 +3003,49 @@
 
       <!-- 2020 -->
       <div class="tl-row">
-        <div class="tl-entry tl-pos-l tl-gbca" onclick="toggleTL(this)">
-          <div class="tl-entry-title"><span class="tl-entry-toggle">&#x25BC;</span> <span class="pt-tag pt-tag-gbca">GBCA</span> Green Star Buildings released with new Nature category</div>
-          <div class="tl-detail"><div class="tl-detail-inner">
-            <p>Green Star Buildings introduced a dedicated Nature category, embedding biodiversity outcomes into building certification for the first time.</p>
-            <a href="https://new.gbca.org.au/green-star/evolution/buildings-consultation/" target="_blank" class="tl-link" onclick="event.stopPropagation()">Read more</a>
-          </div></div>
+        <div class="tl-col-l">
+          <div class="tl-entry tl-pos-l tl-gbca" onclick="toggleTL(this)">
+            <div class="tl-entry-title"><span class="tl-entry-toggle">&#x25BC;</span> <span class="pt-tag pt-tag-gbca">GBCA</span> Green Star Buildings released with new Nature category</div>
+            <div class="tl-detail"><div class="tl-detail-inner">
+              <p>Green Star Buildings introduced a dedicated Nature category, embedding biodiversity outcomes into building certification for the first time.</p>
+              <a href="https://new.gbca.org.au/green-star/evolution/buildings-consultation/" target="_blank" class="tl-link" onclick="event.stopPropagation()">Read more</a>
+            </div></div>
+          </div>
         </div>
         <div class="tl-year">2020</div>
-        <div class="tl-entry tl-pos-r tl-ext" onclick="toggleTL(this)">
-          <div class="tl-entry-title">Independent Review of the EPBC Act (Samuel Review) <span class="tl-entry-toggle">&#x25BC;</span></div>
-          <div class="tl-detail"><div class="tl-detail-inner">
-            <p>The independent review found Australia&rsquo;s national environmental law was inadequate and not fit for purpose.</p>
-            <ul>
-              <li>The environment is in an unsustainable state of decline</li>
-              <li>Compliance and enforcement are inadequate</li>
-              <li>Offsetting schemes are not delivering outcomes</li>
-              <li>An independent regulator with strong enforcement powers is needed</li>
-            </ul>
-            <a href="https://www.dcceew.gov.au/environment/epbc/our-role/reviews/epbc-review-2020" target="_blank" class="tl-link" onclick="event.stopPropagation()">Read more</a>
-          </div></div>
-        </div>
-      </div>
-
-      <!-- 2020 — IPBES -->
-      <div class="tl-row">
-        <div class="tl-empty"></div>
-        <div class="tl-year">2020</div>
-        <div class="tl-entry tl-pos-r tl-ext" onclick="toggleTL(this)">
-          <div class="tl-entry-title">IPBES&rsquo;s Global Assessment for Biodiversity and Ecosystem Services <span class="tl-entry-toggle">&#x25BC;</span></div>
-          <div class="tl-detail"><div class="tl-detail-inner">
-            <p>The landmark IPBES assessment found nature is declining at unprecedented rates, identifying five primary drivers of biodiversity loss.</p>
-            <ul>
-              <li><strong>Land and sea-use change</strong> &mdash; deforestation, mining, urban development</li>
-              <li><strong>Climate change</strong> &mdash; disrupts habitats, drives species migration</li>
-              <li><strong>Pollution</strong> &mdash; air, waste, noise, vibration and light</li>
-              <li><strong>Exploitation</strong> &mdash; extraction of timber, minerals and steel</li>
-              <li><strong>Invasive species</strong> &mdash; threaten native ecosystems</li>
-            </ul>
-            <div class="pt-stats">
-              <span class="pt-stat-pill">1M species at risk</span>
-              <span class="pt-stat-pill">75% land altered</span>
-              <span class="pt-stat-pill">66% oceans impacted</span>
-            </div>
-            <a href="https://www.ipbes.net/second-global-assessment" target="_blank" class="tl-link" onclick="event.stopPropagation()">Read more</a>
-          </div></div>
+        <div class="tl-col-r">
+          <div class="tl-entry tl-pos-r tl-ext" onclick="toggleTL(this)">
+            <div class="tl-entry-title">Independent Review of the EPBC Act (Samuel Review) <span class="tl-entry-toggle">&#x25BC;</span></div>
+            <div class="tl-detail"><div class="tl-detail-inner">
+              <p>The independent review found Australia&rsquo;s national environmental law was inadequate and not fit for purpose.</p>
+              <ul>
+                <li>The environment is in an unsustainable state of decline</li>
+                <li>Compliance and enforcement are inadequate</li>
+                <li>Offsetting schemes are not delivering outcomes</li>
+                <li>An independent regulator with strong enforcement powers is needed</li>
+              </ul>
+              <a href="https://www.dcceew.gov.au/environment/epbc/our-role/reviews/epbc-review-2020" target="_blank" class="tl-link" onclick="event.stopPropagation()">Read more</a>
+            </div></div>
+          </div>
+          <div class="tl-entry tl-pos-r tl-ext" onclick="toggleTL(this)">
+            <div class="tl-entry-title">IPBES&rsquo;s Global Assessment for Biodiversity and Ecosystem Services <span class="tl-entry-toggle">&#x25BC;</span></div>
+            <div class="tl-detail"><div class="tl-detail-inner">
+              <p>The landmark IPBES assessment found nature is declining at unprecedented rates, identifying five primary drivers of biodiversity loss.</p>
+              <ul>
+                <li><strong>Land and sea-use change</strong> &mdash; deforestation, mining, urban development</li>
+                <li><strong>Climate change</strong> &mdash; disrupts habitats, drives species migration</li>
+                <li><strong>Pollution</strong> &mdash; air, waste, noise, vibration and light</li>
+                <li><strong>Exploitation</strong> &mdash; extraction of timber, minerals and steel</li>
+                <li><strong>Invasive species</strong> &mdash; threaten native ecosystems</li>
+              </ul>
+              <div class="pt-stats">
+                <span class="pt-stat-pill">1M species at risk</span>
+                <span class="pt-stat-pill">75% land altered</span>
+                <span class="pt-stat-pill">66% oceans impacted</span>
+              </div>
+              <a href="https://www.ipbes.net/second-global-assessment" target="_blank" class="tl-link" onclick="event.stopPropagation()">Read more</a>
+            </div></div>
+          </div>
         </div>
       </div>
 
@@ -3109,105 +3129,97 @@
 
       <!-- 2024 -->
       <div class="tl-row">
-        <div class="tl-entry tl-pos-l tl-gbca" onclick="toggleTL(this)">
-          <div class="tl-entry-title"><span class="tl-entry-toggle">&#x25BC;</span> <span class="pt-tag pt-tag-gbca">GBCA</span> GBCA&rsquo;s <em>Nature Positive Roadmap</em> discussion paper released</div>
-          <div class="tl-detail"><div class="tl-detail-inner">
-            <p>GBCA released a discussion paper proposing a nature positive roadmap framework for the built environment, informed by deep industry engagement.</p>
-            <a href="https://gbca-web.s3.amazonaws.com/media/documents/a-nature-roadmap-for-the-built-environment-discussion-paper.pdf" target="_blank" class="tl-link" onclick="event.stopPropagation()">Read more</a>
-          </div></div>
+        <div class="tl-col-l">
+          <div class="tl-entry tl-pos-l tl-gbca" onclick="toggleTL(this)">
+            <div class="tl-entry-title"><span class="tl-entry-toggle">&#x25BC;</span> <span class="pt-tag pt-tag-gbca">GBCA</span> GBCA&rsquo;s <em>Nature Positive Roadmap</em> discussion paper released</div>
+            <div class="tl-detail"><div class="tl-detail-inner">
+              <p>GBCA released a discussion paper proposing a nature positive roadmap framework for the built environment, informed by deep industry engagement.</p>
+              <a href="https://gbca-web.s3.amazonaws.com/media/documents/a-nature-roadmap-for-the-built-environment-discussion-paper.pdf" target="_blank" class="tl-link" onclick="event.stopPropagation()">Read more</a>
+            </div></div>
+          </div>
+          <div class="tl-entry tl-pos-l tl-gbca" onclick="toggleTL(this)">
+            <div class="tl-entry-title"><span class="tl-entry-toggle">&#x25BC;</span> <span class="pt-tag pt-tag-gbca">GBCA</span> Green Star Communities v2 introduced Nature Positive Pathway</div>
+            <div class="tl-detail"><div class="tl-detail-inner">
+              <p>Green Star Communities v2 introduced a Nature Positive Pathway, embedding biodiversity outcomes into community-scale certification.</p>
+              <a href="https://new.gbca.org.au/green-star/rating-system/communities/" target="_blank" class="tl-link" onclick="event.stopPropagation()">Read more</a>
+            </div></div>
+          </div>
         </div>
         <div class="tl-year">2024</div>
-        <div class="tl-entry tl-pos-r tl-gbca" onclick="toggleTL(this)">
-          <div class="tl-entry-title"><span class="pt-tag pt-tag-gbca">GBCA</span> GBCA supply chain discussion paper released <span class="tl-entry-toggle">&#x25BC;</span></div>
-          <div class="tl-detail"><div class="tl-detail-inner">
-            <p>GBCA published a supply chain discussion paper examining nature impacts across building materials and procurement.</p>
-            <a href="https://gbca-web.s3.amazonaws.com/media/documents/gbca-nature-roadmap-supply-chain-discussion-paper.pdf" target="_blank" class="tl-link" onclick="event.stopPropagation()">Read more</a>
-          </div></div>
-        </div>
-      </div>
-
-      <!-- 2024 — Green Star Communities + Circular Economy -->
-      <div class="tl-row">
-        <div class="tl-entry tl-pos-l tl-gbca" onclick="toggleTL(this)">
-          <div class="tl-entry-title"><span class="tl-entry-toggle">&#x25BC;</span> <span class="pt-tag pt-tag-gbca">GBCA</span> Green Star Communities v2 introduced Nature Positive Pathway</div>
-          <div class="tl-detail"><div class="tl-detail-inner">
-            <p>Green Star Communities v2 introduced a Nature Positive Pathway, embedding biodiversity outcomes into community-scale certification.</p>
-            <a href="https://new.gbca.org.au/green-star/rating-system/communities/" target="_blank" class="tl-link" onclick="event.stopPropagation()">Read more</a>
-          </div></div>
-        </div>
-        <div class="tl-year">2024</div>
-        <div class="tl-entry tl-pos-r tl-ext" onclick="toggleTL(this)">
-          <div class="tl-entry-title">Circular Economy Framework developed <span class="tl-entry-toggle">&#x25BC;</span></div>
-          <div class="tl-detail"><div class="tl-detail-inner">
-            <p>The Circular Economy Framework found Australia&rsquo;s circularity rate is just 4.4%.</p>
-            <ul>
-              <li>Housing and transport contribute 53% of Australia&rsquo;s materials footprint</li>
-              <li>A circularity rate of 32% is achievable with existing technology</li>
-            </ul>
-            <div class="pt-stats">
-              <span class="pt-stat-pill">4.4% circularity</span>
-              <span class="pt-stat-pill">32% achievable</span>
-            </div>
-            <a href="https://www.dcceew.gov.au/environment/protection/circular-economy/framework" target="_blank" class="tl-link" onclick="event.stopPropagation()">Read more</a>
-          </div></div>
+        <div class="tl-col-r">
+          <div class="tl-entry tl-pos-r tl-gbca" onclick="toggleTL(this)">
+            <div class="tl-entry-title"><span class="pt-tag pt-tag-gbca">GBCA</span> GBCA supply chain discussion paper released <span class="tl-entry-toggle">&#x25BC;</span></div>
+            <div class="tl-detail"><div class="tl-detail-inner">
+              <p>GBCA published a supply chain discussion paper examining nature impacts across building materials and procurement.</p>
+              <a href="https://gbca-web.s3.amazonaws.com/media/documents/gbca-nature-roadmap-supply-chain-discussion-paper.pdf" target="_blank" class="tl-link" onclick="event.stopPropagation()">Read more</a>
+            </div></div>
+          </div>
+          <div class="tl-entry tl-pos-r tl-ext" onclick="toggleTL(this)">
+            <div class="tl-entry-title">Circular Economy Framework developed <span class="tl-entry-toggle">&#x25BC;</span></div>
+            <div class="tl-detail"><div class="tl-detail-inner">
+              <p>The Circular Economy Framework found Australia&rsquo;s circularity rate is just 4.4%.</p>
+              <ul>
+                <li>Housing and transport contribute 53% of Australia&rsquo;s materials footprint</li>
+                <li>A circularity rate of 32% is achievable with existing technology</li>
+              </ul>
+              <div class="pt-stats">
+                <span class="pt-stat-pill">4.4% circularity</span>
+                <span class="pt-stat-pill">32% achievable</span>
+              </div>
+              <a href="https://www.dcceew.gov.au/environment/protection/circular-economy/framework" target="_blank" class="tl-link" onclick="event.stopPropagation()">Read more</a>
+            </div></div>
+          </div>
         </div>
       </div>
 
       <!-- 2025 -->
       <div class="tl-row">
-        <div class="tl-entry tl-pos-l tl-gbca" onclick="toggleTL(this)">
-          <div class="tl-entry-title"><span class="tl-entry-toggle">&#x25BC;</span> <span class="pt-tag pt-tag-gbca">GBCA</span> Draft Nature Positive Roadmap released</div>
-          <div class="tl-detail"><div class="tl-detail-inner">
-            <p>GBCA released the draft Nature Positive Roadmap for consultation, setting time-bound targets across five principles to align new developments with national and international nature-positive goals.</p>
-            <a href="https://gbca-web.s3.amazonaws.com/media/documents/draft-nature-positive-roadmap.pdf" target="_blank" class="tl-link" onclick="event.stopPropagation()">Read more</a>
-          </div></div>
+        <div class="tl-col-l">
+          <div class="tl-entry tl-pos-l tl-gbca" onclick="toggleTL(this)">
+            <div class="tl-entry-title"><span class="tl-entry-toggle">&#x25BC;</span> <span class="pt-tag pt-tag-gbca">GBCA</span> Draft Nature Positive Roadmap released</div>
+            <div class="tl-detail"><div class="tl-detail-inner">
+              <p>GBCA released the draft Nature Positive Roadmap for consultation, setting time-bound targets across five principles to align new developments with national and international nature-positive goals.</p>
+              <a href="https://gbca-web.s3.amazonaws.com/media/documents/draft-nature-positive-roadmap.pdf" target="_blank" class="tl-link" onclick="event.stopPropagation()">Read more</a>
+            </div></div>
+          </div>
+          <div class="tl-entry tl-pos-l tl-ext" onclick="toggleTL(this)">
+            <div class="tl-entry-title"><span class="tl-entry-toggle">&#x25BC;</span> Nature Repair Market operational</div>
+            <div class="tl-detail"><div class="tl-detail-inner">
+              <p>The Nature Repair Market became operational, enabling trading of biodiversity certificates to incentivise nature restoration on private and public land.</p>
+              <a href="https://minister.dcceew.gov.au/watt/media-releases/nature-repair-market-open-business" target="_blank" class="tl-link" onclick="event.stopPropagation()">Read more</a>
+            </div></div>
+          </div>
         </div>
         <div class="tl-year">2025</div>
-        <div class="tl-entry tl-pos-r tl-gbca" onclick="toggleTL(this)">
-          <div class="tl-entry-title"><span class="pt-tag pt-tag-gbca">GBCA</span> Green Star Buildings v1.1 introduced Nature Positive Pathway <span class="tl-entry-toggle">&#x25BC;</span></div>
-          <div class="tl-detail"><div class="tl-detail-inner">
-            <p>Green Star Buildings v1.1 introduced a Nature Positive Pathway with biodiversity net gain requirements and credits for First Nations involvement.</p>
-            <div class="pt-stats">
-              <span class="pt-stat-pill">Nature Positive Pathway</span>
-            </div>
-            <a href="https://new.gbca.org.au/green-star/evolution/buildings-consultation/" target="_blank" class="tl-link" onclick="event.stopPropagation()">Read more</a>
-          </div></div>
-        </div>
-      </div>
-
-      <!-- 2025 — Nature Repair Market + EPBC -->
-      <div class="tl-row">
-        <div class="tl-entry tl-pos-l tl-ext" onclick="toggleTL(this)">
-          <div class="tl-entry-title"><span class="tl-entry-toggle">&#x25BC;</span> Nature Repair Market operational</div>
-          <div class="tl-detail"><div class="tl-detail-inner">
-            <p>The Nature Repair Market became operational, enabling trading of biodiversity certificates to incentivise nature restoration on private and public land.</p>
-            <a href="https://minister.dcceew.gov.au/watt/media-releases/nature-repair-market-open-business" target="_blank" class="tl-link" onclick="event.stopPropagation()">Read more</a>
-          </div></div>
-        </div>
-        <div class="tl-year">2025</div>
-        <div class="tl-entry tl-pos-r tl-ext" onclick="toggleTL(this)">
-          <div class="tl-entry-title">EPBC reform bills passed, NEPA and EIA established, Biodiversity data repository launched <span class="tl-entry-toggle">&#x25BC;</span></div>
-          <div class="tl-detail"><div class="tl-detail-inner">
-            <p>EPBC Reform Bills established an independent EPA, national environmental standards, and reformed offsetting. The Nature Repair Market became operational.</p>
-            <div class="pt-stats">
-              <span class="pt-stat-pill">Independent EPA</span>
-              <span class="pt-stat-pill">Nature Repair Market live</span>
-            </div>
-            <a href="https://www.dcceew.gov.au/about/news/environment-protection-reform-bills-passed-australian-parliament" target="_blank" class="tl-link" onclick="event.stopPropagation()">Read more</a>
-          </div></div>
-        </div>
-      </div>
-
-      <!-- 2025 — ISSB -->
-      <div class="tl-row">
-        <div class="tl-empty"></div>
-        <div class="tl-year">2025</div>
-        <div class="tl-entry tl-pos-r tl-ext" onclick="toggleTL(this)">
-          <div class="tl-entry-title">ISSB announces incorporation of TNFD guidance into IFRS Sustainability Disclosure <span class="tl-entry-toggle">&#x25BC;</span></div>
-          <div class="tl-detail"><div class="tl-detail-inner">
-            <p>The International Sustainability Standards Board announced it would incorporate TNFD guidance into IFRS Sustainability Disclosure Standards, signalling that nature-related risks will become part of mainstream financial reporting.</p>
-            <a href="https://www.ifrs.org/news-and-events/news/2025/11/issb-welcomes-tnfd-support-nature-related-disclosure/" target="_blank" class="tl-link" onclick="event.stopPropagation()">Read more</a>
-          </div></div>
+        <div class="tl-col-r">
+          <div class="tl-entry tl-pos-r tl-gbca" onclick="toggleTL(this)">
+            <div class="tl-entry-title"><span class="pt-tag pt-tag-gbca">GBCA</span> Green Star Buildings v1.1 introduced Nature Positive Pathway <span class="tl-entry-toggle">&#x25BC;</span></div>
+            <div class="tl-detail"><div class="tl-detail-inner">
+              <p>Green Star Buildings v1.1 introduced a Nature Positive Pathway with biodiversity net gain requirements and credits for First Nations involvement.</p>
+              <div class="pt-stats">
+                <span class="pt-stat-pill">Nature Positive Pathway</span>
+              </div>
+              <a href="https://new.gbca.org.au/green-star/evolution/buildings-consultation/" target="_blank" class="tl-link" onclick="event.stopPropagation()">Read more</a>
+            </div></div>
+          </div>
+          <div class="tl-entry tl-pos-r tl-ext" onclick="toggleTL(this)">
+            <div class="tl-entry-title">EPBC reform bills passed, NEPA and EIA established, Biodiversity data repository launched <span class="tl-entry-toggle">&#x25BC;</span></div>
+            <div class="tl-detail"><div class="tl-detail-inner">
+              <p>EPBC Reform Bills established an independent EPA, national environmental standards, and reformed offsetting. The Nature Repair Market became operational.</p>
+              <div class="pt-stats">
+                <span class="pt-stat-pill">Independent EPA</span>
+                <span class="pt-stat-pill">Nature Repair Market live</span>
+              </div>
+              <a href="https://www.dcceew.gov.au/about/news/environment-protection-reform-bills-passed-australian-parliament" target="_blank" class="tl-link" onclick="event.stopPropagation()">Read more</a>
+            </div></div>
+          </div>
+          <div class="tl-entry tl-pos-r tl-ext" onclick="toggleTL(this)">
+            <div class="tl-entry-title">ISSB announces incorporation of TNFD guidance into IFRS Sustainability Disclosure <span class="tl-entry-toggle">&#x25BC;</span></div>
+            <div class="tl-detail"><div class="tl-detail-inner">
+              <p>The International Sustainability Standards Board announced it would incorporate TNFD guidance into IFRS Sustainability Disclosure Standards, signalling that nature-related risks will become part of mainstream financial reporting.</p>
+              <a href="https://www.ifrs.org/news-and-events/news/2025/11/issb-welcomes-tnfd-support-nature-related-disclosure/" target="_blank" class="tl-link" onclick="event.stopPropagation()">Read more</a>
+            </div></div>
+          </div>
         </div>
       </div>
 
