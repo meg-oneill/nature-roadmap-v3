@@ -1964,83 +1964,160 @@
     .tl-empty, .tl-empty-r { display: none; }
   }
 
-  /* ===== TAB COMPONENT ===== */
-  .action-two-panel {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
+  /* ===== STAKEHOLDER TABS ===== */
+  .stakeholder-tabs-wrapper {
     border-radius: 16px;
     overflow: hidden;
-  }
-  .action-involve {
     background: var(--green-dark);
-    color: var(--white);
-    padding: 3rem 2.5rem;
   }
-  .action-involve h3 {
-    font-size: 1.5rem;
+  .stakeholder-intro {
+    padding: 2.5rem 2.5rem 2rem;
+    color: var(--white);
+  }
+  .stakeholder-intro h3 {
+    font-size: 1.4rem;
     font-weight: 700;
-    line-height: 1.3;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     color: var(--white);
   }
-  .action-involve ul {
+  .stakeholder-intro ul {
     list-style: none;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem 2rem;
   }
-  .action-involve li {
+  .stakeholder-intro li {
     position: relative;
-    padding-left: 1.5rem;
-    font-size: 0.95rem;
+    padding-left: 1.4rem;
+    font-size: 0.9rem;
     line-height: 1.5;
-    color: rgba(255,255,255,0.92);
+    color: rgba(255,255,255,0.9);
   }
-  .action-involve li::before {
+  .stakeholder-intro li::before {
     content: '\25C9';
     position: absolute;
     left: 0;
-    color: rgba(255,255,255,0.6);
-    font-size: 0.7rem;
-    top: 4px;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.65rem;
+    top: 5px;
   }
-  .action-now {
+  .stakeholder-tab-bar {
+    display: flex;
+    background: rgba(0,0,0,0.15);
+  }
+  .stakeholder-tab {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.7);
+    font-family: var(--font-primary);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .stakeholder-tab::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: var(--white);
+    border-radius: 3px 3px 0 0;
+    transition: all 0.3s;
+    transform: translateX(-50%);
+  }
+  .stakeholder-tab:hover {
+    color: rgba(255,255,255,0.95);
+    background: rgba(255,255,255,0.05);
+  }
+  .stakeholder-tab.active {
+    color: var(--white);
+    background: rgba(255,255,255,0.08);
+  }
+  .stakeholder-tab.active::after {
+    width: 40px;
+  }
+  .stakeholder-tab .tab-icon {
+    font-size: 1.1rem;
+  }
+  .stakeholder-panels {
+    position: relative;
     background: var(--green-mid);
-    color: var(--white);
-    padding: 3rem 2.5rem;
+    min-height: 280px;
   }
-  .action-now h3 {
-    font-size: 1.5rem;
+  .stakeholder-panel {
+    padding: 2.5rem;
+    display: none;
+    animation: stakeholderFadeIn 0.35s ease;
+  }
+  .stakeholder-panel.active {
+    display: block;
+  }
+  @keyframes stakeholderFadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .stakeholder-panel h4 {
+    font-size: 1.2rem;
     font-weight: 700;
-    margin-bottom: 2rem;
     color: var(--white);
+    margin-bottom: 0.5rem;
   }
-  .action-now-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+  .stakeholder-panel .panel-subtitle {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 1.5rem;
   }
-  .action-now-grid h4 {
-    font-size: 1.05rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: var(--white);
-  }
-  .action-now-grid ol {
-    padding-left: 1.25rem;
+  .stakeholder-panel ol {
+    padding-left: 0;
+    list-style: none;
+    counter-reset: action-step;
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
+    gap: 1rem;
   }
-  .action-now-grid li {
-    font-size: 0.88rem;
-    line-height: 1.5;
+  .stakeholder-panel li {
+    counter-increment: action-step;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    font-size: 0.92rem;
+    line-height: 1.55;
     color: rgba(255,255,255,0.92);
   }
-  @media (max-width: 900px) {
-    .action-two-panel { grid-template-columns: 1fr; }
-    .action-now-grid { grid-template-columns: 1fr; }
+  .stakeholder-panel li::before {
+    content: counter(action-step);
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+  }
+  @media (max-width: 700px) {
+    .stakeholder-intro ul { grid-template-columns: 1fr; }
+    .stakeholder-tab { font-size: 0.8rem; padding: 0.85rem 0.75rem; gap: 0.3rem; }
+    .stakeholder-tab .tab-label { display: none; }
+    .stakeholder-tab .tab-label-short { display: inline; }
+    .stakeholder-panel { padding: 2rem 1.5rem; }
+  }
+  @media (min-width: 701px) {
+    .stakeholder-tab .tab-label-short { display: none; }
   }
 
   /* Progress indicator in nav */
@@ -3888,8 +3965,8 @@
 <!-- Stakeholder Roles -->
 <section id="action" style="background: var(--white);">
   <div class="container">
-    <div class="action-two-panel fade-in">
-      <div class="action-involve">
+    <div class="stakeholder-tabs-wrapper fade-in">
+      <div class="stakeholder-intro">
         <h3>Get involved as we embed these requirements over time:</h3>
         <ul>
           <li>Co-create with First Nations and community to develop designs and solutions that celebrate nature, create positive places, and generate economic opportunities including for First Nations Peoples.</li>
@@ -3899,48 +3976,67 @@
           <li>Get your projects certified with Green Star to build capability in industry and contribute directly to nature positive outcomes.</li>
         </ul>
       </div>
-      <div class="action-now">
-        <h3>What can you do now?</h3>
-        <div class="action-now-grid">
-          <div>
-            <h4>Government</h4>
-            <ol>
-              <li>Implement nature reforms that better protect nature while providing greater clarity to industry on protection and regeneration actions.</li>
-              <li>Limit the need for additional land clearing by increasing density limits.</li>
-              <li>Invest in and support low-impact and circular product manufacturing.</li>
-              <li>Support the expansion of investments benefiting nature through the Nature Repair Market.</li>
-              <li>Commit government-led and funded projects to achieving biodiversity net gains at scale, verify with Green Star and build industry capacity.</li>
-            </ol>
-          </div>
-          <div>
-            <h4>Developers</h4>
-            <ol>
-              <li>Define and map high-value biodiversity onsite and set biodiversity net gain as a goal that informs your designs.</li>
-              <li>Work with First Nations and community to incorporate Designing with Country principles and encourage connections to nature.</li>
-              <li>Incorporate circularity into design to minimise your project's footprint on nature, and measure and report on this.</li>
-              <li>Direct project spend towards nature-based solutions and work with the supply chain to reduce nature impacts and increase circularity.</li>
-            </ol>
-          </div>
-          <div>
-            <h4>Manufacturers</h4>
-            <ol>
-              <li>Define and map biodiversity values across your operations and product life cycles.</li>
-              <li>Develop and implement plans to limit and reduce impacts, particularly during material extraction and manufacture.</li>
-              <li>Set biodiversity net gain targets and invest in nature to compensate for impacts.</li>
-              <li>Increase traceability by disclosing the origin of raw materials and any impacts in compliance with environmental and human rights standards.</li>
-              <li>Work with local communities to increase locally sourced materials and support community capacity building.</li>
-            </ol>
-          </div>
-          <div>
-            <h4>Finance sector</h4>
-            <ol>
-              <li>Identify, map, and build internal capacity to measure nature-related risks, dependencies, and opportunities across operations and investment decisions.</li>
-              <li>Develop policies, strategies, and plans to transition away from investments that harm nature in favour of those that restore it.</li>
-              <li>Encourage the use of high-quality certification such as Green Star for buildings, precincts, and fitouts.</li>
-              <li>Engage with customers, suppliers, and businesses with high nature-related risks and impacts.</li>
-              <li>Report and disclose implemented actions and progress towards targets.</li>
-            </ol>
-          </div>
+      <div class="stakeholder-tab-bar" role="tablist">
+        <button class="stakeholder-tab active" role="tab" aria-selected="true" onclick="switchStakeholderTab(this, 'govt')">
+          <span class="tab-icon">&#x1F3DB;</span>
+          <span class="tab-label">Government</span><span class="tab-label-short">Gov</span>
+        </button>
+        <button class="stakeholder-tab" role="tab" aria-selected="false" onclick="switchStakeholderTab(this, 'dev')">
+          <span class="tab-icon">&#x1F3D7;</span>
+          <span class="tab-label">Developers</span><span class="tab-label-short">Dev</span>
+        </button>
+        <button class="stakeholder-tab" role="tab" aria-selected="false" onclick="switchStakeholderTab(this, 'mfg')">
+          <span class="tab-icon">&#x1F3ED;</span>
+          <span class="tab-label">Manufacturers</span><span class="tab-label-short">Mfg</span>
+        </button>
+        <button class="stakeholder-tab" role="tab" aria-selected="false" onclick="switchStakeholderTab(this, 'fin')">
+          <span class="tab-icon">&#x1F4B9;</span>
+          <span class="tab-label">Finance</span><span class="tab-label-short">Fin</span>
+        </button>
+      </div>
+      <div class="stakeholder-panels">
+        <div class="stakeholder-panel active" id="panel-govt" role="tabpanel">
+          <h4>Government</h4>
+          <p class="panel-subtitle">Policy and investment actions to drive nature positive outcomes</p>
+          <ol>
+            <li>Implement nature reforms that better protect nature while providing greater clarity to industry on protection and regeneration actions.</li>
+            <li>Limit the need for additional land clearing by increasing density limits.</li>
+            <li>Invest in and support low-impact and circular product manufacturing.</li>
+            <li>Support the expansion of investments benefiting nature through the Nature Repair Market.</li>
+            <li>Commit government-led and funded projects to achieving biodiversity net gains at scale, verify with Green Star and build industry capacity.</li>
+          </ol>
+        </div>
+        <div class="stakeholder-panel" id="panel-dev" role="tabpanel">
+          <h4>Developers</h4>
+          <p class="panel-subtitle">Design, build, and invest with nature at the centre</p>
+          <ol>
+            <li>Define and map high-value biodiversity onsite and set biodiversity net gain as a goal that informs your designs.</li>
+            <li>Work with First Nations and community to incorporate Designing with Country principles and encourage connections to nature.</li>
+            <li>Incorporate circularity into design to minimise your project's footprint on nature, and measure and report on this.</li>
+            <li>Direct project spend towards nature-based solutions and work with the supply chain to reduce nature impacts and increase circularity.</li>
+          </ol>
+        </div>
+        <div class="stakeholder-panel" id="panel-mfg" role="tabpanel">
+          <h4>Manufacturers</h4>
+          <p class="panel-subtitle">Reduce impacts across operations and product life cycles</p>
+          <ol>
+            <li>Define and map biodiversity values across your operations and product life cycles.</li>
+            <li>Develop and implement plans to limit and reduce impacts, particularly during material extraction and manufacture.</li>
+            <li>Set biodiversity net gain targets and invest in nature to compensate for impacts.</li>
+            <li>Increase traceability by disclosing the origin of raw materials and any impacts in compliance with environmental and human rights standards.</li>
+            <li>Work with local communities to increase locally sourced materials and support community capacity building.</li>
+          </ol>
+        </div>
+        <div class="stakeholder-panel" id="panel-fin" role="tabpanel">
+          <h4>Finance sector</h4>
+          <p class="panel-subtitle">Align investments with nature positive goals</p>
+          <ol>
+            <li>Identify, map, and build internal capacity to measure nature-related risks, dependencies, and opportunities across operations and investment decisions.</li>
+            <li>Develop policies, strategies, and plans to transition away from investments that harm nature in favour of those that restore it.</li>
+            <li>Encourage the use of high-quality certification such as Green Star for buildings, precincts, and fitouts.</li>
+            <li>Engage with customers, suppliers, and businesses with high nature-related risks and impacts.</li>
+            <li>Report and disclose implemented actions and progress towards targets.</li>
+          </ol>
         </div>
       </div>
     </div>
@@ -3983,6 +4079,20 @@
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">&#x2191;</button>
 
 <script>
+// Stakeholder tab switching
+function switchStakeholderTab(btn, panelId) {
+  btn.closest('.stakeholder-tabs-wrapper').querySelectorAll('.stakeholder-tab').forEach(t => {
+    t.classList.remove('active');
+    t.setAttribute('aria-selected', 'false');
+  });
+  btn.classList.add('active');
+  btn.setAttribute('aria-selected', 'true');
+  btn.closest('.stakeholder-tabs-wrapper').querySelectorAll('.stakeholder-panel').forEach(p => {
+    p.classList.remove('active');
+  });
+  document.getElementById('panel-' + panelId).classList.add('active');
+}
+
 // Scroll animations
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
