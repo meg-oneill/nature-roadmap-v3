@@ -3537,7 +3537,7 @@
     <div class="section-header fade-in">
       <div class="section-label">The Next 5 Years</div>
       <h2>Actions for success</h2>
-      <p>30 interconnected actions across three phases chart the path to a nature positive built environment. Hover any action to see its full description and trace the dependency chain that connects it to the broader roadmap.</p>
+      <p>33 interconnected actions across three phases chart the path to a nature positive built environment. Hover any action to see its full description and trace the dependency chain that connects it to the broader roadmap.</p>
     </div>
 
     <div class="an-phase-legend fade-in">
@@ -4637,36 +4637,48 @@ document.querySelectorAll('.irm-principle').forEach(p => {
     { id: 'invest', label: 'Invest in nature', color: '#005687' },
   ];
   const ACTIONS = [
-    { id:'a1', phase:'define', principle:'prevent', title:'Standardise BNG methodology', desc:'Develop a nationally consistent, science-based framework for assessing biodiversity condition, baseline values, and uplift potential.', deps:[] },
-    { id:'a2', phase:'define', principle:'prevent', title:'Define & map significant natural systems', desc:'Create nationally consistent criteria and spatial datasets for identifying important biodiversity, drawing from science and Indigenous knowledge.', deps:['a1'] },
-    { id:'a3', phase:'define', principle:'prevent', title:'Define unacceptable impacts', desc:'Define unacceptable impacts and environmental standards to establish a baseline from which to demonstrate improvements.', deps:['a1'] },
-    { id:'a4', phase:'define', principle:'prevent', title:'Standardise measurement & reporting', desc:'Develop robust, consistent methods for assessing nature losses and gains, with transparent public reporting.', deps:['a1','a3'] },
-    { id:'b1', phase:'advocate', principle:'prevent', title:'Integrate net gain into planning', desc:'Embed biodiversity net gain and avoidance-first requirements into planning policy, development approvals, and environmental assessment frameworks.', deps:['a1','a2','a3'] },
-    { id:'b2', phase:'advocate', principle:'prevent', title:'Implement mitigation hierarchy', desc:'Mandate avoidance of impacts in areas of ecological or cultural value and ensure any nature investments are truly equivalent and long-term.', deps:['a3','b1'] },
-    { id:'b5', phase:'advocate', principle:'prevent', title:'BNG in procurement & design briefs', desc:'Require biodiversity uplift targets in government and commercial developments.', deps:['a4','b1'] },
-    { id:'d1', phase:'advocate', principle:'prevent', title:'Advocate for outcome-based monitoring', desc:'Shift from compliance-based reporting to measuring ecological outcomes over time.', deps:['a4','b1','b2'] },
-    { id:'b3', phase:'advocate', principle:'increase', title:'Ecological connectivity in planning', desc:'Strengthen planning requirements so developments enhance ecological links between habitats.', deps:['a2','b1'] },
-    { id:'b4', phase:'advocate', principle:'increase', title:'Bird\'s-eye ecological assessment', desc:'Support precinct-scale and catchment-scale approaches to deliver connected nature networks.', deps:['a2','b3'] },
-    { id:'b6', phase:'advocate', principle:'increase', title:'Incentivise urban restoration', desc:'Support large-scale revegetation, green infrastructure, and nature-based solutions in urban environments.', deps:['b3','b5'] },
-    { id:'b13', phase:'advocate', principle:'increase', title:'Cultural competency capacity building', desc:'Develop cultural competency education programs for inclusion of Aboriginal and Torres Strait Islander values.', deps:[] },
-    { id:'c6', phase:'implement', principle:'increase', title:'Indigenous-led conservation', desc:'Work in partnership with Traditional Custodians to protect cultural landscapes and integrate Traditional Ecological Knowledge.', deps:['b13','a2'] },
-    { id:'c7', phase:'implement', principle:'increase', title:'Invest in Indigenous businesses', desc:'Support integration of Aboriginal and Torres Strait Islander knowledge by prioritising spend in Indigenous-owned businesses.', deps:['b13','c6'] },
-    { id:'a5', phase:'define', principle:'circular', title:'Define & measure circularity', desc:'Establish a consistent method for calculating circularity rate across material categories and building typologies.', deps:[] },
-    { id:'b7', phase:'advocate', principle:'circular', title:'Embed circularity in codes', desc:'Incentivise adaptive reuse, modular design, and design-for-disassembly through updated codes and rating tools.', deps:['a5'] },
-    { id:'b8', phase:'advocate', principle:'circular', title:'De-risk circular procurement', desc:'Update government procurement policies to allow for reused and recycled materials.', deps:['a5','b7'] },
-    { id:'b9', phase:'advocate', principle:'circular', title:'Track & disclose material flows', desc:'Require material passports, digital twins, or lifecycle assessments to track embedded impacts.', deps:['a5','a7'] },
-    { id:'c1', phase:'implement', principle:'circular', title:'Support circular supply chains', desc:'Encourage suppliers to provide reused, remanufactured, or recyclable materials.', deps:['b7','b8'] },
-    { id:'c2', phase:'implement', principle:'circular', title:'Phase out high-risk materials', desc:'Restrict or de-prioritise materials with high biodiversity or pollution risk.', deps:['a7','b9'] },
-    { id:'a6', phase:'define', principle:'materials', title:'Define nature impact methodology', desc:'Define methodologies for calculating nature-related impact from products and materials used in development.', deps:['a1'] },
-    { id:'a7', phase:'define', principle:'materials', title:'Set material-specific targets', desc:'Set material-specific targets and trajectories that reflect whole-of-life impacts.', deps:['a6','a5'] },
-    { id:'b10', phase:'advocate', principle:'materials', title:'Embed nature impact in procurement', desc:'Update specifications and contracts to prioritise low-impact and responsibly sourced products.', deps:['a6','a7'] },
-    { id:'c3', phase:'implement', principle:'materials', title:'Supply chain transparency', desc:'Require suppliers to disclose material origin, production impacts, and compliance with environmental standards.', deps:['b9','b10'] },
-    { id:'c4', phase:'implement', principle:'materials', title:'Promote local & regenerative materials', desc:'Encourage locally sourced, bio-based, or regenerative materials that support regional ecosystems.', deps:['a7','c3'] },
-    { id:'a8', phase:'define', principle:'invest', title:'Define eligible investment types', desc:'Clarify what qualifies as nature investment, including restoration, land management, and species recovery.', deps:[] },
-    { id:'b11', phase:'advocate', principle:'invest', title:'Align investment with local priorities', desc:'Direct funding toward regionally significant ecosystems and local biodiversity strategies.', deps:['a8','a2'] },
-    { id:'b12', phase:'advocate', principle:'invest', title:'Investment into procurement & planning', desc:'Embed nature investment as a standard project requirement in government and institutional contracts.', deps:['a8','b5'] },
-    { id:'d2', phase:'advocate', principle:'invest', title:'Advocate for restoration outcome reporting', desc:'Require transparency on how funds are used and what ecological gains are delivered.', deps:['b11','c5'] },
-    { id:'c5', phase:'implement', principle:'invest', title:'Build integrity into nature markets', desc:'Support high-integrity biodiversity credits, metrics, and registries for measurable outcomes.', deps:['a8','b11'] },
+    // ===== P1: PREVENT NATURE LOSS =====
+    { id:'p1d1', phase:'define',    principle:'prevent',   title:'Define & map significant natural systems', desc:'Create nationally consistent criteria and spatial datasets for identifying important biodiversity, drawing from science and Indigenous knowledge and use this to identify \u2018no go\u2019 zones, thus helping clarify development approval processes and improving environmental outcomes.', deps:[] },
+    { id:'p1d2', phase:'define',    principle:'prevent',   title:'Define \u2018unacceptable impacts\u2019', desc:'Define \u2018unacceptable\u2019 impacts and environmental standards to establish a baseline from which to demonstrate improvements and no further loss of high value biodiversity.', deps:['p1d1'] },
+    { id:'p1d3', phase:'define',    principle:'prevent',   title:'Standardise measurement & reporting', desc:'Develop robust, consistent methods for assessing nature losses and gains, with transparent public reporting.', deps:['p1d2'] },
+    { id:'p1a1', phase:'advocate',  principle:'prevent',   title:'Integrate nature protection into planning', desc:'Embed avoidance-first requirements into planning policy, development approvals, and environmental assessment frameworks.', deps:['p1d1','p1d2'] },
+    { id:'p1a2', phase:'advocate',  principle:'prevent',   title:'Implement the mitigation hierarchy', desc:'Mandate avoidance of impacts in areas of ecological or cultural value and ensure any nature investments are truly equivalent and long-term.', deps:['p1d2','p1a1'] },
+    { id:'p1i1', phase:'implement', principle:'prevent',   title:'Support Indigenous-led conservation', desc:'Work in partnership with Traditional Custodians to protect cultural landscapes and integrate Traditional Ecological Knowledge into planning.', deps:['p1a1','p1a2'] },
+
+    // ===== P2: INCREASE & CONNECT NATURE =====
+    { id:'p2d1', phase:'define',    principle:'increase',  title:'Standardise BNG methodology', desc:'Develop a nationally consistent, science-based framework for assessing biodiversity condition, baseline values, and uplift potential \u2014 aligned with emerging TNFD and Nature Positive Initiative metrics and global best practice.', deps:[] },
+    { id:'p2a1', phase:'advocate',  principle:'increase',  title:'Integrate net gain into planning', desc:'Embed biodiversity net gain, following the mitigation and conservation hierarchy into federal, state and local planning policies.', deps:['p2d1','p1d1'] },
+    { id:'p2a2', phase:'advocate',  principle:'increase',  title:'Ecological connectivity in planning', desc:'Strengthen planning requirements so developments consider and enhance ecological links between habitats, including corridors, stepping-stones, and species-specific movement pathways.', deps:['p2d1','p2a1'] },
+    { id:'p2a3', phase:'advocate',  principle:'increase',  title:'Bird\u2019s-eye ecological assessment', desc:'Support precinct-scale and catchment-scale approaches to deliver connected nature networks across urban regions.', deps:['p2a1','p2a2'] },
+    { id:'p2a4', phase:'advocate',  principle:'increase',  title:'BNG in procurement & design briefs', desc:'Require biodiversity uplift targets in government and commercial developments \u2014 from site planning through to landscape and infrastructure design.', deps:['p2d1','p2a1'] },
+    { id:'p2a5', phase:'advocate',  principle:'increase',  title:'Monitoring outcomes for EPBC compliance', desc:'Shift from compliance-based reporting to measuring ecological outcomes over time to track actual habitat condition, species movement and ecosystem function.', deps:['p1d3','p2a1'] },
+    { id:'p2i1', phase:'implement', principle:'increase',  title:'Incentivise urban & regional restoration', desc:'Support large-scale revegetation, green infrastructure, and nature-based solutions in urban environments through grants, density bonuses, or integrated infrastructure funding.', deps:['p2a2','p2a4'] },
+
+    // ===== P3: DRIVE CIRCULARITY =====
+    { id:'p3d1', phase:'define',    principle:'circular',  title:'Define & measure circularity', desc:'Establish a consistent method for calculating circularity rate across material categories, lifecycle stages, and building typologies \u2014 aligned with ISO and EU standards.', deps:[] },
+    { id:'p3a1', phase:'advocate',  principle:'circular',  title:'Embed circularity in building codes', desc:'Incentivise adaptive reuse, modular design, and design-for-disassembly through updated codes, procurement criteria, and rating tools.', deps:['p3d1'] },
+    { id:'p3a2', phase:'advocate',  principle:'circular',  title:'De-risk circular procurement', desc:'Update government procurement policies to allow for reused and recycled materials and remove performance and liability barriers to innovation.', deps:['p3d1','p3a1'] },
+    { id:'p3a3', phase:'advocate',  principle:'circular',  title:'Track & disclose material flows', desc:'Require material passports, digital twins, or lifecycle assessments to track embedded impacts and material reuse potential over time.', deps:['p3d1'] },
+    { id:'p3a4', phase:'advocate',  principle:'circular',  title:'Educate industry on circularity', desc:'Pilot circular and innovative approaches to adopt circular practices, then share lessons learnt.', deps:['p3d1'] },
+    { id:'p3i1', phase:'implement', principle:'circular',  title:'Circular economy in design & execution', desc:'Prioritise reuse and retrofit over demolition and new build and incorporate circularity principles in the design and delivery of new developments.', deps:['p3a1','p3a4'] },
+    { id:'p3i2', phase:'implement', principle:'circular',  title:'Support circular supply chains', desc:'Encourage suppliers to provide reused, remanufactured, or recyclable materials, and invest in reverse logistics, take-back schemes, and local material recovery infrastructure.', deps:['p3a1','p3a2'] },
+
+    // ===== P4: CHOOSE LOW-IMPACT MATERIALS =====
+    { id:'p4d1', phase:'define',    principle:'materials', title:'Set material-specific targets', desc:'Set material-specific targets and trajectories that reflect whole-of-life impacts and avoid trade-offs between carbon and nature outcomes.', deps:['p3d1'] },
+    { id:'p4a1', phase:'advocate',  principle:'materials', title:'Phase out high-risk materials', desc:'Restrict or de-prioritise materials with high biodiversity or pollution risk \u2013 such as PVC, tropical hardwoods, or virgin aluminium \u2013 unless verifiably low-impact or third-party certified.', deps:['p4d1'] },
+    { id:'p4a2', phase:'advocate',  principle:'materials', title:'Supply chain transparency & traceability', desc:'Require suppliers to disclose material origin, production impacts, and compliance with environmental and human rights standards \u2013 using tools like EPDs, FSC, PEFC or digital product passports.', deps:['p4d1','p3a3'] },
+    { id:'p4a3', phase:'advocate',  principle:'materials', title:'Embed nature impact in procurement', desc:'Update specifications and contracts to prioritise low-impact and responsibly sourced products \u2013 especially in public and institutional projects.', deps:['p4d1','p4a1'] },
+    { id:'p4i1', phase:'implement', principle:'materials', title:'Promote local & regenerative materials', desc:'Encourage the use of locally sourced, bio-based, or regenerative materials that support regional ecosystems and reduce transport emissions.', deps:['p4a2','p4a3'] },
+    { id:'p4i2', phase:'implement', principle:'materials', title:'Engage with product manufacturers', desc:'Build capacity by engaging with the supply chain and put in place incentives to facilitate innovative, low-impact and circular materials.', deps:['p4a1','p4a3','p3i2'] },
+
+    // ===== P5: INVEST IN NATURE =====
+    { id:'p5d1', phase:'define',    principle:'invest',    title:'Define nature impact methodology', desc:'Define appropriate methodologies for calculating nature-related impact from products and materials used in development \u2013 where unknown, refer to embodied carbon impacts.', deps:[] },
+    { id:'p5d2', phase:'define',    principle:'invest',    title:'Define eligible investment types', desc:'Clarify what qualifies as \u201cnature investment,\u201d including restoration, land management, species recovery, and co-benefit initiatives (e.g. carbon + biodiversity).', deps:['p5d1'] },
+    { id:'p5a1', phase:'advocate',  principle:'invest',    title:'Align investment with local priorities', desc:'Direct funding toward significant ecosystems, and projects that align with local and regional biodiversity strategies.', deps:['p5d2','p1d1'] },
+    { id:'p5a2', phase:'advocate',  principle:'invest',    title:'Build integrity into nature markets', desc:'Support the development of high-integrity biodiversity credits, metrics, and registries to ensure that investments deliver real, measurable outcomes.', deps:['p5d2'] },
+    { id:'p5a3', phase:'advocate',  principle:'invest',    title:'Investment into procurement & planning', desc:'Embed nature investment as a standard project requirement in government and institutional contracts \u2013 just like design quality or safety.', deps:['p5d2','p2a4'] },
+    { id:'p5i1', phase:'implement', principle:'invest',    title:'Invest in indigenous owned businesses', desc:'Support integration of Aboriginal and Torres Strait Islander knowledge and cultural practice in nature regeneration activities by prioritising spend in indigenous owned businesses.', deps:['p5a1','p1i1'] },
+    { id:'p5i2', phase:'implement', principle:'invest',    title:'Monitor & report restoration outcomes', desc:'Require transparency on how funds are used, what ecological gains are delivered, and how long-term stewardship is ensured.', deps:['p5a1','p5a2'] },
   ];
 
   let anHovered = null;
