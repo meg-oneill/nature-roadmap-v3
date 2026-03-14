@@ -1066,34 +1066,214 @@
   }
 
   /* ===== ENABLERS ===== */
-  .enablers-section { background: var(--green-mid); color: white; }
+  .enablers-section {
+    background: linear-gradient(160deg, #2d5e1e 0%, #44883E 35%, #3a7535 65%, #2d5e1e 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .enablers-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 10% 20%, rgba(120,190,33,0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at 90% 80%, rgba(34,156,71,0.10) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .enablers-intro {
+    max-width: 700px;
+    margin: 0 auto 3.5rem;
+    text-align: center;
+  }
   .enablers-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
   }
   .enabler-card {
-    background: rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.06);
     border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 8px;
-    padding: 2.5rem;
-    transition: all 0.3s;
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .enabler-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--green-light), var(--green-dark));
+    opacity: 0;
+    transition: opacity 0.3s;
   }
   .enabler-card:hover {
-    background: rgba(255,255,255,0.12);
-    transform: translateY(-4px);
+    background: rgba(255,255,255,0.10);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
   }
+  .enabler-card:hover::before { opacity: 1; }
+  .enabler-card-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: rgba(120,190,33,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    transition: all 0.3s;
+  }
+  .enabler-card:hover .enabler-card-icon {
+    background: rgba(120,190,33,0.25);
+    transform: scale(1.05);
+  }
+  .enabler-card-icon svg { width: 28px; height: 28px; stroke: var(--green-light); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
   .enabler-card h3 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    color: var(--green-light);
+    color: white;
+    line-height: 1.35;
   }
   .enabler-card p {
-    color: rgba(255,255,255,0.75);
-    font-size: 0.92rem;
+    color: rgba(255,255,255,0.7);
+    font-size: 0.88rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+  .enabler-card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--green-light);
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: var(--font-ui);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 0.5rem;
+    transition: gap 0.3s;
+  }
+  .enabler-card:hover .enabler-card-cta { gap: 0.7rem; }
+  .enabler-card-cta svg { width: 16px; height: 16px; stroke: var(--green-light); fill: none; stroke-width: 2.5; }
+
+  /* Enabler expanded panel */
+  .enabler-expand {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .enabler-card.enabler-open .enabler-expand {
+    max-height: 3000px;
+    transition: max-height 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .enabler-card.enabler-open {
+    grid-column: 1 / -1;
+    cursor: default;
+    background: rgba(255,255,255,0.08);
+  }
+  .enabler-card.enabler-open:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  .enabler-card.enabler-open::before { opacity: 1; }
+  .enabler-expand-inner {
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: 1.5rem;
+  }
+  .enabler-expand-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+  .enabler-expand-col h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--green-light);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-family: var(--font-ui);
+  }
+  .enabler-expand-col p {
+    color: rgba(255,255,255,0.78);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+  .enabler-expand-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .enabler-expand-col ul li {
+    position: relative;
+    padding-left: 1.4rem;
+    color: rgba(255,255,255,0.78);
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin-bottom: 0.6rem;
+  }
+  .enabler-expand-col ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green-light);
+  }
+  .enabler-gbf {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .enabler-gbf-title {
+    font-family: var(--font-ui);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: rgba(255,255,255,0.5);
     margin-bottom: 0.75rem;
   }
+  .enabler-gbf-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.5;
+  }
+  .enabler-gbf-item svg { flex-shrink: 0; width: 16px; height: 16px; stroke: var(--green-light); fill: none; stroke-width: 2.5; margin-top: 2px; }
+  .enabler-close-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 2rem;
+    padding: 0.6rem 1.2rem;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+    color: white;
+    font-family: var(--font-ui);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .enabler-close-btn:hover { background: rgba(255,255,255,0.18); }
+  .enabler-close-btn svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2.5; }
 
   /* ===== ROLES / STAKEHOLDERS ===== */
   .roles-grid {
@@ -1472,6 +1652,8 @@
     .hero-content { padding: 5rem 2rem 3rem; }
     .hero-text h1 { font-size: 2.4rem; }
 .enablers-grid { grid-template-columns: 1fr; }
+    .enabler-expand-grid { grid-template-columns: 1fr; }
+    .enabler-card.enabler-open { padding: 2rem 1.5rem; }
     .tnfd-steps-grid { grid-template-columns: repeat(2, 1fr); }
     .gbca-pillars { grid-template-columns: repeat(2, 1fr); }
     .footer-inner { grid-template-columns: 1fr; }
@@ -3351,17 +3533,177 @@
       <h2 style="color:white">System-wide enablers</h2>
       <p style="color:rgba(255,255,255,0.75)">These enablers address the system gaps that limit progress and support the consistent application of the principles.</p>
     </div>
-    <div class="enablers-grid fade-in">
-      <div class="enabler-card">
+    <div class="enablers-grid fade-in" id="enablersGrid">
+
+      <!-- Enabler 1: Culture & Connection to Country -->
+      <div class="enabler-card" onclick="toggleEnabler(this, event)">
+        <div class="enabler-card-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+        </div>
         <h3>Embed Culture, Community &amp; Connection to Country</h3>
         <p>Nature-positive outcomes are strengthened when development is grounded in Country and shaped through genuine partnership with Aboriginal and Torres Strait Islander peoples.</p>
-        <p>Connection to Country is integrated across all principles and actions, rather than addressed through standalone targets. Long-term success depends on recognising First Nations leadership, values and knowledge across planning, design and delivery.</p>
+        <div class="enabler-card-cta">
+          <span>Explore</span>
+          <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+
+        <div class="enabler-expand">
+          <div class="enabler-expand-inner">
+            <div class="enabler-expand-grid">
+              <div class="enabler-expand-col">
+                <p>Aboriginal and Torres Strait Islander peoples possess a deep connection with Country, a term transcending physical land to encompass spiritual, cultural, and emotional ties.</p>
+                <p>The knowledge of land and waters gained through thousands of years of observation and caring for Country is a unique and important way to understand and respond to many environmental challenges facing Australia now, and into the future. This includes climate change and nature loss. It provides a localised context that can contribute to the development of a built environment that also achieves a range of community benefits.</p>
+                <p>Nature is an integral part of caring for and connecting with Country which is expressed through cultural practices. Maintaining these connections within the built environment therefore becomes an essential way of not only preserving the environment but also maintaining continuity of culture and identity. Early and ongoing engagement with Aboriginal and Torres Strait Island peoples is fundamental to this.</p>
+                <p>Nature has always played an important role in culture and community. There are 370 million recorded Indigenous people in the world. While they make up only 5% of the world's population, they manage 18% of the land, and there are claims for more. Much of these areas are in biodiversity hotspots. As custodians of nature, Indigenous people play a critical role in conservation and leading place-based solutions that contribute to nature positive outcomes.</p>
+              </div>
+              <div class="enabler-expand-col">
+                <h4>Supporting delivery of the roadmap</h4>
+                <p>The role of Indigenous communities is a key part of the Global Biodiversity Framework, and the Taskforce on Nature-related Financial Disclosures.</p>
+                <p>The roadmap recognises culture, community and connection to Country as an essential enabler for delivering the principles and targets. This includes:</p>
+                <ul>
+                  <li>Respectful engagement with First Nations communities</li>
+                  <li>Support for place-based approaches led by Traditional Owners and Custodians</li>
+                  <li>Ensuring connection to Country is a core consideration in planning, design, and delivery</li>
+                  <li>Valuing cultural knowledge alongside ecological and technical expertise</li>
+                  <li>Building respectful partnerships and centering Country-led approaches are not only essential for justice and equity &ndash; they are key to regenerating and protecting nature</li>
+                </ul>
+                <div class="enabler-gbf">
+                  <div class="enabler-gbf-title">Kunming-Montreal Global Biodiversity Framework</div>
+                  <div class="enabler-gbf-item">
+                    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>TARGET 11: Restore, Maintain and Enhance Nature's Contributions to People</span>
+                  </div>
+                  <div class="enabler-gbf-item">
+                    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>TARGET 12: Enhance Green Spaces and Urban Planning for Human Well-Being and Biodiversity</span>
+                  </div>
+                  <div class="enabler-gbf-item">
+                    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>TARGET 22: Ensure Participation in Decision-Making and Access to Justice and Information Related to Biodiversity for All</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="enabler-close-btn" onclick="closeEnabler(event)">
+              <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              Close
+            </button>
+          </div>
+        </div>
       </div>
-      <div class="enabler-card">
-        <h3>Improve Measurement, Data &amp; Decision-Making</h3>
+
+      <!-- Enabler 2: Measurement, Data & Decision-Making -->
+      <div class="enabler-card" onclick="toggleEnabler(this, event)">
+        <div class="enabler-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+        </div>
+        <h3>Strengthen Data, Metrics &amp; Decision-Making</h3>
         <p>Nature-positive outcomes are enabled through robust ecological data, consistent metrics and integrated decision-making across the built environment.</p>
-        <p>Strengthening ecological literacy and reporting supports earlier action, clearer accountability and the integration of nature into everyday planning, design and procurement decisions.</p>
+        <div class="enabler-card-cta">
+          <span>Explore</span>
+          <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+
+        <div class="enabler-expand">
+          <div class="enabler-expand-inner">
+            <div class="enabler-expand-grid">
+              <div class="enabler-expand-col">
+                <p>Standardised, credible, decision-useful data underpins global standards that enable companies and financial institutions to report and act on nature-related risks and opportunities.</p>
+                <p>Nature related measurement and data assist in helping value nature, thus bringing its protection and regeneration into key business decisions.</p>
+                <p>TNFD highlights the importance of improving data access and organisational capability, including consistent terminology and spatial data on the location and extent of impacts.</p>
+                <p>Natural Capital Accounting is an economic-environmental accounting framework that seeks to value the tangible and intangible values nature provides in the form of ecosystem services (clean air, freshwater, food and fibre), as well as for cultural and spiritual values, essential for human health and wellbeing.</p>
+                <p>Incorporating this into decision making helps in understanding the risks and dependencies developments and business have on nature.</p>
+                <p>While the complexity of nature is noted, methodologies are evolving to understand and reflect these interdependencies, and establish standardised measurement collection and reporting.</p>
+              </div>
+              <div class="enabler-expand-col">
+                <h4>Supporting delivery of the roadmap</h4>
+                <p>To support this, Australia has established Environment Information Australia, whose remit it is to improve environmental information, data and reporting.</p>
+                <p>Australia's Strategy for Nature also reinforces this, with platforms such as the National Vegetation Information System and the Atlas of Living Australia available to assist in identifying a site's biodiversity values.</p>
+                <p>PLANR was developed by the Australian Government to support the Nature Repair Bill. It provides landowners with a site-specific snapshot of natural assets, with growing granularity. Tools like this show promise for better integrating nature into planning and design decisions in the built environment.</p>
+                <p>Global alignment in these methodologies is noted. This is why efforts by the Nature Positive Initiative (NPI), World Business Council for Sustainable Development (WBCSD), Capitals Coalition (CapsCo), Global Reporting Initiative (GRI), International Union for Conservation of Nature (IUCN), Taskforce on Nature-related Financial Disclosures (TNFD), and World Resources Institute (WRI) to develop a Nature Measurement Protocol are welcomed.</p>
+                <p>Coupled with onsite ecological observations, and First Nations knowledge, this roadmap and its targets is placing the value of nature at the centre of decision making for new developments.</p>
+                <div class="enabler-gbf">
+                  <div class="enabler-gbf-title">Kunming-Montreal Global Biodiversity Framework</div>
+                  <div class="enabler-gbf-item">
+                    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>TARGET 14: Integrate Biodiversity in Decision-Making at Every Level</span>
+                  </div>
+                  <div class="enabler-gbf-item">
+                    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>TARGET 21: Ensure That Knowledge Is Available and Accessible To Guide Biodiversity Action</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="enabler-close-btn" onclick="closeEnabler(event)">
+              <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              Close
+            </button>
+          </div>
+        </div>
       </div>
+
+      <!-- Enabler 3: Build Industry Capability -->
+      <div class="enabler-card" onclick="toggleEnabler(this, event)">
+        <div class="enabler-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Build Industry Capability</h3>
+        <p>Nature-positive outcomes require new ways of thinking and working across the built environment. Designers, planners, engineers, developers and suppliers all play a role.</p>
+        <div class="enabler-card-cta">
+          <span>Explore</span>
+          <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+
+        <div class="enabler-expand">
+          <div class="enabler-expand-inner">
+            <div class="enabler-expand-grid">
+              <div class="enabler-expand-col">
+                <p>Nature-positive outcomes require new ways of thinking and working across the built environment. Designers, planners, engineers, developers and suppliers all play a role in integrating nature into projects and decision-making.</p>
+                <p>Building industry capacity involves strengthening ecological literacy, supporting cultural competency and expanding knowledge of practical approaches that enhance biodiversity outcomes. This includes integrating nature into design briefs, restoring landscapes and habitats, applying circular economy principles and sourcing lower-impact materials.</p>
+                <p>Industry learning and collaboration will be critical. Pilot projects, demonstration initiatives and knowledge sharing can help test new approaches and accelerate adoption across the sector.</p>
+                <p>Capacity building must also extend across supply chains. Engaging manufacturers and material suppliers can support the development of innovative products and practices that reduce nature impacts and support circularity.</p>
+                <p>Over time, strengthening knowledge and skills across the industry will enable more consistent implementation of the roadmap's principles and support better outcomes for nature, communities and the built environment.</p>
+              </div>
+              <div class="enabler-expand-col">
+                <h4>Key focus areas</h4>
+                <ul>
+                  <li>Strengthening ecological literacy across project teams</li>
+                  <li>Supporting cultural competency and First Nations engagement</li>
+                  <li>Integrating nature into design briefs and procurement</li>
+                  <li>Pilot projects and demonstration initiatives</li>
+                  <li>Knowledge sharing to accelerate sector-wide adoption</li>
+                  <li>Engaging supply chains in circular and low-impact practices</li>
+                </ul>
+                <div class="enabler-gbf">
+                  <div class="enabler-gbf-title">Kunming-Montreal Global Biodiversity Framework</div>
+                  <div class="enabler-gbf-item">
+                    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>TARGET 16: Enable Sustainable Consumption Choices To Reduce Waste and Overconsumption</span>
+                  </div>
+                  <div class="enabler-gbf-item">
+                    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>TARGET 20: Strengthen Capacity-Building, Technology Transfer, and Scientific and Technical Cooperation for Biodiversity</span>
+                  </div>
+                  <div class="enabler-gbf-item">
+                    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>TARGET 21: Ensure That Knowledge Is Available and Accessible To Guide Biodiversity Action</span>
+                  </div>
+                  <div class="enabler-gbf-item">
+                    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>TARGET 22: Ensure Participation in Decision-Making and Access to Justice and Information Related to Biodiversity for All</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="enabler-close-btn" onclick="closeEnabler(event)">
+              <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -3840,6 +4182,36 @@ function toggleCRItem(el) {
     setTimeout(() => {
       el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }, 100);
+  }
+}
+
+// ===== ENABLER EXPAND/COLLAPSE =====
+function toggleEnabler(card, event) {
+  // Don't toggle if clicking the close button or already-open card internals
+  if (event.target.closest('.enabler-close-btn')) return;
+  if (card.classList.contains('enabler-open') && !event.target.closest('.enabler-card-cta')) return;
+
+  const grid = document.getElementById('enablersGrid');
+  const wasOpen = card.classList.contains('enabler-open');
+
+  // Close all open enablers
+  grid.querySelectorAll('.enabler-card.enabler-open').forEach(c => {
+    c.classList.remove('enabler-open');
+  });
+
+  if (!wasOpen) {
+    card.classList.add('enabler-open');
+    setTimeout(() => {
+      card.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+    }, 150);
+  }
+}
+
+function closeEnabler(event) {
+  event.stopPropagation();
+  const card = event.target.closest('.enabler-card');
+  if (card) {
+    card.classList.remove('enabler-open');
   }
 }
 
