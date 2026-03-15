@@ -1025,8 +1025,14 @@
   }
   .an-phase-arrow {
     color: #ccc;
-    font-size: 1.2rem;
+    font-size: 0;
     margin: 0 0.2rem;
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-top: 2px solid #ccc;
+    border-right: 2px solid #ccc;
+    transform: rotate(45deg);
   }
 
   .an-canvas-wrap {
@@ -1601,9 +1607,14 @@
     flex: 1;
   }
   .pathway-enablers-arrow {
-    font-size: 1.2rem;
+    font-size: 0;
     color: var(--green-dark);
-    font-weight: 700;
+    display: inline-block;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-top: 2.5px solid var(--green-dark);
+    border-right: 2.5px solid var(--green-dark);
+    transform: rotate(45deg);
   }
   /* Pathway sidebar label */
   .pathway-sidebar {
@@ -2331,9 +2342,6 @@
   .stakeholder-tab.active::after {
     width: 40px;
   }
-  .stakeholder-tab .tab-icon {
-    font-size: 1.1rem;
-  }
   .stakeholder-panels {
     position: relative;
     background: var(--green-mid);
@@ -2835,6 +2843,15 @@
     display: none;
   }
   @media (max-width: 1200px) { .irm-scroll-hint { display: block; } }
+  .scroll-arrow-left, .scroll-arrow-right {
+    display: inline-block;
+    width: 0.4rem;
+    height: 0.4rem;
+    border-top: 1.5px solid rgba(255,255,255,0.35);
+    vertical-align: middle;
+  }
+  .scroll-arrow-left { border-left: 1.5px solid rgba(255,255,255,0.35); transform: rotate(-45deg); }
+  .scroll-arrow-right { border-right: 1.5px solid rgba(255,255,255,0.35); transform: rotate(45deg); }
 
   /* Stagger animation for grid cells */
   .irm-cell .irm-target {
@@ -3754,7 +3771,7 @@
       <p>The roadmap sets time-bound, measurable targets across five principles. Click any principle to see more information.</p>
     </div>
     <p class="irm-hero-subtitle">Aligned with the Kunming-Montreal Global Biodiversity Framework</p>
-    <div class="irm-scroll-hint">&#x2190; Scroll horizontally to see all time periods &#x2192;</div>
+    <div class="irm-scroll-hint"><span class="scroll-arrow-left"></span> Scroll horizontally to see all time periods <span class="scroll-arrow-right"></span></div>
     <div class="irm-grid-wrapper fade-in">
       <div class="irm-grid" id="irmGrid">
 
@@ -3921,9 +3938,9 @@
 
     <div class="an-phase-legend fade-in">
       <div class="an-phase-chip"><div class="an-phase-dot" style="background:#2C5F5C">1</div> Define and benchmark</div>
-      <span class="an-phase-arrow">&#x2192;</span>
+      <span class="an-phase-arrow"></span>
       <div class="an-phase-chip"><div class="an-phase-dot" style="background:#2874A6">2</div> Voluntary markets and action</div>
-      <span class="an-phase-arrow">&#x2192;</span>
+      <span class="an-phase-arrow"></span>
       <div class="an-phase-chip"><div class="an-phase-dot" style="background:#E67E22">3</div> Policy and advocacy</div>
     </div>
 
@@ -4277,19 +4294,15 @@
       </div>
       <div class="stakeholder-tab-bar" role="tablist">
         <button class="stakeholder-tab active" role="tab" aria-selected="true" onclick="switchStakeholderTab(this, 'govt')">
-          <span class="tab-icon">&#x1F3DB;</span>
           <span class="tab-label">Government</span><span class="tab-label-short">Gov</span>
         </button>
         <button class="stakeholder-tab" role="tab" aria-selected="false" onclick="switchStakeholderTab(this, 'dev')">
-          <span class="tab-icon">&#x1F3D7;</span>
           <span class="tab-label">Developers</span><span class="tab-label-short">Dev</span>
         </button>
         <button class="stakeholder-tab" role="tab" aria-selected="false" onclick="switchStakeholderTab(this, 'mfg')">
-          <span class="tab-icon">&#x1F3ED;</span>
           <span class="tab-label">Manufacturers</span><span class="tab-label-short">Mfg</span>
         </button>
         <button class="stakeholder-tab" role="tab" aria-selected="false" onclick="switchStakeholderTab(this, 'fin')">
-          <span class="tab-icon">&#x1F4B9;</span>
           <span class="tab-label">Finance</span><span class="tab-label-short">Fin</span>
         </button>
       </div>
@@ -4500,7 +4513,7 @@ function renderPathway(containerId, data) {
   html += '<div class="pathway-enablers-label">Enablers</div>';
   html += '<div class="pathway-enablers-line"></div>';
   html += '<div class="pathway-enablers-text">Embed culture and connection to Country &nbsp;|&nbsp; Strengthen data, metrics and decision-making &nbsp;|&nbsp; Build industry capability</div>';
-  html += '<div class="pathway-enablers-arrow">&#x27A1;</div>';
+  html += '<div class="pathway-enablers-arrow"></div>';
   html += '</div>';
   el.innerHTML = html;
 }
