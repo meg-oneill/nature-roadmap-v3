@@ -2331,9 +2331,6 @@
   .stakeholder-tab.active::after {
     width: 40px;
   }
-  .stakeholder-tab .tab-icon {
-    font-size: 1.1rem;
-  }
   .stakeholder-panels {
     position: relative;
     background: var(--green-mid);
@@ -4277,19 +4274,15 @@
       </div>
       <div class="stakeholder-tab-bar" role="tablist">
         <button class="stakeholder-tab active" role="tab" aria-selected="true" onclick="switchStakeholderTab(this, 'govt')">
-          <span class="tab-icon">&#x1F3DB;</span>
           <span class="tab-label">Government</span><span class="tab-label-short">Gov</span>
         </button>
         <button class="stakeholder-tab" role="tab" aria-selected="false" onclick="switchStakeholderTab(this, 'dev')">
-          <span class="tab-icon">&#x1F3D7;</span>
           <span class="tab-label">Developers</span><span class="tab-label-short">Dev</span>
         </button>
         <button class="stakeholder-tab" role="tab" aria-selected="false" onclick="switchStakeholderTab(this, 'mfg')">
-          <span class="tab-icon">&#x1F3ED;</span>
           <span class="tab-label">Manufacturers</span><span class="tab-label-short">Mfg</span>
         </button>
         <button class="stakeholder-tab" role="tab" aria-selected="false" onclick="switchStakeholderTab(this, 'fin')">
-          <span class="tab-icon">&#x1F4B9;</span>
           <span class="tab-label">Finance</span><span class="tab-label-short">Fin</span>
         </button>
       </div>
