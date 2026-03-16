@@ -140,7 +140,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url('images/image4.jpeg') center/cover no-repeat;
+    background: url('images/roadmap cover image.jpeg') center/cover no-repeat;
   }
   .hero::before {
     content: '';
@@ -3275,8 +3275,8 @@
 
 <!-- Quote -->
 <div class="acknowledgement-section">
-  <blockquote>"Our cities, buildings, and infrastructure must do more than minimise harm &mdash; they must actively protect and regenerate biodiversity and ecosystems."</blockquote>
-  <cite>Nature positive roadmap for new developments</cite>
+  <blockquote>&ldquo;Nature is playing a much more central role in how developments are planned, delivered and assessed. This roadmap sets out a level of detail and commitment we have not seen before, with clear targets and timeframes that show what needs to change and allow progress to be tracked.&rdquo;</blockquote>
+  <cite>Davina Rooney, CEO, GBCA</cite>
 </div>
 
 <!-- Purpose & Download -->
@@ -3767,7 +3767,7 @@
   <div class="container">
     <div class="section-header fade-in">
       <div class="section-label">The Roadmap</div>
-      <h2>Nature positive targets &amp; pathways</h2>
+      <h2>Targets &amp; pathways</h2>
       <p>The roadmap sets time-bound, measurable targets across five principles. Click any principle to see more information.</p>
     </div>
     <p class="irm-hero-subtitle">Aligned with the Kunming-Montreal Global Biodiversity Framework</p>
@@ -4279,7 +4279,7 @@
     <div class="section-header fade-in">
       <div class="section-label">Take Action</div>
       <h2>What can you do now?</h2>
-      <p>Every stakeholder has a role to play in achieving nature positive outcomes for new developments.</p>
+      <p>Every stakeholder has a role to play in contributing to nature positive outcomes for new developments.</p>
     </div>
     <div class="stakeholder-tabs-wrapper fade-in">
       <div class="stakeholder-intro">
@@ -4357,8 +4357,8 @@
 
 <!-- Call to Action -->
 <div class="quote-block" style="padding: 5rem 2rem;">
-  <blockquote style="font-size: 1.6rem;">"Nature is being lost at a scale and speed unprecedented in human history. The choices made now will determine whether future places continue to drive nature loss or actively contribute to nature's recovery."</blockquote>
-  <cite>Nature Positive Roadmap for New Developments, GBCA</cite>
+  <blockquote style="font-size: 1.6rem;">&ldquo;This roadmap provides a clear direction of travel for the sector and translates global biodiversity ambitions into practical guidance for the built environment. It shows how industry can start acting today while also preparing for the standards that will evolve over time, including through future updates to Green Star.&rdquo;</blockquote>
+  <cite>Jorge Chapa, Chief Impact Officer, GBCA</cite>
 </div>
 
 <!-- Footer -->
@@ -4366,7 +4366,7 @@
   <div class="footer-inner">
     <div class="footer-brand">
       <h3>Nature positive roadmap</h3>
-      <p>Developed by the Green Building Council of Australia with support from the members of the Nature Roadmap Advisory Panel and contributing organisations Arup, Edge, Deloitte, Culture to Country Roger Swinbourne, The GPT Group and Engineers Australia.</p>
+      <p>Developed by the Green Building Council of Australia with support from the members of the Nature Roadmap Advisory Panel and contributing organisations Arup, Edge, Deloitte, Culture to Country, Positive Futures, The GPT Group and Engineers Australia.</p>
     </div>
     <div class="footer-links">
       <h4>Sections</h4>
@@ -4479,13 +4479,13 @@ function renderPathway(containerId, data) {
   let html = '<div class="pathway-title">' + data.title + '</div>';
   // Timeline header
   html += '<div class="pathway-timeline-header">';
-  html += '<div style="display:grid;grid-template-columns:140px 1fr;"><div></div>';
+  html += '<div></div>';
   html += '<div style="display:grid;grid-template-columns:minmax(200px,2fr) 3fr;"><div style="padding:0 1rem;font-size:0.8rem;font-weight:700;color:var(--green-dark);">Targets</div>';
   html += '<div class="pathway-timeline-cols">';
   ['Today','2028','2030','2032','2035'].forEach(y => {
     html += '<div class="pathway-col-label"><span>' + y + '</span></div>';
   });
-  html += '</div></div></div></div>';
+  html += '</div></div></div>';
   // Principle groups
   data.principles.forEach(p => {
     html += '<div class="pathway-group">';
